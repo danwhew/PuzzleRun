@@ -7,6 +7,8 @@ TagManager:
   - End
   - Drop
   - Item
+  - Killer
+  - CameraMata
   layers:
   - Default
   - TransparentFX

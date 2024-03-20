@@ -1,37 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Timeline;
-using UnityEditor.UI;
+
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class Player : MonoBehaviour
 {
-    public float velocidade = 10;
-    public float horizontal;
-    public float vertical;
-    public Rigidbody rb;
-    public GameObject item;
 
+    public float vida = 3;
+
+    //interacao com itens
+    public GameObject item;
     public bool podePegar;
     public bool podeDropar;
     public bool peguei;
     public bool dropei;
     public float timer;
     public float cooldownItens = 2;
+
+    //movimentacao
+    public float velocidade = 10;
+    public float horizontal;
+    public float vertical;
+    public Rigidbody rb;
     public Vector2 startTouchPos;
     public Vector2 endTouchPos;
     public Vector3 dir;
 
     void Start()
     {
+        //pegar o rigidbody do proprio objeto  //obs: a gente pode colocar pelo inspector tambem
         rb.GetComponent<Rigidbody>();
     }
 
 
     void Update()
     {
+        //logica pra coleta de itens
         // peguei o item
         // cooldown por 2 segundos
         // se esse cooldown chegar a 2, posso dropar
@@ -63,39 +67,14 @@ public class Player : MonoBehaviour
             }
         }
 
-        // Debug.Log(rb.velocity);
-        // Metodo antigo pra mover pelo teclado
-        /*
-         if (horizontal == 0)
-         {
-             vertical = Input.GetAxisRaw("Vertical");
-
-         }
-
-         if (vertical == 0)
-         {
-             horizontal = Input.GetAxisRaw("Horizontal");
-
-         }
-
-
-         if (horizontal != 0 || vertical != 0)
-         {
-
-             Vector3 eixos = new Vector3(horizontal, 0, vertical);
-             Quaternion olhandoPara = Quaternion.LookRotation(eixos);
+        //metodo pra mover no teclado
+        /* 
+         Vector3 dir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+         if (dir.x != 0) dir.z = 0;
+         if (dir.magnitude != 0) {
+             Quaternion olhandoPara = Quaternion.LookRotation(dir);
              transform.rotation = olhandoPara;
-         }
-        */
-
-        //metodo novo pra mover no teclado
-       /* 
-        Vector3 dir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        if (dir.x != 0) dir.z = 0;
-        if (dir.magnitude != 0) {
-            Quaternion olhandoPara = Quaternion.LookRotation(dir);
-            transform.rotation = olhandoPara;
-        }*/
+         }*/
 
 
         if (Input.touchCount > 0)
@@ -124,7 +103,7 @@ public class Player : MonoBehaviour
                         dir = new Vector3(1, 0, 0);
                     }
                 }
-                else 
+                else
                 {
                     if (startTouchPos.y > endTouchPos.y)
                     {
@@ -135,20 +114,15 @@ public class Player : MonoBehaviour
                     {
                         dir = new Vector3(0, 0, 1);
                     }
-                
 
                 }
-               
-
-                  
-                
 
             }
 
-           /* if (dir.x != 0)
-            {
-                dir.z = 0;
-            }*/
+            /* if (dir.x != 0)
+             {
+                 dir.z = 0;
+             }*/
             if (dir.magnitude != 0)
             {
                 Quaternion olhandoPara = Quaternion.LookRotation(dir);
@@ -157,42 +131,11 @@ public class Player : MonoBehaviour
         }
 
 
-        //codigo pra jogar item pra frente //ignora
-        /*if (Input.GetKeyDown(KeyCode.Space))
-        {
-            
-            if (item != null)
-            {
-                item.transform.parent = null;
-
-                if (transform.rotation.y > 0.5f && transform.rotation.y < 0.8f)
-                {
-                    item.transform.position = transform.position + new Vector3(4f, 0, 0);
-
-                }
-                else if (transform.rotation.y > -1f && transform.rotation.y < -0)
-                {
-                    item.transform.position = transform.position + new Vector3(-4f, 0, 0);
-                }
-               
-                else if (transform.rotation.y == 0)
-                {
-                    item.transform.position = transform.position + new Vector3(0, 0, 4f);
-                }
-                else
-                {
-                    item.transform.position = transform.position + new Vector3(0, 0, -4f);
-                }
-
-                item = null;
-            }
-         
-        }*/
-
     }
 
     private void FixedUpdate()
     {
+        //movimentacao constante pra frente
         rb.AddForce(transform.forward * velocidade * 10f * Time.deltaTime, ForceMode.VelocityChange);
 
 
@@ -203,6 +146,7 @@ public class Player : MonoBehaviour
         {
             if (podePegar == true)
             {
+                //aqui o item fica preso ao player
                 item = other.gameObject;
                 item.transform.parent = transform;
                 item.transform.position = transform.position + new Vector3(0, 2f, 0);
@@ -214,14 +158,19 @@ public class Player : MonoBehaviour
 
         }
 
+        if (other.CompareTag("CameraMata"))
+        {
 
+            GameController.resetar();
+        }
 
-        if (other.CompareTag("Drop"))
+            if (other.CompareTag("Drop"))
         {
             if (podeDropar == true)
             {
-                item.transform.position = other.transform.position;
-                item.transform.parent = null;
+                //aqui o item fica preso ao local de entrega
+                item.transform.position = other.transform.position + new Vector3(0,1,0);
+                item.transform.parent = other.transform;
                 dropei = true;
                 podeDropar = false;
 

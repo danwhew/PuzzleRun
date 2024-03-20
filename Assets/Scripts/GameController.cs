@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -27,5 +28,10 @@ public class GameController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public static void resetar()
+    {
+        SceneManager.LoadScene(0);
     }
 }
