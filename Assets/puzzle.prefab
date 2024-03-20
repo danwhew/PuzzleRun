@@ -248,6 +248,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6287212957481626881}
+  - component: {fileID: 3399852264221121518}
+  - component: {fileID: 96927619120707791}
   m_Layer: 0
   m_Name: puzzle
   m_TagString: Untagged
@@ -274,6 +276,39 @@ Transform:
   - {fileID: 8526110465975149931}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3399852264221121518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984621460166118945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ace6b7d8e16ff6448ee8e130bb28590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &96927619120707791
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984621460166118945}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: -7}
 --- !u!1 &6919521188831667520
 GameObject:
   m_ObjectHideFlags: 0

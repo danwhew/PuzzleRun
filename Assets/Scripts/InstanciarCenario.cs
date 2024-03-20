@@ -50,11 +50,5 @@ public class InstanciarCenario : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Killer"))
-        {
-            Destroy(gameObject);
-        }
-    }
+ 
 }
