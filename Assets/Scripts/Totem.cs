@@ -24,6 +24,7 @@ public class Totem : MonoBehaviour
         if (other.CompareTag("Item"))
         {
             Destroy(other.gameObject);
+
             portinha.condicao = true;
             
         }

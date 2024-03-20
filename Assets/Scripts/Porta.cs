@@ -12,6 +12,11 @@ public class Porta : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        condicao = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
