@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
+
+    public TMP_Text[] scoreText;
+    public GameObject derrotaPainel;
+
+    public int score;
 
     void Awake()
     {
@@ -22,7 +29,8 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        
+        Time.timeScale = 1.0f;
+        derrotaPainel.SetActive(false);
     }
 
     void Update()
@@ -30,8 +38,25 @@ public class GameController : MonoBehaviour
         
     }
 
+    public void addScore()
+    {
+        score += 10;
+
+        for (int i = 0; i < scoreText.Length; i++)
+        {
+        scoreText[i].text = "Score: " + score.ToString(); 
+
+        }
+    }
+
     public static void resetar()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public  void derrota()
+    {
+        derrotaPainel.SetActive(true);
+        Time.timeScale = 0;
     }
 }

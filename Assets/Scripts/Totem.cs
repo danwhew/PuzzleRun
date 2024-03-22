@@ -5,19 +5,6 @@ using UnityEngine;
 public class Totem : MonoBehaviour
 {
     public Porta portinha;
-    
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,7 +13,9 @@ public class Totem : MonoBehaviour
             Destroy(other.gameObject);
 
             portinha.condicao = true;
-            
+            GameController.instance.addScore();
+
+
         }
     }
 }

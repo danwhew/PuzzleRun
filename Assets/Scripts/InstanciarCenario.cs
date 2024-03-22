@@ -17,18 +17,6 @@ public class InstanciarCenario : MonoBehaviour
 
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void instanciar()
     {
         GameObject cloneTile = Instantiate(tiles[0],anchor.position,Quaternion.identity,transform.parent);

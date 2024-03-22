@@ -19,9 +19,10 @@ public class Player : MonoBehaviour
 
     //movimentacao
     public float velocidade = 10;
-    public float horizontal;
-    public float vertical;
+    public float horizontal; //input pra computador
+    public float vertical; //input pra computador
     public Rigidbody rb;
+    //swaipe
     public Vector2 startTouchPos;
     public Vector2 endTouchPos;
     public Vector3 dir;
@@ -161,7 +162,7 @@ public class Player : MonoBehaviour
         if (other.CompareTag("CameraMata"))
         {
 
-            GameController.resetar();
+            GameController.instance.derrota();
         }
 
             if (other.CompareTag("Drop"))
