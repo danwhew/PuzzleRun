@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Player : MonoBehaviour
 {
@@ -188,7 +189,16 @@ public class Player : MonoBehaviour
 
 
         }
-
+        if (other.CompareTag("Bateria"))
+        {
+            
+            bateria += 100; 
+            if (bateria > 100)
+            {
+                bateria = 100;
+            }
+            Destroy(other.gameObject);
+        }
     }
     public void FimDaBateria() 
     {

@@ -9,6 +9,7 @@ TagManager:
   - Item
   - Killer
   - CameraMata
+  - Bateria
   layers:
   - Default
   - TransparentFX
