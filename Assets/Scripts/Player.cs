@@ -220,10 +220,10 @@ public class Player : MonoBehaviour
     }
     public void FimDaBateria() 
     {
-        if (bateria <= 0)
+        if (bateria <= 0 && bateria > -10)
         {
             audioSource.PlayOneShot(audios[1]);
-            bateria = 1;
+            bateria = -10;
             GameController.instance.derrota();
         }
     }
