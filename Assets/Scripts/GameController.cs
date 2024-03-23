@@ -12,10 +12,13 @@ public class GameController : MonoBehaviour
 
     public TMP_Text[] scoreText;
     public GameObject derrotaPainel;
+    public GameObject menuPausa;
     public Player player;
     public Slider sliderBateria;
 
     public int score;
+
+    public  bool pausado = false;
 
     void Awake()
     {
@@ -31,6 +34,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+
         Time.timeScale = 1.0f;
         derrotaPainel.SetActive(false);
     }
@@ -61,4 +65,27 @@ public class GameController : MonoBehaviour
         derrotaPainel.SetActive(true);
         Time.timeScale = 0;
     }
+
+    public void pausar()
+    {
+        if (pausado == false)
+        {
+            menuPausa.SetActive(true);
+            pausado = true;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            menuPausa.SetActive(false);
+            pausado = false;
+            Time.timeScale = 1;
+        }
+        
+    }
+
+    public void quit()
+    {
+        Application.Quit();
+    }
+
 }

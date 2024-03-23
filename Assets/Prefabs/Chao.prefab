@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 8965310934827475885}
   - component: {fileID: 180835425916813108}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: AtivarInstanciar
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

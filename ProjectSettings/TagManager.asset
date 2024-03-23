@@ -10,6 +10,7 @@ TagManager:
   - Killer
   - CameraMata
   - Bateria
+  - Teste
   layers:
   - Default
   - TransparentFX

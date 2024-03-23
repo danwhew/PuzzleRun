@@ -28,6 +28,10 @@ public class Player : MonoBehaviour
     public Vector2 endTouchPos;
     public Vector3 dir;
 
+    //audio
+    public AudioSource audioSource;
+    public AudioClip[] audios;
+
     void Start()
     {
         //pegar o rigidbody do proprio objeto  //obs: a gente pode colocar pelo inspector tambem
@@ -45,13 +49,7 @@ public class Player : MonoBehaviour
         // dropei o item
         // cooldown por 2 segundos
         // se esse cooldown chegar a 2 de novo, posso pegar
-        timerBateria += Time.deltaTime;
-        if (timerBateria > 2) 
-        {
-            bateria--;
-            timerBateria = 0;
-        }
-        FimDaBateria();
+  
 
         if (peguei == true)
         {
@@ -61,6 +59,7 @@ public class Player : MonoBehaviour
             {
                 podeDropar = true;
                 timer = 0;
+
                 peguei = false;
             }
         }
@@ -132,13 +131,27 @@ public class Player : MonoBehaviour
              {
                  dir.z = 0;
              }*/
+            if(GameController.instance.pausado == false)
+            {
             if (dir.magnitude != 0)
             {
                 Quaternion olhandoPara = Quaternion.LookRotation(dir);
                 transform.rotation = olhandoPara;
             }
+
+            }
         }
 
+        //logica bateria
+
+        timerBateria += Time.deltaTime;
+        if (timerBateria > 0.4f)
+        {
+            bateria--;
+            timerBateria = 0;
+        }
+
+        FimDaBateria();
 
     }
 
@@ -155,14 +168,16 @@ public class Player : MonoBehaviour
         {
             if (podePegar == true)
             {
+                audioSource.PlayOneShot(audios[0]);
+
                 //aqui o item fica preso ao player
                 item = other.gameObject;
                 item.transform.parent = transform;
                 item.transform.position = transform.position + new Vector3(0, 2f, 0);
                 peguei = true;
                 podePegar = false;
-                bateria = bateria - 5;
-                Debug.Log($"sua bateria esta em {bateria}%");
+               // bateria = bateria - 5;
+                //Debug.Log($"sua bateria esta em {bateria}%");
 
             }
 
@@ -171,7 +186,7 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("CameraMata"))
         {
-
+            audioSource.PlayOneShot(audios[1]);
             GameController.instance.derrota();
         }
 
@@ -179,6 +194,8 @@ public class Player : MonoBehaviour
         {
             if (podeDropar == true)
             {
+                audioSource.PlayOneShot(audios[0]);
+
                 //aqui o item fica preso ao local de entrega
                 item.transform.position = other.transform.position + new Vector3(0,1,0);
                 item.transform.parent = other.transform;
@@ -191,8 +208,9 @@ public class Player : MonoBehaviour
         }
         if (other.CompareTag("Bateria"))
         {
-            
-            bateria += 100; 
+            audioSource.PlayOneShot(audios[0]);
+
+            bateria +=  60; 
             if (bateria > 100)
             {
                 bateria = 100;
@@ -204,6 +222,8 @@ public class Player : MonoBehaviour
     {
         if (bateria <= 0)
         {
+            audioSource.PlayOneShot(audios[1]);
+            bateria = 1;
             GameController.instance.derrota();
         }
     }
