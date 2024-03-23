@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
 
     public TMP_Text[] scoreText;
     public GameObject derrotaPainel;
+    public Player player;
+    public Slider sliderBateria;
 
     public int score;
 
@@ -35,7 +37,7 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        
+        sliderBateria.value = player.bateria;
     }
 
     public void addScore()

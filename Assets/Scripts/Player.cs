@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEditor;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
-    public float vida = 3;
+    public float timerBateria;
+    public float bateria  = 100;
 
     //interacao com itens
     public GameObject item;
@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
         //logica pra coleta de itens
         // peguei o item
         // cooldown por 2 segundos
@@ -43,7 +44,13 @@ public class Player : MonoBehaviour
         // dropei o item
         // cooldown por 2 segundos
         // se esse cooldown chegar a 2 de novo, posso pegar
-
+        timerBateria += Time.deltaTime;
+        if (timerBateria > 2) 
+        {
+            bateria--;
+            timerBateria = 0;
+        }
+        FimDaBateria();
 
         if (peguei == true)
         {
@@ -153,6 +160,8 @@ public class Player : MonoBehaviour
                 item.transform.position = transform.position + new Vector3(0, 2f, 0);
                 peguei = true;
                 podePegar = false;
+                bateria = bateria - 5;
+                Debug.Log($"sua bateria esta em {bateria}%");
 
             }
 
@@ -180,5 +189,12 @@ public class Player : MonoBehaviour
 
         }
 
+    }
+    public void FimDaBateria() 
+    {
+        if (bateria <= 0)
+        {
+            GameController.instance.derrota();
+        }
     }
 }
