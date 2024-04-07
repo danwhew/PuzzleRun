@@ -640,7 +640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -49.892395, y: -150}
+  m_AnchoredPosition: {x: -49.892334, y: -191.00006}
   m_SizeDelta: {x: 93.4027, y: 94.2189}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &281562523
@@ -1252,6 +1252,8 @@ MonoBehaviour:
   horizontal: 0
   vertical: 0
   rb: {fileID: 795007355}
+  podeAndar: 1
+  podeAndarTimer: 0
   startTouchPos: {x: 0, y: 0}
   endTouchPos: {x: 0, y: 0}
   dir: {x: 0, y: 0, z: 0}
@@ -1490,7 +1492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee609f328f640b548b41ba9fbc114a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1.52
 --- !u!1 &1016988069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,7 +1543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
+  m_Color: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1616,7 +1618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19188325, g: 0.6832716, b: 0.8301887, a: 1}
+  m_Color: {r: 0, g: 0.76687145, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1654,7 +1656,7 @@ GameObject:
   - component: {fileID: 1043655171}
   - component: {fileID: 1043655170}
   m_Layer: 5
-  m_Name: ExitButton
+  m_Name: MenuInicial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1723,7 +1725,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1043655171}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1854576507}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: MenuInicial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1043655171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2152,7 +2166,7 @@ GameObject:
   - component: {fileID: 1571874794}
   m_Layer: 0
   m_Name: ParedeInicial
-  m_TagString: Untagged
+  m_TagString: Parede
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2496,8 +2510,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 39, y: -304}
-  m_SizeDelta: {x: 407.94, y: 61.902283}
+  m_AnchoredPosition: {x: 39, y: -306}
+  m_SizeDelta: {x: 302.4852, y: 61.9023}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1711749473
 MonoBehaviour:
@@ -2787,7 +2801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1739575418
 Transform:
   m_ObjectHideFlags: 0
@@ -3168,8 +3182,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 46, y: -150}
-  m_SizeDelta: {x: 407.9388, y: 136.163}
+  m_AnchoredPosition: {x: 39, y: -367.9}
+  m_SizeDelta: {x: 315.338, y: 81.4131}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1937396480
 MonoBehaviour:
@@ -3218,8 +3232,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 96.66
-  m_fontSizeBase: 96.66
+  m_fontSize: 61.86
+  m_fontSizeBase: 61.86
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3254,7 +3268,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -270.68716, w: 0}
+  m_margin: {x: 0, y: 0, z: 1.2045598, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3413,7 +3427,7 @@ GameObject:
   - component: {fileID: 2011868839}
   - component: {fileID: 2011868838}
   m_Layer: 5
-  m_Name: SairTexto
+  m_Name: MenuIncialTexto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3471,7 +3485,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sair do Jogo
+  m_Text: Menu Incial
 --- !u!222 &2011868839
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3757,9 +3771,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3927899761353095641, guid: 68316a8703803bc4a874ce808591480c, type: 3}
-      propertyPath: m_Name
-      value: AtivaInstanciamentos
+    - target: {fileID: 599644225561295018, guid: 68316a8703803bc4a874ce808591480c, type: 3}
+      propertyPath: m_TagString
+      value: Parede
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595599461783026998, guid: 68316a8703803bc4a874ce808591480c, type: 3}
+      propertyPath: m_TagString
+      value: Parede
+      objectReference: {fileID: 0}
+    - target: {fileID: 3030347090281754995, guid: 68316a8703803bc4a874ce808591480c, type: 3}
+      propertyPath: m_TagString
+      value: Parede
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310699068767392950, guid: 68316a8703803bc4a874ce808591480c, type: 3}
+      propertyPath: m_TagString
+      value: Parede
       objectReference: {fileID: 0}
     - target: {fileID: 8016047177218263994, guid: 68316a8703803bc4a874ce808591480c, type: 3}
       propertyPath: m_Name

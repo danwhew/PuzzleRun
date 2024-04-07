@@ -83,9 +83,9 @@ public class GameController : MonoBehaviour
         
     }
 
-    public void quit()
+    public void MenuInicial()
     {
-        Application.Quit();
+        //SceneManager.LoadScene(0);
     }
 
 }
