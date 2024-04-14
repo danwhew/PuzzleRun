@@ -8,8 +8,11 @@ public class AudioController : MonoBehaviour
 {
 
     public static AudioController instanceAudio;
-    public Slider sliderSom;
+    public Slider sliderMasterVolume;
+    public Slider sliderSFXVolume;
+    public Slider sliderMusicVolume;
     public AudioMixer audioMixer;
+
     public float teste;
 
     // Start is called before the first frame update
@@ -29,15 +32,34 @@ public class AudioController : MonoBehaviour
 
     private void Start()
     {
-        sliderSom.value = PlayerPrefs.GetFloat("SliderVol");
-        Debug.Log(sliderSom.value);
+        sliderMasterVolume.value = PlayerPrefs.GetFloat("SliderMasterVolume");
+        sliderMusicVolume.value = PlayerPrefs.GetFloat("SliderMusicVolume");
+        sliderSFXVolume.value = PlayerPrefs.GetFloat("SliderSFXVolume");
+      //  sliderSFXVolume.value = PlayerPrefs.GetFloat("SliderSFXVolume");
+        Debug.Log(sliderMasterVolume.value);
     }
 
-    public void changeVol()
+    public void changeMasterVol()
     {
-        audioMixer.SetFloat("MusicVol", sliderSom.value);
-        teste = sliderSom.value;
-        PlayerPrefs.SetFloat("SliderVol", teste);
+        audioMixer.SetFloat("MasterVol", sliderMasterVolume.value);
+        //teste = sliderSom.value;
+        PlayerPrefs.SetFloat("SliderMasterVolume", sliderMasterVolume.value);
         
+    }
+
+    public void changeMusicVol()
+    {
+        audioMixer.SetFloat("MusicVol", sliderMusicVolume.value);
+        //  teste = sliderSom.value;
+        PlayerPrefs.SetFloat("SliderMusicVolume", sliderMusicVolume.value);
+
+    }
+
+    public void changeSFXVol()
+    {
+        audioMixer.SetFloat("SFXVol", sliderSFXVolume.value);
+        //  teste = sliderSom.value;
+        PlayerPrefs.SetFloat("SliderSFXVolume", sliderSFXVolume.value);
+
     }
 }

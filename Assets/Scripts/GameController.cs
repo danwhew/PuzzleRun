@@ -34,14 +34,20 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-
+        Debug.Log("teste");
         Time.timeScale = 1.0f;
-        derrotaPainel.SetActive(false);
+        if(derrotaPainel != null)
+        {
+            derrotaPainel.SetActive(false);
+        }
     }
 
     void Update()
     {
+        if(sliderBateria != null)
+        {
         sliderBateria.value = player.bateria;
+        }
     }
 
     public void addScore()
@@ -85,7 +91,13 @@ public class GameController : MonoBehaviour
 
     public void MenuInicial()
     {
-        //SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0);
+    }
+
+    public void Jogar()
+    {
+        Debug.Log("era pra funfar");
+        SceneManager.LoadScene(1);
     }
 
 }
