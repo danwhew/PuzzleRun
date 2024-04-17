@@ -36,7 +36,7 @@ public class AudioController : MonoBehaviour
         sliderMusicVolume.value = PlayerPrefs.GetFloat("SliderMusicVolume");
         sliderSFXVolume.value = PlayerPrefs.GetFloat("SliderSFXVolume");
       //  sliderSFXVolume.value = PlayerPrefs.GetFloat("SliderSFXVolume");
-        Debug.Log(sliderMasterVolume.value);
+        //Debug.Log(sliderMasterVolume.value);
     }
 
     public void changeMasterVol()

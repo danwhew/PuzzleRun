@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class GameController : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class GameController : MonoBehaviour
     public Player player;
     public Slider sliderBateria;
 
+
+    //criar um contador pra troca de fase?
+    public int contador = 0;
+    public int fase = 0;
+    public int round = 0;
+
     public int score;
 
     public  bool pausado = false;
@@ -25,6 +32,7 @@ public class GameController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+           // DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -34,12 +42,15 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("teste");
         Time.timeScale = 1.0f;
+
         if(derrotaPainel != null)
         {
             derrotaPainel.SetActive(false);
         }
+
+        //Debug.Log("round inicial eh: " + round);
+        
     }
 
     void Update()
@@ -48,6 +59,8 @@ public class GameController : MonoBehaviour
         {
         sliderBateria.value = player.bateria;
         }
+
+      
     }
 
     public void addScore()
@@ -63,7 +76,7 @@ public class GameController : MonoBehaviour
 
     public static void resetar()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public  void derrota()
