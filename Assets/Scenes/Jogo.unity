@@ -1400,8 +1400,6 @@ MonoBehaviour:
   timer: 0
   cooldownItens: 0.43
   velocidade: 115.3
-  horizontal: 0
-  vertical: 0
   rb: {fileID: 795007355}
   podeAndar: 1
   podeAndarTimer: 0
@@ -1820,7 +1818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee609f328f640b548b41ba9fbc114a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.35
+  speed: 1.55
 --- !u!1 &1016988069
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class Player : MonoBehaviour
 {
     public float timerBateria;
-    public float bateria  = 100;
+    public float bateria = 100;
 
     //interacao com itens
     public GameObject item;
@@ -20,8 +18,6 @@ public class Player : MonoBehaviour
 
     //movimentacao
     public float velocidade = 10;
-    public float horizontal; //input pra computador
-    public float vertical; //input pra computador
     public Rigidbody rb;
     public bool podeAndar = true;
     public float podeAndarTimer;
@@ -35,16 +31,27 @@ public class Player : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip[] audios;
 
+   
+    Renderer playerRenderer; 
+    Color originalColor; // Cor original do jogador
+    bool isFlashing = false; // Flag para controlar o estado de piscar
+    float flashDuration = 0.2f; // Duração do piscar
+    float flashTimer = 0f; // Timer para controlar o piscar
+
     void Start()
     {
-        //pegar o rigidbody do proprio objeto  //obs: a gente pode colocar pelo inspector tambem
-        rb.GetComponent<Rigidbody>();
+        // Pegar o Rigidbody do próprio objeto
+        rb = GetComponent<Rigidbody>();
+
+        // Pegar o componente Renderer do próprio objeto
+        playerRenderer = GetComponent<Renderer>();
+        // Salvar a cor original do jogador
+        originalColor = playerRenderer.material.color;
     }
 
 
     void Update()
     {
-
         ColetaDrop();
 
         if (podeAndar == false)
@@ -53,17 +60,15 @@ public class Player : MonoBehaviour
             if (podeAndarTimer >= 1)
             {
                 podeAndar = true;
-                podeAndarTimer  = 0;
+                podeAndarTimer = 0;
             }
         }
-        if(podeAndar == true)
+        if (podeAndar == true)
         {
-        movimentacao();
-
+            movimentacao();
         }
 
         //logica bateria
-
         timerBateria += Time.deltaTime;
         if (timerBateria > 0.4f)
         {
@@ -73,15 +78,16 @@ public class Player : MonoBehaviour
 
         FimDaBateria();
 
+        // Atualizar o efeito de piscar, se necessário
+        UpdateFlash();
     }
 
     private void FixedUpdate()
     {
         //movimentacao constante pra frente
         rb.AddForce(transform.forward * velocidade * 10f * Time.deltaTime, ForceMode.VelocityChange);
-
-
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Item"))
@@ -96,12 +102,9 @@ public class Player : MonoBehaviour
                 item.transform.position = transform.position + new Vector3(0, 2f, 0);
                 peguei = true;
                 podePegar = false;
-               // bateria = bateria - 5;
+                // bateria = bateria - 5;
                 //Debug.Log($"sua bateria esta em {bateria}%");
-
             }
-
-
         }
 
         if (other.CompareTag("CameraMata"))
@@ -110,27 +113,24 @@ public class Player : MonoBehaviour
             GameController.instance.derrota();
         }
 
-            if (other.CompareTag("Drop"))
+        if (other.CompareTag("Drop"))
         {
             if (podeDropar == true)
             {
                 audioSource.PlayOneShot(audios[0]);
 
                 //aqui o item fica preso ao local de entrega
-                item.transform.position = other.transform.position + new Vector3(0,1,0);
+                item.transform.position = other.transform.position + new Vector3(0, 1, 0);
                 item.transform.parent = other.transform;
                 dropei = true;
                 podeDropar = false;
-
             }
-
-
         }
         if (other.CompareTag("Bateria"))
         {
             audioSource.PlayOneShot(audios[0]);
 
-            bateria +=  60; 
+            bateria += 60;
             if (bateria > 100)
             {
                 bateria = 100;
@@ -144,7 +144,11 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Parede"))
         {
+            // Faz o jogador piscar de branco
+            StartFlash();
+            // Impede o jogador de andar temporariamente
             podeAndar = false;
+            // Diminui a bateria ao colidir com a parede
             bateria -= 20;
         }
     }
@@ -158,7 +162,6 @@ public class Player : MonoBehaviour
             if (firstTouch.phase == TouchPhase.Began)
             {
                 startTouchPos = firstTouch.position;
-
             }
 
             if (firstTouch.phase == TouchPhase.Ended)
@@ -173,7 +176,6 @@ public class Player : MonoBehaviour
                 {
                     if (Mathf.Abs(endTouchPos.x - startTouchPos.x) > Mathf.Abs(endTouchPos.y - startTouchPos.y))
                     {
-
                         if (startTouchPos.x > endTouchPos.x)
                         {
                             dir = new Vector3(-1, 0, 0);
@@ -188,19 +190,14 @@ public class Player : MonoBehaviour
                         if (startTouchPos.y > endTouchPos.y)
                         {
                             dir = new Vector3(0, 0, -1);
-
                         }
                         else
                         {
                             dir = new Vector3(0, 0, 1);
                         }
-
                     }
                 }
-
-
             }
-
 
             if (GameController.instance.pausado == false)
             {
@@ -209,12 +206,11 @@ public class Player : MonoBehaviour
                     Quaternion olhandoPara = Quaternion.LookRotation(dir);
                     transform.rotation = olhandoPara;
                 }
-
             }
         }
     }
 
-    public void FimDaBateria() 
+    public void FimDaBateria()
     {
         if (bateria <= 0 && bateria > -100)
         {
@@ -226,14 +222,6 @@ public class Player : MonoBehaviour
 
     void ColetaDrop()
     {
-        /*logica pra coleta de itens
-        peguei o item
-        cooldown por 2 segundos
-        se esse cooldown chegar a 2, posso dropar
-        dropei o item
-        cooldown por 2 segundos
-        se esse cooldown chegar a 2 de novo, posso pegar*/
-
         if (peguei == true)
         {
             timer += Time.deltaTime;
@@ -242,7 +230,6 @@ public class Player : MonoBehaviour
             {
                 podeDropar = true;
                 timer = 0;
-
                 peguei = false;
             }
         }
@@ -259,5 +246,33 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Função para iniciar o efeito de piscar
+    void StartFlash()
+    {
+        isFlashing = true;
+    }
 
+    // Função para atualizar o efeito de piscar
+    void UpdateFlash()
+    {
+        if (isFlashing)
+        {
+            // Alterna entre a cor original e a cor branca
+            playerRenderer.material.color = Color.Lerp(originalColor, Color.white, Mathf.PingPong(flashTimer / flashDuration, 1f));
+
+            // Atualiza o timer
+            flashTimer += Time.deltaTime;
+
+            // Verifica se o tempo de piscar acabou
+            if (flashTimer >= flashDuration)
+            {
+                // Reseta o timer e para de piscar
+                flashTimer = 0f;
+                isFlashing = false;
+
+                // Restaura a cor original
+                playerRenderer.material.color = originalColor;
+            }
+        }
+    }
 }
