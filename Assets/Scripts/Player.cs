@@ -31,8 +31,9 @@ public class Player : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip[] audios;
 
-   
-    Renderer playerRenderer; 
+
+    Renderer playerRenderer;
+    Color yellow;
     Color originalColor; // Cor original do jogador
     bool isFlashing = false; // Flag para controlar o estado de piscar
     float flashDuration = 0.2f; // Duração do piscar
@@ -80,6 +81,7 @@ public class Player : MonoBehaviour
 
         // Atualizar o efeito de piscar, se necessário
         UpdateFlash();
+     
     }
 
     private void FixedUpdate()
@@ -129,7 +131,7 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Bateria"))
         {
             audioSource.PlayOneShot(audios[0]);
-
+            StartFlash();
             bateria += 60;
             if (bateria > 100)
             {
@@ -246,33 +248,45 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Função para iniciar o efeito de piscar
+    
     void StartFlash()
     {
+        // Ativa o estado de piscar
         isFlashing = true;
+        // Inicia o temporizador do piscar
+        flashTimer = 0f;
+        // Define a cor inicial do piscar como amarelo
+        playerRenderer.material.color = Color.white;
     }
+    
+
 
     // Função para atualizar o efeito de piscar
     void UpdateFlash()
     {
         if (isFlashing)
         {
-            // Alterna entre a cor original e a cor branca
-            playerRenderer.material.color = Color.Lerp(originalColor, Color.white, Mathf.PingPong(flashTimer / flashDuration, 1f));
+            // Alterna entre a cor amarela e a cor original
+            playerRenderer.material.color = Color.Lerp(Color.white, originalColor, Mathf.PingPong(flashTimer / flashDuration, 1f));
 
-            // Atualiza o timer
+            // Atualiza o temporizador do piscar
             flashTimer += Time.deltaTime;
 
             // Verifica se o tempo de piscar acabou
             if (flashTimer >= flashDuration)
             {
-                // Reseta o timer e para de piscar
-                flashTimer = 0f;
-                isFlashing = false;
-
-                // Restaura a cor original
-                playerRenderer.material.color = originalColor;
+                // Para o efeito de piscar
+                StopFlash();
             }
         }
+    }
+    
+    // Função para parar o efeito de piscar
+    void StopFlash()
+    {
+        // Desativa o estado de piscar
+        isFlashing = false;
+        // Restaura a cor original do jogador
+        playerRenderer.material.color = originalColor;
     }
 }
