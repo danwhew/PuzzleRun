@@ -25,14 +25,14 @@ public class GameController : MonoBehaviour
 
     public int score;
 
-    public  bool pausado = false;
+    public bool pausado = false;
 
     void Awake()
     {
         if (instance == null)
         {
             instance = this;
-           // DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -44,32 +44,32 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 1.0f;
 
-        if(derrotaPainel != null)
+        if (derrotaPainel != null)
         {
             derrotaPainel.SetActive(false);
         }
 
         //Debug.Log("round inicial eh: " + round);
-        
+
     }
 
     void Update()
     {
-        if(sliderBateria != null)
+        if (sliderBateria != null)
         {
-        sliderBateria.value = player.bateria;
+            sliderBateria.value = player.bateria;
         }
 
-      
+
     }
 
-    public void addScore()
+    public void addScore(int quantidade)
     {
-        score += 10;
+        score += quantidade;
 
         for (int i = 0; i < scoreText.Length; i++)
         {
-        scoreText[i].text = "Score: " + score.ToString(); 
+            scoreText[i].text = "Score: " + score.ToString();
 
         }
     }
@@ -79,7 +79,7 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public  void derrota()
+    public void derrota()
     {
         derrotaPainel.SetActive(true);
         Time.timeScale = 0;
@@ -99,7 +99,7 @@ public class GameController : MonoBehaviour
             pausado = false;
             Time.timeScale = 1;
         }
-        
+
     }
 
     public void MenuInicial()
@@ -109,7 +109,6 @@ public class GameController : MonoBehaviour
 
     public void Jogar()
     {
-        Debug.Log("era pra funfar");
         SceneManager.LoadScene(1);
     }
 

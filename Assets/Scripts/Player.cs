@@ -31,13 +31,19 @@ public class Player : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip[] audios;
 
-
+    //flash feedback
     Renderer playerRenderer;
     Color yellow;
     Color originalColor; // Cor original do jogador
     bool isFlashing = false; // Flag para controlar o estado de piscar
     float flashDuration = 0.2f; // Duração do piscar
     float flashTimer = 0f; // Timer para controlar o piscar
+
+
+    //game Cheats
+
+    public bool cheat5 = false;
+
 
     void Start()
     {
@@ -53,35 +59,63 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        // Ativando/desativando o cheat de bateria infinita quando cinco dedos tocarem na tela
+        if (Input.touchCount >= 5)
+        {
+            if (cheat5 == false)
+            {
+                cheat5 = true;
+                bateria = 100;
+            }
+            else
+            {
+                cheat5 = false;
+            }
+
+        }
+
+        //verificar a todo momento se ele pode coletar ou nao algum item
         ColetaDrop();
 
-        if (podeAndar == false)
+        if (cheat5 == false)
         {
-            podeAndarTimer += Time.deltaTime;
-            if (podeAndarTimer >= 1)
+            if (podeAndar == false)
             {
-                podeAndar = true;
-                podeAndarTimer = 0;
+                podeAndarTimer += Time.deltaTime;
+                if (podeAndarTimer >= 1)
+                {
+                    podeAndar = true;
+                    podeAndarTimer = 0;
+                }
             }
+            if (podeAndar == true)
+            {
+                movimentacao();
+            }
+
+            //logica bateria
+            timerBateria += Time.deltaTime;
+            if (timerBateria > 0.4f)
+            {
+                bateria--;
+                timerBateria = 0;
+            }
+
         }
-        if (podeAndar == true)
+        else
         {
+            bateria = 100;
             movimentacao();
         }
 
-        //logica bateria
-        timerBateria += Time.deltaTime;
-        if (timerBateria > 0.4f)
-        {
-            bateria--;
-            timerBateria = 0;
-        }
+
+
 
         FimDaBateria();
 
         // Atualizar o efeito de piscar, se necessário
         UpdateFlash();
-     
+
     }
 
     private void FixedUpdate()
@@ -92,7 +126,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Item"))
+        if (other.CompareTag("Item") || other.CompareTag("ItemErrado"))
         {
             if (podePegar == true)
             {
@@ -122,7 +156,7 @@ public class Player : MonoBehaviour
                 audioSource.PlayOneShot(audios[0]);
 
                 //aqui o item fica preso ao local de entrega
-                item.transform.position = other.transform.position + new Vector3(0, 1, 0);
+                item.transform.position = other.transform.position + new Vector3(0, 0, 0);
                 item.transform.parent = other.transform;
                 dropei = true;
                 podeDropar = false;
@@ -146,12 +180,20 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Parede"))
         {
-            // Faz o jogador piscar de branco
-            StartFlash();
-            // Impede o jogador de andar temporariamente
-            podeAndar = false;
-            // Diminui a bateria ao colidir com a parede
-            bateria -= 20;
+            if (cheat5 == false)
+            {
+                // Faz o jogador piscar de branco
+                StartFlash();
+                // Impede o jogador de andar temporariamente
+                podeAndar = false;
+                // Diminui a bateria ao colidir com a parede
+                bateria -= 20;
+
+            }
+            else
+            {
+                Debug.Log("cheat imortalidade ligado");
+            }
         }
     }
 
@@ -248,7 +290,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    
+
     void StartFlash()
     {
         // Ativa o estado de piscar
@@ -258,7 +300,7 @@ public class Player : MonoBehaviour
         // Define a cor inicial do piscar como amarelo
         playerRenderer.material.color = Color.white;
     }
-    
+
 
 
     // Função para atualizar o efeito de piscar
@@ -280,7 +322,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-    
+
     // Função para parar o efeito de piscar
     void StopFlash()
     {

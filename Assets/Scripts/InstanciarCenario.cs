@@ -5,9 +5,12 @@ using UnityEngine;
 public class InstanciarCenario : MonoBehaviour
 {
     public GameObject[] tiles;
-    public GameObject[] puzzles;
+    public GameObject[] puzzlesColeta;
+    public GameObject[] puzzlesMontagem;
     public Transform anchor;
     public Transform empty;
+
+    public bool ehTileInicial = true;
 
     public int rand;
 
@@ -27,15 +30,24 @@ public class InstanciarCenario : MonoBehaviour
 
 
 
-        if(GameController.instance.contador < 5)
+        if (GameController.instance.contador < 5)
         {
 
-        if (GameController.instance.fase == 0)
-        {
+            if (GameController.instance.fase == 0)
+            {
                 instanciarPuzzlesFaseColeta();
-            GameController.instance.contador++;
-        }
+                GameController.instance.contador++;
+            }
 
+        }
+        else if (GameController.instance.contador > 5 && GameController.instance.contador < 10)
+        {
+            GameController.instance.fase = 2;
+
+            if(GameController.instance.fase == 2)
+            {
+
+            }
         }
     }
 
@@ -50,24 +62,21 @@ public class InstanciarCenario : MonoBehaviour
         /*com base no que o game controller definir, escolher os puzzles de acordo com as tarefas, e a 
         quantidade realizada das mesmas*/
 
-            rand = Random.Range(0, 2);
+        /* if (ehTileInicial == true)
+         {
+             rand = Random.Range(0, 2);
 
-            if (rand == 0)
-            {
-                GameObject cloneTile = Instantiate(puzzles[0], empty.position, Quaternion.identity, transform.parent);
-
-            }
-            else
-            {
-                GameObject cloneTile = Instantiate(puzzles[1], empty.position, Quaternion.identity, transform.parent);
-
-            }
+         }*/
 
 
-       /* else
-        {
-            Debug.Log("cabou o round");
-        }*/
+        rand = Random.Range(0, 4);
+
+
+
+        Debug.Log(rand);
+
+        GameObject cloneTile = Instantiate(puzzlesColeta[rand], empty.position, Quaternion.identity, transform.parent);
+
 
     }
 

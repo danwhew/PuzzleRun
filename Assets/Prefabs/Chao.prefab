@@ -677,11 +677,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiles:
   - {fileID: 8016047177218263994}
-  puzzles:
+  puzzlesColeta:
   - {fileID: 4984621460166118945, guid: eccd290e3133d854b95d8840e23c4ba0, type: 3}
+  - {fileID: 4984621460166118945, guid: 702a0509cc51a954db0f4d0903913387, type: 3}
   - {fileID: 4984621460166118945, guid: edf4f78ad44638045b134e9b889a2f76, type: 3}
+  - {fileID: 4984621460166118945, guid: eb5f423487734df48a930405aeb516d9, type: 3}
   anchor: {fileID: 5279112647713453733}
   empty: {fileID: 2321276154282388870}
+  ehTileInicial: 0
   rand: 0
 --- !u!65 &636349434661169313
 BoxCollider:
