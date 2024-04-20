@@ -8,15 +8,7 @@ public class Totem : MonoBehaviour
 
     //depois criar outros scripts pras respectivas fases, montagem e entrega
 
-    //talvez criar um switch pras possiveis tags e casos de comparacao
-
-    [Range(1, 4)] public int itensNecessarios;
-
-    //1 queijo
-    //2 tomate
-    //3 farinha
-    //4 molho
-
+    //porta do puzzle atual
     public Porta portinha;
 
     private void OnTriggerEnter(Collider other)
@@ -38,10 +30,6 @@ public class Totem : MonoBehaviour
             portinha.condicao = true;
             GameController.instance.addScore(-10);
         }
-
-
-
-
 
 
     }

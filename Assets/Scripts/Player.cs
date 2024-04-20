@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    //bateria
     public float timerBateria;
     public float bateria = 100;
 
@@ -21,7 +22,6 @@ public class Player : MonoBehaviour
     public Rigidbody rb;
     public bool podeAndar = true;
     public float podeAndarTimer;
-
     //swaipe
     public Vector2 startTouchPos;
     public Vector2 endTouchPos;
@@ -49,7 +49,6 @@ public class Player : MonoBehaviour
     {
         // Pegar o Rigidbody do próprio objeto
         rb = GetComponent<Rigidbody>();
-
         // Pegar o componente Renderer do próprio objeto
         playerRenderer = GetComponent<Renderer>();
         // Salvar a cor original do jogador
@@ -107,9 +106,6 @@ public class Player : MonoBehaviour
             bateria = 100;
             movimentacao();
         }
-
-
-
 
         FimDaBateria();
 
@@ -184,8 +180,10 @@ public class Player : MonoBehaviour
             {
                 // Faz o jogador piscar de branco
                 StartFlash();
+
                 // Impede o jogador de andar temporariamente
                 podeAndar = false;
+
                 // Diminui a bateria ao colidir com a parede
                 bateria -= 20;
 
@@ -243,6 +241,7 @@ public class Player : MonoBehaviour
                 }
             }
 
+            // isso evita que o player se mexa com o jogo pausado
             if (GameController.instance.pausado == false)
             {
                 if (dir.magnitude != 0)
@@ -290,7 +289,7 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    // Função para comecar o efeito de piscar
     void StartFlash()
     {
         // Ativa o estado de piscar
@@ -300,8 +299,6 @@ public class Player : MonoBehaviour
         // Define a cor inicial do piscar como amarelo
         playerRenderer.material.color = Color.white;
     }
-
-
 
     // Função para atualizar o efeito de piscar
     void UpdateFlash()

@@ -6,7 +6,6 @@ public class AtivarInstanciamento : MonoBehaviour
 {
     public InstanciarCenario pai;
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("End"))
