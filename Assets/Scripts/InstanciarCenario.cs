@@ -7,26 +7,28 @@ public class InstanciarCenario : MonoBehaviour
     public GameObject[] tiles;
     public GameObject[] puzzlesColeta;
     public GameObject[] puzzlesMontagem;
-    public Transform anchor;
-    public Transform empty;
+
+    public GameObject alteraFase;
+
+    public Transform anchor; //pos do tile base
+    public Transform empty; //pos puzzle
 
     public bool ehTileInicial;
 
     public int rand;
 
     //teste
-
-    public bool[] coletados = new bool [5];
+    //public bool[] coletados = new bool[5];
 
     /*pensar em um esquema pra saber se tal puzzle ja foi instanciado ou nao
     apesar de serem aleatorios, nao podem ser repetidos*/
 
-    private void OnEnable()
-    {
-        //nao  sei pq mas o singleton nao funciona aqui, entao passei o instanciarPuzzles pro start
-        //ainda nao me faz sentido estar funcionando mas..
+    /* private void OnEnable()
+     {
+         //nao  sei pq mas o singleton nao funciona aqui, entao passei o instanciarPuzzles pro start
+         //ainda nao me faz sentido estar funcionando mas..
 
-    }
+     }*/
 
     private void Start()
     {
@@ -35,31 +37,37 @@ public class InstanciarCenario : MonoBehaviour
 
         //criar um metodo pra instanciar puzzles da fase de montagem
 
-
-
-        if (GameController.instance.contador < 3)
+        if (GameController.instance.fase == 1)
         {
-            Debug.Log("fase1");
-            if (GameController.instance.fase == 0)
+            if (GameController.instance.contador < 6)
             {
                 instanciarPuzzlesFaseColeta();
                 GameController.instance.contador++;
+
             }
-
-        }
-        else if (GameController.instance.contador > 3 && GameController.instance.contador < 6)
-        {
-            GameController.instance.fase = 1;
-
-            if (GameController.instance.fase == 1)
+            else
             {
-                Debug.Log("fase2");
+                GameController.instance.fase++;
+                GameController.instance.contador = 0;
+                if (alteraFase != null)
+                {
+                GameObject marcador = Instantiate(alteraFase, anchor.position - new Vector3(0, 0, 21), Quaternion.identity);
+                    instanciarPuzzlesFaseMontagem();
+                }
+
             }
         }
-        else
+        else if (GameController.instance.fase == 2)
         {
-            Debug.Log("fase3");
+            if(GameController.instance.contador < 3)
+            {
+                instanciarPuzzlesFaseMontagem();
+            }
+
         }
+
+
+
     }
 
 
@@ -67,6 +75,7 @@ public class InstanciarCenario : MonoBehaviour
     public void instanciar()
     {
         GameObject cloneTile = Instantiate(tiles[0], anchor.position, Quaternion.identity, transform.parent);
+
     }
 
 
@@ -87,12 +96,19 @@ public class InstanciarCenario : MonoBehaviour
             rand = Random.Range(0, 4);
         }
 
-       // Debug.Log(rand);
+        // Debug.Log(rand);
 
         GameObject cloneTile = Instantiate(puzzlesColeta[rand], empty.position, Quaternion.identity, transform.parent);
 
 
     }
+
+    public void instanciarPuzzlesFaseMontagem()
+    {
+        //rand = Random.Range(0, 4);
+        GameObject cloneTile = Instantiate(puzzlesMontagem[0], empty.position, Quaternion.identity, transform.parent);
+    }
+
 
 
 }

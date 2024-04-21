@@ -12,6 +12,9 @@ TagManager:
   - Bateria
   - Parede
   - ItemErrado
+  - NovaFase
+  - MassaCrua
+  - Forno
   layers:
   - Default
   - TransparentFX

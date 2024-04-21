@@ -682,7 +682,10 @@ MonoBehaviour:
   - {fileID: 4984621460166118945, guid: 702a0509cc51a954db0f4d0903913387, type: 3}
   - {fileID: 4984621460166118945, guid: edf4f78ad44638045b134e9b889a2f76, type: 3}
   - {fileID: 4984621460166118945, guid: eb5f423487734df48a930405aeb516d9, type: 3}
-  puzzlesMontagem: []
+  puzzlesMontagem:
+  - {fileID: 4984621460166118945, guid: d44ea179a410a7a498b9f4f5ca0850b3, type: 3}
+  - {fileID: 4984621460166118945, guid: 017b21f2651e10c488f8aea7be9f39b0, type: 3}
+  alteraFase: {fileID: 8946803354814243378, guid: 9492ac5a97553d941ae3a764e4239d27, type: 3}
   anchor: {fileID: 5279112647713453733}
   empty: {fileID: 2321276154282388870}
   ehTileInicial: 0

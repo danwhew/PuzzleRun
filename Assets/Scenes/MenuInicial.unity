@@ -3298,10 +3298,15 @@ MonoBehaviour:
   scoreText:
   - {fileID: 0}
   - {fileID: 0}
+  faseText: {fileID: 0}
   derrotaPainel: {fileID: 0}
   menuPausa: {fileID: 0}
   player: {fileID: 0}
   sliderBateria: {fileID: 0}
+  contador: 0
+  fase: 1
+  round: 0
+  teste: {x: 0, y: 0, z: 0}
   score: 0
   pausado: 0
 --- !u!4 &1975425188

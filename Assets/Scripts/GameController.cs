@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public static GameController instance;
 
     public TMP_Text[] scoreText;
+    public TMP_Text faseText;
     public GameObject derrotaPainel;
     public GameObject menuPausa;
     public Player player;
@@ -20,12 +21,14 @@ public class GameController : MonoBehaviour
 
     //criar um contador pra troca de fase?
     public int contador = 0;
-    public int fase = 0;
+    public int fase = 1;
     public int round = 0;
+    public Vector3 teste;
 
     public int score;
 
     public bool pausado = false;
+
 
     void Awake()
     {
@@ -42,6 +45,11 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        if(faseText != null)
+        {
+
+        atualizarFase();
+        }
         Time.timeScale = 1.0f;
 
         if (derrotaPainel != null)
@@ -72,6 +80,16 @@ public class GameController : MonoBehaviour
             scoreText[i].text = "Score: " + score.ToString();
 
         }
+    }
+
+    public void atualizarFase()
+    {
+        faseText.text = "Fase " + fase.ToString();
+    }
+
+    public void atualizarRound()
+    {
+
     }
 
     public static void resetar()

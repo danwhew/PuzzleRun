@@ -10,16 +10,18 @@ public class Totem : MonoBehaviour
 
     //porta do puzzle atual
     public Porta portinha;
+    public GameObject excluir;
 
     private void OnTriggerEnter(Collider other)
     {
 
         if (other.CompareTag("Item"))
         {
+            portinha.condicao = true;
             Destroy(other.gameObject);
 
-            portinha.condicao = true;
             GameController.instance.addScore(10);
+            Destroy(excluir);
 
 
         }
@@ -29,6 +31,7 @@ public class Totem : MonoBehaviour
 
             portinha.condicao = true;
             GameController.instance.addScore(-10);
+            Destroy(excluir);
         }
 
 

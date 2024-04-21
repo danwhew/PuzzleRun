@@ -58,6 +58,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
+
         // Ativando/desativando o cheat de bateria infinita quando cinco dedos tocarem na tela
         if (Input.touchCount >= 5)
         {
@@ -145,7 +147,7 @@ public class Player : MonoBehaviour
             GameController.instance.derrota();
         }
 
-        if (other.CompareTag("Drop"))
+        if (other.CompareTag("Drop") )
         {
             if (podeDropar == true)
             {
@@ -158,6 +160,15 @@ public class Player : MonoBehaviour
                 podeDropar = false;
             }
         }
+
+        if (other.CompareTag("Forno"))
+        {
+            dropei = true;
+            podeDropar = false;
+
+
+        }
+
         if (other.CompareTag("Bateria"))
         {
             audioSource.PlayOneShot(audios[0]);
@@ -168,6 +179,11 @@ public class Player : MonoBehaviour
                 bateria = 100;
             }
             Destroy(other.gameObject);
+        }
+
+        if (other.CompareTag("NovaFase"))
+        {
+            GameController.instance.atualizarFase();
         }
     }
 
