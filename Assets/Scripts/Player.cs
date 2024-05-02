@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("---Bateria---")] 
     //bateria
     public float timerBateria;
     public float bateria = 100;
 
+    [Header("---Itens---")]
     //interacao com itens
     public GameObject item;
     public bool podePegar;
@@ -17,20 +19,23 @@ public class Player : MonoBehaviour
     public float timer;
     public float cooldownItens = 2;
 
+    [Header("---Movimentacao---")]
     //movimentacao
     public float velocidade = 10;
     public Rigidbody rb;
     public bool podeAndar = true;
     public float podeAndarTimer;
     //swaipe
-    public Vector2 startTouchPos;
-    public Vector2 endTouchPos;
-    public Vector3 dir;
+     private Vector2 startTouchPos;
+     private Vector2 endTouchPos;
+     public Vector3 dir;
 
+    [Header("---Audio---")]
     //audio
     public AudioSource audioSource;
     public AudioClip[] audios;
 
+    [Header("---Atordoamento---")]
     //flash feedback
     Renderer playerRenderer;
     Color yellow;
@@ -39,9 +44,8 @@ public class Player : MonoBehaviour
     float flashDuration = 0.2f; // Duração do piscar
     float flashTimer = 0f; // Timer para controlar o piscar
 
-
+    [Header("---Atordoamento---")]
     //game Cheats
-
     public bool cheat5 = false;
 
 
@@ -136,8 +140,7 @@ public class Player : MonoBehaviour
                 item.transform.position = transform.position + new Vector3(0, 2f, 0);
                 peguei = true;
                 podePegar = false;
-                // bateria = bateria - 5;
-                //Debug.Log($"sua bateria esta em {bateria}%");
+                
             }
         }
 
