@@ -37,9 +37,9 @@ public class InstanciarCenario : MonoBehaviour
 
         //criar um metodo pra instanciar puzzles da fase de montagem
 
-        if (GameController.instance.fase == 1)
+       /* if (GameController.instance.fase == 1)
         {
-            if (GameController.instance.contador < 6)
+            if (GameController.instance.contador < 1)
             {
                 instanciarPuzzlesFaseColeta();
                 GameController.instance.contador++;
@@ -57,14 +57,33 @@ public class InstanciarCenario : MonoBehaviour
 
             }
         }
+
         else if (GameController.instance.fase == 2)
         {
-            if(GameController.instance.contador < 3)
+            if(GameController.instance.contador < 1)
             {
                 instanciarPuzzlesFaseMontagem();
+                GameController.instance.contador++;
+                GameController.instance.fase  = 1;
+                GameController.instance.contador = 0;
             }
+            
 
+        }*/
+
+    
+        if(GameController.instance.fase == 1 )
+        {
+            instanciarPuzzlesFaseColeta();
         }
+        else
+        {
+            instanciarPuzzlesFaseMontagem();
+        }
+
+
+        //depois da da fase de entrega, mudar a exibicao da fase pra bonus e comecar a repetir os tiles,
+        //talvez simplesmente resetando os valores do game controller
 
 
 

@@ -45,19 +45,14 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        if(faseText != null)
-        {
-
-        atualizarFase();
-        }
         Time.timeScale = 1.0f;
 
-        if (derrotaPainel != null)
+        if(faseText != null)
         {
-            derrotaPainel.SetActive(false);
+        atualizarFase();
         }
 
-        //Debug.Log("round inicial eh: " + round);
+        
 
     }
 
@@ -73,7 +68,14 @@ public class GameController : MonoBehaviour
 
     public void addScore(int quantidade)
     {
+
         score += quantidade;
+
+        if (score < 0)
+        {
+            score = 0;
+        }
+
 
         for (int i = 0; i < scoreText.Length; i++)
         {
