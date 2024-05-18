@@ -12,5 +12,8 @@ public class SerDestruido : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+
     }
+
 }

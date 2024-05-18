@@ -12,13 +12,21 @@ public class Totem : MonoBehaviour
     public Porta portinha;
     public GameObject excluir;
 
+    //pegar animacao da porta aqui, excluir o script da porta
+
+
     private void OnTriggerEnter(Collider other)
     {
 
         if (other.CompareTag("Item"))
         {
+
+            //Debug.Log("uai");
             portinha.condicao = true;
-            Destroy(other.gameObject);
+
+
+            //Destroy(other.gameObject);
+
 
             GameController.instance.addScore(10);
             Destroy(excluir);

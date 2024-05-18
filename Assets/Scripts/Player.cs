@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     [Header("---Itens---")]
     //interacao com itens
     public GameObject item;
+    public Transform posItem;
+    public GameObject paiDoItem;
+    public Vector3 posItemInicial;
     public bool podePegar;
     public bool podeDropar;
     public bool peguei;
@@ -134,10 +137,13 @@ public class Player : MonoBehaviour
             {
                 audioSource.PlayOneShot(audios[0]);
 
+
                 //aqui o item fica preso ao player
                 item = other.gameObject;
+                paiDoItem = item.transform.parent.gameObject;
+                posItemInicial = item.transform.position;
                 item.transform.parent = transform;
-                item.transform.position = transform.position + new Vector3(0, 2f, 0);
+                item.transform.position = posItem.position;
                 peguei = true;
                 podePegar = false;
                 
@@ -152,16 +158,21 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("Drop") )
         {
+            if(item != null)
+            {
+
             if (podeDropar == true)
             {
                 audioSource.PlayOneShot(audios[0]);
-
+                
                 //aqui o item fica preso ao local de entrega
-                item.transform.position = other.transform.position + new Vector3(0, 0, 0);
+                item.transform.position = other.transform.position;
                 item.transform.parent = other.transform;
                 dropei = true;
                 podeDropar = false;
             }
+            }
+
         }
 
         if (other.CompareTag("Forno"))
@@ -231,7 +242,18 @@ public class Player : MonoBehaviour
 
                 if (Mathf.Abs(endTouchPos.x - startTouchPos.x) <= 0.05f || Mathf.Abs(endTouchPos.y - startTouchPos.y) <= 0.05f)
                 {
+                    //dropar o item com um toque
+                    if(item != null)
+                    {
+                    item.transform.position = new Vector3 (item.transform.position.x, posItemInicial.y, item.transform.position.z);
+                    item.transform.parent = paiDoItem.transform;
+                    dropei = true;
+                    podeDropar = false;
+
+                    }
+
                     Debug.Log("mto curto");
+
                 }
                 else
                 {

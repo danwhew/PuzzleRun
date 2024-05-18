@@ -19,16 +19,22 @@ public class GameController : MonoBehaviour
     public Slider sliderBateria;
 
 
-    //criar um contador pra troca de fase?
     public int contador = 0;
     public int fase = 1;
-    public int round = 0;
+
+    
+
+
+
+    public int round = 1;
+
+
+
     public Vector3 teste;
 
     public int score;
 
     public bool pausado = false;
-
 
     void Awake()
     {

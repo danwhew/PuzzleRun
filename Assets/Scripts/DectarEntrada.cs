@@ -1,0 +1,62 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DectarEntrada : MonoBehaviour
+{
+
+    public Animator animatorEstante;
+    public Animator animatorTotem;
+
+    public int puzzlesIdentity;
+    //1 - da queda
+
+    private void Start()
+    {
+
+        /* animator.enabled = false;
+         animatorTotem.enabled = false;*/
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.CompareTag("Player"))
+        {
+
+            Debug.Log("Player entrou neste puzzle");
+          
+           
+            
+
+            switch (puzzlesIdentity)
+            {
+                case 1:
+                    if (animatorEstante != null && animatorTotem != null)
+
+                    {
+                        animatorEstante.Play("EstanteCair");
+                        animatorTotem.Play("TotemEntrance");
+
+
+                    }
+                    break;
+                default:
+                    {
+                        if (animatorTotem != null)
+
+                        {
+                            animatorTotem.Play("TotemEntrance");
+
+
+                        }
+                    }
+                    break;
+
+            }
+
+
+        }
+    }
+}

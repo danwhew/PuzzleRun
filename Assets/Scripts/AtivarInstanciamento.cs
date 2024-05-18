@@ -7,35 +7,29 @@ using UnityEngine.SocialPlatforms.GameCenter;
 public class AtivarInstanciamento : MonoBehaviour
 {
     public InstanciarCenario pai;
+    public Transform posAlteradorDeFase;
+    public GameObject alteraFase;
 
     private void OnTriggerEnter(Collider other)
     {
+
+
+
         if (other.CompareTag("End"))
         {
             pai.instanciar();
             GameController.instance.contador++; //isso deixa aqui
 
-
-            // essa logica posso voltar pro instanciar cenario
-            if (GameController.instance.fase == 1)
+            if (GameController.instance.contador == 4) //quantidade de tiles fase1
             {
-                if (GameController.instance.contador == 1)
-                {
-                    GameController.instance.fase = 2;
-                    GameController.instance.contador = 0;
-                }
-                // talvez colocar um else instanciando o detector de mudanca de fase
-
-            }
-
-            if (GameController.instance.fase == 2)
-            {
-                if(GameController.instance.contador == 1)
-                {
-                    GameController.instance.fase = 1;
-                    GameController.instance.contador= 0;
-                }
+                GameController.instance.fase = 2;
+                instanciarAlteradorDeFases();
             }
         }
+
     }
+        public void instanciarAlteradorDeFases()
+        {
+            GameObject cloneTile = Instantiate(alteraFase, posAlteradorDeFase.position, Quaternion.identity, transform.parent);
+        }
 }

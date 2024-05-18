@@ -9,12 +9,14 @@ public class Forno : MonoBehaviour
     public float contador;
     public bool podeContar;
     public GameObject massa;
-
+    public Transform massaPos;
     public GameObject totem;
+
+    public Animator totemAnimator;
 
     public float teste = 0;
     public bool jaFritou = false;
-  
+
 
     // Update is called once per frame
     void Update()
@@ -25,8 +27,9 @@ public class Forno : MonoBehaviour
 
             if (contador >= 2f)
             {
-                massa.SetActive(true);
                 totem.SetActive(true);
+                totemAnimator.Play("TotemEntrance");
+                massa.SetActive(true);
                 contador = 0;
                 podeContar = false;
             }
@@ -35,20 +38,20 @@ public class Forno : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(jaFritou == false)
+        if (jaFritou == false)
         {
-        if (other.CompareTag("Item"))
-        {
-            podeContar = true;
-            massa = other.gameObject;
-            massa.transform.parent = null;
-            massa.transform.position = new Vector3(massa.transform.position.x, 0.1f , massa.transform.position.z);
-            massa.SetActive(false);
-            jaFritou=true;
-        }
+            if (other.CompareTag("Item"))
+            {
+                podeContar = true;
+                massa = other.gameObject;
+                massa.transform.parent = transform;
+                massa.transform.position = massaPos.position;
+                massa.SetActive(false);
+                jaFritou = true;
+            }
 
         }
     }
 
-    
+
 }
