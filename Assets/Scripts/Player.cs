@@ -166,8 +166,13 @@ public class Player : MonoBehaviour
                 audioSource.PlayOneShot(audios[0]);
                 
                 //aqui o item fica preso ao local de entrega
-                item.transform.position = other.transform.position;
-                item.transform.parent = other.transform;
+                
+                    
+                    item.transform.position = other.transform.position;
+                    item.transform.parent = other.transform;
+
+
+
                 dropei = true;
                 podeDropar = false;
             }

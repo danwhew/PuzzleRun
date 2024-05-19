@@ -18,18 +18,67 @@ public class AtivarInstanciamento : MonoBehaviour
         if (other.CompareTag("End"))
         {
             pai.instanciar();
-            GameController.instance.contador++; //isso deixa aqui
+            pai.initTeste();
 
-            if (GameController.instance.contador == 4) //quantidade de tiles fase1
+            GameController.instance.contador++;
+
+            if (GameController.instance.round == 1)
             {
-                GameController.instance.fase = 2;
-                instanciarAlteradorDeFases();
+                if (GameController.instance.fase == 1)
+                {
+                    if (GameController.instance.contador > 2)
+                    {
+                        GameController.instance.fase = 2;
+                        instanciarAlteradorDeFases();
+                        GameController.instance.contador = 1;
+                    }
+
+                }
+
+                if (GameController.instance.fase == 2)
+                {
+                    if (GameController.instance.contador > 2)
+                    {
+                        GameController.instance.fase = 1;
+                        instanciarAlteradorDeFases();
+                        GameController.instance.round = 2;
+                        GameController.instance.contador = 1;
+                    }
+
+                }
             }
+
+            if(GameController.instance.round  == 2)
+            {
+                if (GameController.instance.fase == 1)
+                {
+                    if (GameController.instance.contador > 2)
+                    {
+                        GameController.instance.fase = 2;
+                        instanciarAlteradorDeFases();
+                        GameController.instance.contador = 1;
+                    }
+
+                }
+
+                if (GameController.instance.fase == 2)
+                {
+                    if (GameController.instance.contador > 2)
+                    {
+                        GameController.instance.fase = 1;
+                        instanciarAlteradorDeFases();
+                        GameController.instance.round = 1;
+                        GameController.instance.contador = 1;
+                    }
+
+                }
+            }
+
         }
 
     }
-        public void instanciarAlteradorDeFases()
-        {
-            GameObject cloneTile = Instantiate(alteraFase, posAlteradorDeFase.position, Quaternion.identity, transform.parent);
-        }
+    public void instanciarAlteradorDeFases()
+    {
+        GameObject cloneTile = Instantiate(alteraFase, posAlteradorDeFase.position, Quaternion.identity, transform.parent);
+    }
 }

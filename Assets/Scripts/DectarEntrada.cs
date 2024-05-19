@@ -7,6 +7,8 @@ public class DectarEntrada : MonoBehaviour
 
     public Animator animatorEstante;
     public Animator animatorTotem;
+    public GameObject cesta;
+    public Transform posCesta;
 
     public int puzzlesIdentity;
     //1 - da queda
@@ -14,8 +16,6 @@ public class DectarEntrada : MonoBehaviour
     private void Start()
     {
 
-        /* animator.enabled = false;
-         animatorTotem.enabled = false;*/
         
     }
 
@@ -26,9 +26,11 @@ public class DectarEntrada : MonoBehaviour
         {
 
             Debug.Log("Player entrou neste puzzle");
-          
-           
-            
+
+            cesta = GameObject.FindGameObjectWithTag("Cesta").gameObject;
+            cesta.transform.position = posCesta.position;
+
+
 
             switch (puzzlesIdentity)
             {
@@ -36,6 +38,7 @@ public class DectarEntrada : MonoBehaviour
                     if (animatorEstante != null && animatorTotem != null)
 
                     {
+
                         animatorEstante.Play("EstanteCair");
                         animatorTotem.Play("TotemEntrance");
 

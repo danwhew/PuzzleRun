@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using static Unity.Burst.Intrinsics.X86.Avx;
+using UnityEngine.Tilemaps;
 
 public class GameController : MonoBehaviour
 {
@@ -18,14 +20,8 @@ public class GameController : MonoBehaviour
     public Player player;
     public Slider sliderBateria;
 
-
     public int contador = 0;
     public int fase = 1;
-
-    
-
-
-
     public int round = 1;
 
 
@@ -36,8 +32,12 @@ public class GameController : MonoBehaviour
 
     public bool pausado = false;
 
+  
+
+
     void Awake()
     {
+        
         if (instance == null)
         {
             instance = this;
@@ -47,18 +47,25 @@ public class GameController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+
+
     }
 
     void Start()
     {
         Time.timeScale = 1.0f;
 
-        if(faseText != null)
+        
+
+
+        if (faseText != null)
         {
         atualizarFase();
         }
 
         
+
 
     }
 
@@ -69,8 +76,10 @@ public class GameController : MonoBehaviour
             sliderBateria.value = player.bateria;
         }
 
+        
 
     }
+
 
     public void addScore(int quantidade)
     {

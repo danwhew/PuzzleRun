@@ -48,7 +48,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portinha: {fileID: 0}
   excluir: {fileID: 0}
-  Cesta: {fileID: 0}
 --- !u!54 &1022273978945485585
 Rigidbody:
   m_ObjectHideFlags: 0

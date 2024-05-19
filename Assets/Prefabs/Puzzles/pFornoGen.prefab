@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6287212957481626881}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2157983748353994182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2345536418437248827}
+  m_Layer: 0
+  m_Name: PosCesta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2345536418437248827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2157983748353994182}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.3652115, y: 2.59, z: 0.55}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6287212957481626881}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2206341507811054841
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,10 +103,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6287212957481626881}
   - component: {fileID: 2284987391553428859}
-  - component: {fileID: 4237775247946312878}
   - component: {fileID: 7078909696661019909}
+  - component: {fileID: 5799239286780456122}
   m_Layer: 0
-  m_Name: puzzleForno
+  m_Name: pFornoGen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,6 +130,7 @@ Transform:
   - {fileID: 2757487726738689806}
   - {fileID: 8166967146982120034}
   - {fileID: 6062287832712274804}
+  - {fileID: 2345536418437248827}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2284987391553428859
@@ -122,18 +154,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 12.24, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: -4.71}
---- !u!114 &4237775247946312878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4984621460166118945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ace6b7d8e16ff6448ee8e130bb28590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7078909696661019909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +168,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorEstante: {fileID: 0}
   animatorTotem: {fileID: 6321758086313020241}
+  cesta: {fileID: 0}
+  posCesta: {fileID: 2345536418437248827}
   puzzlesIdentity: 0
+--- !u!114 &5799239286780456122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984621460166118945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ace6b7d8e16ff6448ee8e130bb28590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7686011041667667293
 GameObject:
   m_ObjectHideFlags: 0

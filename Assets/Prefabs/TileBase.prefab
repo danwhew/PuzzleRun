@@ -286,14 +286,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiles:
   - {fileID: 9200666121793061025}
-  puzzlesColeta:
+  puzzlesQueijo:
   - {fileID: 4984621460166118945, guid: 04e19f6db2c833b4584b81ea96bb2b54, type: 3}
+  - {fileID: 4984621460166118945, guid: 8df103acb3e3b224da49a9b59edede3d, type: 3}
+  - {fileID: 4984621460166118945, guid: 8df103acb3e3b224da49a9b59edede3d, type: 3}
+  puzzlesTomate:
+  - {fileID: 4984621460166118945, guid: 97a8e20d17d2b2f4ba67474ba1e35bbb, type: 3}
+  - {fileID: 4984621460166118945, guid: 97a8e20d17d2b2f4ba67474ba1e35bbb, type: 3}
+  puzzlesFarinha:
+  - {fileID: 4984621460166118945, guid: 8df103acb3e3b224da49a9b59edede3d, type: 3}
+  - {fileID: 4984621460166118945, guid: 8df103acb3e3b224da49a9b59edede3d, type: 3}
+  puzzlesPeperoni:
+  - {fileID: 4984621460166118945, guid: bd96ad7f5704a394d97be2ff70d0b052, type: 3}
+  - {fileID: 4984621460166118945, guid: bd96ad7f5704a394d97be2ff70d0b052, type: 3}
+  puzzlesCogumelo:
+  - {fileID: 4984621460166118945, guid: 8df103acb3e3b224da49a9b59edede3d, type: 3}
+  - {fileID: 4984621460166118945, guid: 8df103acb3e3b224da49a9b59edede3d, type: 3}
+  puzzlesAbrirMassa:
+  - {fileID: 4984621460166118945, guid: b0bedf3b63951984488ddeb77f3d42e4, type: 3}
+  - {fileID: 4984621460166118945, guid: b0bedf3b63951984488ddeb77f3d42e4, type: 3}
+  puzzlesAssarPizza:
+  - {fileID: 4984621460166118945, guid: b0bedf3b63951984488ddeb77f3d42e4, type: 3}
+  - {fileID: 4984621460166118945, guid: b0bedf3b63951984488ddeb77f3d42e4, type: 3}
+  puzzlesCortarTomate:
+  - {fileID: 4984621460166118945, guid: b0bedf3b63951984488ddeb77f3d42e4, type: 3}
+  - {fileID: 4984621460166118945, guid: b0bedf3b63951984488ddeb77f3d42e4, type: 3}
+  puzzlesCortarQueijo:
+  - {fileID: 4984621460166118945, guid: b0bedf3b63951984488ddeb77f3d42e4, type: 3}
+  - {fileID: 4984621460166118945, guid: b0bedf3b63951984488ddeb77f3d42e4, type: 3}
+  puzzlesCortarPeperoni:
+  - {fileID: 4984621460166118945, guid: b0bedf3b63951984488ddeb77f3d42e4, type: 3}
+  - {fileID: 4984621460166118945, guid: b0bedf3b63951984488ddeb77f3d42e4, type: 3}
+  puzzlesCortarCogumelo:
+  - {fileID: 4984621460166118945, guid: b0bedf3b63951984488ddeb77f3d42e4, type: 3}
+  - {fileID: 4984621460166118945, guid: b0bedf3b63951984488ddeb77f3d42e4, type: 3}
+  puzzlesColeta:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   puzzlesMontagem:
-  - {fileID: 4984621460166118945, guid: d44ea179a410a7a498b9f4f5ca0850b3, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   anchorPosTile: {fileID: 6164194699551918652}
   posPuzzle: {fileID: 8868348654520071145}
-  ehTileInicial: 1
-  rand: 0
+  jaDefiniuOsDefinitivos: 0
+  indexPuzzlesColeta: 0
+  indexPuzzlesMontagem: 0
 --- !u!65 &5449256677467996290
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -379,6 +423,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ParedePorta
       objectReference: {fileID: 0}
+    - target: {fileID: 6206432607960817177, guid: c4ad5159af2800e4d8b3d4ae846775ef, type: 3}
+      propertyPath: m_TagString
+      value: Parede
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -452,6 +500,10 @@ PrefabInstance:
     - target: {fileID: 6026920074556738460, guid: c4ad5159af2800e4d8b3d4ae846775ef, type: 3}
       propertyPath: m_Name
       value: ParedePorta (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206432607960817177, guid: c4ad5159af2800e4d8b3d4ae846775ef, type: 3}
+      propertyPath: m_TagString
+      value: Parede
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -552,6 +604,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2317959015211813608}
     m_Modifications:
+    - target: {fileID: 1879365210428759437, guid: cf9b1458ea8c1a94b80882159ec5751f, type: 3}
+      propertyPath: m_TagString
+      value: Parede
+      objectReference: {fileID: 0}
     - target: {fileID: 4419270048801302226, guid: cf9b1458ea8c1a94b80882159ec5751f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.3170667
@@ -676,6 +732,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2317959015211813608}
     m_Modifications:
+    - target: {fileID: 1879365210428759437, guid: cf9b1458ea8c1a94b80882159ec5751f, type: 3}
+      propertyPath: m_TagString
+      value: Parede
+      objectReference: {fileID: 0}
     - target: {fileID: 4419270048801302226, guid: cf9b1458ea8c1a94b80882159ec5751f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.317066

@@ -15,6 +15,7 @@ TagManager:
   - NovaFase
   - MassaCrua
   - Forno
+  - Cesta
   layers:
   - Default
   - TransparentFX

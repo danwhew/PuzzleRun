@@ -23,22 +23,18 @@ public class Totem : MonoBehaviour
 
             //Debug.Log("uai");
             portinha.condicao = true;
-
-
-            //Destroy(other.gameObject);
-
-
             GameController.instance.addScore(10);
+            //Destroy(other.gameObject);
             Destroy(excluir);
 
 
         }
         if (other.CompareTag("ItemErrado"))
         {
-            Destroy(other.gameObject);
 
             portinha.condicao = true;
             GameController.instance.addScore(-10);
+            //Destroy(other.gameObject);
             Destroy(excluir);
         }
 
