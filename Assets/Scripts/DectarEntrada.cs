@@ -10,6 +10,8 @@ public class DectarEntrada : MonoBehaviour
     public GameObject cesta;
     public Transform posCesta;
 
+    public bool playerTerminou = false;
+
     public int puzzlesIdentity;
     //1 - da queda
 
@@ -29,6 +31,12 @@ public class DectarEntrada : MonoBehaviour
 
             cesta = GameObject.FindGameObjectWithTag("Cesta").gameObject;
             cesta.transform.position = posCesta.position;
+
+           
+               /* Cesta cTmp;
+                cTmp = cesta.GetComponent<Cesta>();
+                cTmp.serDestruida();*/
+            
 
 
 

@@ -16,6 +16,7 @@ TagManager:
   - MassaCrua
   - Forno
   - Cesta
+  - TileBase
   layers:
   - Default
   - TransparentFX

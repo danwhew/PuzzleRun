@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [Header("---Bateria---")] 
+    [Header("---Bateria---")]
     //bateria
     public float timerBateria;
     public float bateria = 100;
@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     public float timer;
     public float cooldownItens = 2;
 
+    public GameObject cesta;
+
     [Header("---Movimentacao---")]
     //movimentacao
     public float velocidade = 10;
@@ -29,9 +31,9 @@ public class Player : MonoBehaviour
     public bool podeAndar = true;
     public float podeAndarTimer;
     //swaipe
-     private Vector2 startTouchPos;
-     private Vector2 endTouchPos;
-     public Vector3 dir;
+    private Vector2 startTouchPos;
+    private Vector2 endTouchPos;
+    public Vector3 dir;
 
     [Header("---Audio---")]
     //audio
@@ -57,7 +59,7 @@ public class Player : MonoBehaviour
         // Pegar o Rigidbody do próprio objeto
         rb = GetComponent<Rigidbody>();
         // Pegar o componente Renderer do próprio objeto
-        playerRenderer = GetComponent<Renderer>();
+        playerRenderer = GetComponentInChildren<Renderer>();
         // Salvar a cor original do jogador
         originalColor = playerRenderer.material.color;
     }
@@ -146,7 +148,7 @@ public class Player : MonoBehaviour
                 item.transform.position = posItem.position;
                 peguei = true;
                 podePegar = false;
-                
+
             }
         }
 
@@ -156,26 +158,41 @@ public class Player : MonoBehaviour
             GameController.instance.derrota();
         }
 
-        if (other.CompareTag("Drop") )
+        if (other.CompareTag("Drop"))
         {
-            if(item != null)
+            if (item != null)
             {
 
-            if (podeDropar == true)
-            {
-                audioSource.PlayOneShot(audios[0]);
-                
-                //aqui o item fica preso ao local de entrega
-                
-                    
-                    item.transform.position = other.transform.position;
-                    item.transform.parent = other.transform;
+                if (podeDropar == true)
+                {
+                    audioSource.PlayOneShot(audios[0]);
 
 
 
-                dropei = true;
-                podeDropar = false;
-            }
+
+                    Collider coliderTemp;
+                    GameObject CestaTemp;
+
+
+                    CestaTemp = GameObject.FindGameObjectWithTag("Cesta");
+                    if (CestaTemp != null)
+                    {
+                        coliderTemp = item.GetComponent<Collider>();
+                        item.transform.parent = CestaTemp.transform;
+                        coliderTemp.enabled = false;
+                        item = null;
+                        paiDoItem = null;
+
+                    }
+                    else
+                    {
+                        Destroy(item);
+                    }
+
+
+                    dropei = true;
+                    podeDropar = false;
+                }
             }
 
         }
@@ -248,12 +265,12 @@ public class Player : MonoBehaviour
                 if (Mathf.Abs(endTouchPos.x - startTouchPos.x) <= 0.05f || Mathf.Abs(endTouchPos.y - startTouchPos.y) <= 0.05f)
                 {
                     //dropar o item com um toque
-                    if(item != null)
+                    if (item != null)
                     {
-                    item.transform.position = new Vector3 (item.transform.position.x, posItemInicial.y, item.transform.position.z);
-                    item.transform.parent = paiDoItem.transform;
-                    dropei = true;
-                    podeDropar = false;
+                        item.transform.position = new Vector3(item.transform.position.x, posItemInicial.y, item.transform.position.z);
+                        item.transform.parent = paiDoItem.transform;
+                        dropei = true;
+                        podeDropar = false;
 
                     }
 

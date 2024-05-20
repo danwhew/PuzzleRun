@@ -32,7 +32,9 @@ public class GameController : MonoBehaviour
 
     public bool pausado = false;
 
-  
+    public int indexPuzzlesColeta;
+    public int indexPuzzlesMontagem;
+
 
 
     void Awake()

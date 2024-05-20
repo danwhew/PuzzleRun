@@ -22,27 +22,35 @@ public class AtivarInstanciamento : MonoBehaviour
 
             GameController.instance.contador++;
 
+
+            
+                
+            
+
             if (GameController.instance.round == 1)
             {
                 if (GameController.instance.fase == 1)
                 {
-                    if (GameController.instance.contador > 2)
+                    if (GameController.instance.contador > 3)
                     {
                         GameController.instance.fase = 2;
-                        instanciarAlteradorDeFases();
                         GameController.instance.contador = 1;
+
                     }
 
                 }
 
                 if (GameController.instance.fase == 2)
                 {
-                    if (GameController.instance.contador > 2)
+                    if (GameController.instance.contador > 4)
                     {
+                        Pool.poolerInstance.loadPuzzlesRound();
                         GameController.instance.fase = 1;
-                        instanciarAlteradorDeFases();
+                        GameController.instance.indexPuzzlesColeta = 0;
+                        GameController.instance.indexPuzzlesMontagem = 0;
                         GameController.instance.round = 2;
                         GameController.instance.contador = 1;
+                      
                     }
 
                 }
@@ -52,10 +60,9 @@ public class AtivarInstanciamento : MonoBehaviour
             {
                 if (GameController.instance.fase == 1)
                 {
-                    if (GameController.instance.contador > 2)
+                    if (GameController.instance.contador > 4)
                     {
                         GameController.instance.fase = 2;
-                        instanciarAlteradorDeFases();
                         GameController.instance.contador = 1;
                     }
 
@@ -63,11 +70,40 @@ public class AtivarInstanciamento : MonoBehaviour
 
                 if (GameController.instance.fase == 2)
                 {
-                    if (GameController.instance.contador > 2)
+                    if (GameController.instance.contador > 5)
                     {
+                        Pool.poolerInstance.loadPuzzlesRound();
                         GameController.instance.fase = 1;
-                        instanciarAlteradorDeFases();
-                        GameController.instance.round = 1;
+                        GameController.instance.indexPuzzlesColeta = 0;
+                        GameController.instance.indexPuzzlesMontagem = 0;
+                        GameController.instance.round = 3;
+                        GameController.instance.contador = 1;
+                    }
+
+                }
+            }
+
+            if (GameController.instance.round == 3)
+            {
+                if (GameController.instance.fase == 1)
+                {
+                    if (GameController.instance.contador > 4)
+                    {
+                        GameController.instance.fase = 2;
+                        GameController.instance.contador = 1;
+                    }
+
+                }
+
+                if (GameController.instance.fase == 2)
+                {
+                    if (GameController.instance.contador > 5)
+                    {
+                        Pool.poolerInstance.loadPuzzlesRound();
+                        GameController.instance.fase = 1;
+                        GameController.instance.indexPuzzlesColeta = 0;
+                        GameController.instance.indexPuzzlesMontagem = 0;
+                        
                         GameController.instance.contador = 1;
                     }
 

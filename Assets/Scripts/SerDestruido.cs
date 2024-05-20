@@ -10,8 +10,15 @@ public class SerDestruido : MonoBehaviour
     {
         if (other.CompareTag("Killer"))
         {
-
+            if (gameObject.CompareTag("TileBase"))
+            {
             gameObject.SetActive(false);
+
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
 
             //Destroy(gameObject);
         }
