@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public GameObject item;
     public Transform posItem;
     public GameObject paiDoItem;
+    public GameObject paiInicialDoItem;
     public Vector3 posItemInicial;
     public bool podePegar;
     public bool podeDropar;
@@ -46,22 +47,31 @@ public class Player : MonoBehaviour
     Color yellow;
     Color originalColor; // Cor original do jogador
     bool isFlashing = false; // Flag para controlar o estado de piscar
-    float flashDuration = 0.2f; // Duração do piscar
+    float flashDuration = 0.2f; // Duraï¿½ï¿½o do piscar
     float flashTimer = 0f; // Timer para controlar o piscar
 
     [Header("---Atordoamento---")]
     //game Cheats
     public bool cheat5 = false;
 
+    [Header("---Temp---")]
+    GameObject CestaTemp;
+    int quantidadeChildren;
+
+    public int faseEuTo = 1;
+    public int roundEuTo = 1;
+
 
     void Start()
     {
-        // Pegar o Rigidbody do próprio objeto
+        // Pegar o Rigidbody do prï¿½prio objeto
         rb = GetComponent<Rigidbody>();
-        // Pegar o componente Renderer do próprio objeto
+        // Pegar o componente Renderer do prï¿½prio objeto
         playerRenderer = GetComponentInChildren<Renderer>();
         // Salvar a cor original do jogador
         originalColor = playerRenderer.material.color;
+
+        CestaTemp = GameObject.FindGameObjectWithTag("Cesta");
     }
 
 
@@ -120,7 +130,7 @@ public class Player : MonoBehaviour
 
         FimDaBateria();
 
-        // Atualizar o efeito de piscar, se necessário
+        // Atualizar o efeito de piscar, se necessï¿½rio
         UpdateFlash();
 
     }
@@ -140,12 +150,11 @@ public class Player : MonoBehaviour
                 audioSource.PlayOneShot(audios[0]);
 
 
-                //aqui o item fica preso ao player
-                item = other.gameObject;
-                paiDoItem = item.transform.parent.gameObject;
-                posItemInicial = item.transform.position;
-                item.transform.parent = transform;
+                posItemInicial = other.transform.position;
+                item = other.transform.parent.gameObject;
+                item.transform.parent = this.gameObject.transform;
                 item.transform.position = posItem.position;
+
                 peguei = true;
                 podePegar = false;
 
@@ -158,52 +167,9 @@ public class Player : MonoBehaviour
             GameController.instance.derrota();
         }
 
-        if (other.CompareTag("Drop"))
-        {
-            if (item != null)
-            {
-
-                if (podeDropar == true)
-                {
-                    audioSource.PlayOneShot(audios[0]);
 
 
 
-
-                    Collider coliderTemp;
-                    GameObject CestaTemp;
-
-
-                    CestaTemp = GameObject.FindGameObjectWithTag("Cesta");
-                    if (CestaTemp != null)
-                    {
-                        coliderTemp = item.GetComponent<Collider>();
-                        item.transform.parent = CestaTemp.transform;
-                        coliderTemp.enabled = false;
-                        item = null;
-                        paiDoItem = null;
-
-                    }
-                    else
-                    {
-                        Destroy(item);
-                    }
-
-
-                    dropei = true;
-                    podeDropar = false;
-                }
-            }
-
-        }
-
-        if (other.CompareTag("Forno"))
-        {
-            dropei = true;
-            podeDropar = false;
-
-
-        }
 
         if (other.CompareTag("Bateria"))
         {
@@ -219,13 +185,107 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("NovaFase"))
         {
+
+            //other.gameObject.SetActive(false);
+
+            quantidadeChildren = CestaTemp.transform.childCount;
+
+            for (int i = 1; i < quantidadeChildren; i++)
+            {
+                Destroy(CestaTemp.transform.GetChild(i).gameObject);
+            }
+
+            AlteraFase altTemp;
+            altTemp = other.GetComponentInParent<AlteraFase>();
+
+            faseEuTo = altTemp.fasePlayer;
+            roundEuTo = altTemp.roundPlayer;
+
             GameController.instance.atualizarFase();
+            GameController.instance.atualizarRound();
         }
     }
 
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Item") || other.CompareTag("ItemErrado"))
+        {
+            if (podePegar == true)
+            {
+                audioSource.PlayOneShot(audios[0]);
+
+
+                posItemInicial = other.transform.position;
+                item = other.transform.parent.gameObject;
+                item.transform.parent = this.gameObject.transform;
+                item.transform.position = posItem.position;
+
+                peguei = true;
+                podePegar = false;
+
+            }
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
+
+        if (collision.gameObject.CompareTag("Drop"))
+        {
+            //se o player tiver segurando algum item
+            if (item != null)
+            {
+                //acessa o totem e ativa as funcionalidades dele
+                Totem totemTemp;
+                totemTemp = collision.gameObject.GetComponentInParent<Totem>();
+                totemTemp.fazerOsTrem();
+
+                //se o player colidir com o totem e puder dropar um objeto
+                if (podeDropar == true)
+                {
+                    //audio
+                    audioSource.PlayOneShot(audios[0]);
+
+                    //colisor temporario do item 
+                    Collider coliderTemp;
+
+                    //acessa a cesta
+                    GameObject CestaTemp;
+                    CestaTemp = GameObject.FindGameObjectWithTag("Cesta");
+
+
+                    //se a cesta existir
+                    if (CestaTemp != null)
+                    {
+                        //aqui o colisor do item eh desligado e ele fica parenteado na cesta
+                        coliderTemp = item.GetComponentInChildren<Collider>();
+                        coliderTemp.enabled = false;
+                        item.transform.position = CestaTemp.transform.position + new Vector3(0, 0.4f, 0);
+                        item.transform.parent = CestaTemp.transform;
+                        item = null;
+
+                    }
+                    else
+                    {
+                        Destroy(item);
+                    }
+                }
+                else
+                {
+                    Destroy(item);
+                }
+
+
+
+                dropei = true;
+                podeDropar = false;
+
+            }
+
+        }
+
+
         if (collision.gameObject.CompareTag("Parede"))
         {
             if (cheat5 == false)
@@ -244,6 +304,38 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("cheat imortalidade ligado");
             }
+        }
+
+        if (collision.gameObject.CompareTag("Forno"))
+        {
+
+            Debug.Log("tocolidinocom forno");
+
+            if (item != null)
+            {
+                item.transform.parent = null;
+                item = null;
+                dropei = true;
+                podeDropar = false;
+
+            }
+
+
+        }
+
+        if (collision.gameObject.CompareTag("MesaCorte"))
+        {
+            Debug.Log("tocolidinocomamesadecorte");
+
+            if (item != null)
+            {
+                dropei = true;
+                podeDropar = false;
+                item.transform.parent = null;
+                item = null;
+
+            }
+
         }
     }
 
@@ -268,7 +360,8 @@ public class Player : MonoBehaviour
                     if (item != null)
                     {
                         item.transform.position = new Vector3(item.transform.position.x, posItemInicial.y, item.transform.position.z);
-                        item.transform.parent = paiDoItem.transform;
+                        item.transform.parent = null;
+                        item = null;
                         dropei = true;
                         podeDropar = false;
 
@@ -352,7 +445,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Função para comecar o efeito de piscar
+    // Funï¿½ï¿½o para comecar o efeito de piscar
     void StartFlash()
     {
         // Ativa o estado de piscar
@@ -363,7 +456,7 @@ public class Player : MonoBehaviour
         playerRenderer.material.color = Color.white;
     }
 
-    // Função para atualizar o efeito de piscar
+    // Funï¿½ï¿½o para atualizar o efeito de piscar
     void UpdateFlash()
     {
         if (isFlashing)
@@ -383,7 +476,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Função para parar o efeito de piscar
+    // Funï¿½ï¿½o para parar o efeito de piscar
     void StopFlash()
     {
         // Desativa o estado de piscar

@@ -13,33 +13,44 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
+    [Header("UI")]
     public TMP_Text[] scoreText;
     public TMP_Text faseText;
+    public TMP_Text roundText;
     public GameObject derrotaPainel;
     public GameObject menuPausa;
+
+    [Header("Player")]
     public Player player;
     public Slider sliderBateria;
 
+    [Header("Jogo")]
+
+    public bool pausado = false;
+    public int score;
     public int contador = 0;
     public int fase = 1;
     public int round = 1;
 
 
-
-    public Vector3 teste;
-
-    public int score;
-
-    public bool pausado = false;
+    public int quantidadePuzzlesF1R1 = 3;
+    public int quantidadePuzzlesF2R1 = 4;
+    public int quantidadePuzzlesF1R2 = 4;
+    public int quantidadePuzzlesF2R2 = 5;
+    public int quantidadePuzzlesF1R3 = 4;
+    public int quantidadePuzzlesF2R3 = 5;
+    //
+    
 
     public int indexPuzzlesColeta;
     public int indexPuzzlesMontagem;
 
+    public int extras;
 
 
     void Awake()
     {
-        
+
         if (instance == null)
         {
             instance = this;
@@ -58,15 +69,16 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 1.0f;
 
-        
+
 
 
         if (faseText != null)
         {
-        atualizarFase();
+            atualizarFase();
+            atualizarRound();
         }
 
-        
+
 
 
     }
@@ -78,9 +90,10 @@ public class GameController : MonoBehaviour
             sliderBateria.value = player.bateria;
         }
 
-        
+       
 
     }
+
 
 
     public void addScore(int quantidade)
@@ -103,12 +116,24 @@ public class GameController : MonoBehaviour
 
     public void atualizarFase()
     {
-        faseText.text = "Fase " + fase.ToString();
+
+        faseText.text = "Fase " +  player.faseEuTo.ToString();
     }
 
     public void atualizarRound()
     {
+        if (player.roundEuTo <= 2)
+        {
+            roundText.text = "Round " + player.roundEuTo.ToString();
+            
 
+        }
+        else
+        {
+            roundText.text = "Round Bonus " + (player.roundEuTo + extras/2).ToString();
+            extras++;
+            
+        }
     }
 
     public static void resetar()

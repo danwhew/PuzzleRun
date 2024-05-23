@@ -12,12 +12,10 @@ public class InstanciarCenario : MonoBehaviour
     public Transform anchorPosTile; //pos do tile base
     public Transform posPuzzle; //pos puzzle
 
-
   
 
     public void initTeste()
     {
-        
 
         if (GameController.instance.fase == 1)
         {
@@ -59,7 +57,6 @@ public class InstanciarCenario : MonoBehaviour
 
         Instantiate(clone, posPuzzle.position, Quaternion.identity, transform.parent);
 
-       
         GameController.instance.indexPuzzlesColeta++;
     }
 

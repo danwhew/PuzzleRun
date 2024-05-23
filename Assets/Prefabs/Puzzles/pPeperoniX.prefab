@@ -245,6 +245,7 @@ MonoBehaviour:
   animatorTotem: {fileID: 1166420968764206292}
   cesta: {fileID: 0}
   posCesta: {fileID: 8202779666030619381}
+  playerTerminou: 0
   puzzlesIdentity: 0
 --- !u!114 &1570305029596084663
 MonoBehaviour:
@@ -472,7 +473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7324181317082007831, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.224
       objectReference: {fileID: 0}
     - target: {fileID: 7324181317082007831, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
       propertyPath: m_LocalPosition.z

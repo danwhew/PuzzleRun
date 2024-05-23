@@ -194,6 +194,7 @@ MonoBehaviour:
   pai: {fileID: 6934282509658788564}
   posAlteradorDeFase: {fileID: 3096976239971186256}
   alteraFase: {fileID: 7152160997712247419, guid: 41f614bb3b9aa6e43af3fea26324597f, type: 3}
+  id: 0
 --- !u!65 &174597295576859405
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -224,9 +225,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2317959015211813608}
-  - component: {fileID: 5022306317969340928}
   - component: {fileID: 6934282509658788564}
   - component: {fileID: 5449256677467996290}
+  - component: {fileID: 1002389079625633585}
   m_Layer: 0
   m_Name: TileBase
   m_TagString: TileBase
@@ -260,18 +261,6 @@ Transform:
   - {fileID: 3096976239971186256}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5022306317969340928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9200666121793061025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ace6b7d8e16ff6448ee8e130bb28590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6934282509658788564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,8 +275,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchorPosTile: {fileID: 6164194699551918652}
   posPuzzle: {fileID: 8868348654520071145}
-  indexPuzzlesColeta: 0
-  indexPuzzlesMontagem: 0
 --- !u!65 &5449256677467996290
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -309,6 +296,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: -5.19}
+--- !u!54 &1002389079625633585
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9200666121793061025}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &107511122018080752
 PrefabInstance:
   m_ObjectHideFlags: 0

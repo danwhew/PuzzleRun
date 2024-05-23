@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Forno : MonoBehaviour
 {
-    public float cooldown = 2f;
     public float contador;
     public bool podeContar;
     public GameObject massa;
@@ -14,7 +13,6 @@ public class Forno : MonoBehaviour
 
     public Animator totemAnimator;
 
-    public float teste = 0;
     public bool jaFritou = false;
 
 
@@ -32,9 +30,13 @@ public class Forno : MonoBehaviour
                 massa.SetActive(true);
                 contador = 0;
                 podeContar = false;
+                jaFritou = true;
+
             }
         }
     }
+
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -42,14 +44,13 @@ public class Forno : MonoBehaviour
         {
             if (other.CompareTag("Item"))
             {
-                podeContar = true;
-                massa = other.gameObject;
-                massa.transform.parent = transform;
+                massa = other.transform.parent.gameObject;
                 massa.transform.position = massaPos.position;
+                massa.transform.parent = transform;
                 massa.SetActive(false);
-                jaFritou = true;
+                podeContar = true;
             }
-
+             
         }
     }
 

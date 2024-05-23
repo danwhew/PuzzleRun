@@ -9,6 +9,7 @@ public class Pool : MonoBehaviour
     public static Pool poolerInstance;
 
     public GameObject tileBase;
+    public GameObject trocadorFases;
     GameObject tmp;
     public int maxTilesBase = 6;
 
@@ -45,8 +46,8 @@ public class Pool : MonoBehaviour
     public bool ehPeperoni;
 
     public List<GameObject> listaTilesBases = new List<GameObject>();
+    public GameObject[] trocadoresFases = new GameObject[6];
 
-    // Start is called before the first frame update
     void Awake()
     {
 
@@ -62,17 +63,14 @@ public class Pool : MonoBehaviour
 
         }
 
-        /*      preInstanciar(puzzlesQueijo);
-                preInstanciar(puzzlesTomate);
-                preInstanciar(puzzlesFarinha);
-                preInstanciar(puzzlesPeperoni);
-                preInstanciar(puzzlesCogumelo);
-                preInstanciar(puzzlesAbrirMassa);
-                preInstanciar(puzzlesAssarPizza);
-                preInstanciar(puzzlesCortarTomate);
-                preInstanciar(puzzlesCortarQueijo);
-                preInstanciar(puzzlesCortarPeperoni);
-                preInstanciar(puzzlesCortarCogumelo);*/
+        for (int i = 0; i < trocadoresFases.Length; i++)
+        {
+
+            tmp = Instantiate(trocadorFases);
+            tmp.SetActive(false);
+            trocadoresFases[i] = tmp;
+
+        }
 
     }
 
@@ -108,7 +106,7 @@ public class Pool : MonoBehaviour
             puzzlesMontagem[2] = puzzlesCortarTomate[Random.Range(0, puzzlesCortarTomate.Length)];
             puzzlesMontagem[3] = puzzlesCortarQueijo[Random.Range(0, puzzlesCortarQueijo.Length)];
         }
-        
+
     }
 
     public GameObject getTileBase()
@@ -119,6 +117,20 @@ public class Pool : MonoBehaviour
             if (!listaTilesBases[i].activeInHierarchy)
             {
                 return listaTilesBases[i];
+            }
+
+        }
+        return null;
+    }
+
+    public GameObject getAlteradorDeFases()
+    {
+        for (int i = 0; i < trocadoresFases.Length; i++)
+        {
+
+            if (!trocadoresFases[i].activeInHierarchy)
+            {
+                return trocadoresFases[i];
             }
 
         }

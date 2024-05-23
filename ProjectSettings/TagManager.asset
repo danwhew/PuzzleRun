@@ -17,6 +17,7 @@ TagManager:
   - Forno
   - Cesta
   - TileBase
+  - MesaCorte
   layers:
   - Default
   - TransparentFX

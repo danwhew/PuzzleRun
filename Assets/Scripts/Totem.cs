@@ -15,29 +15,11 @@ public class Totem : MonoBehaviour
     //pegar animacao da porta aqui, excluir o script da porta
 
 
-    private void OnTriggerEnter(Collider other)
+    public void fazerOsTrem()
     {
-
-        if (other.CompareTag("Item"))
-        {
-
-            //Debug.Log("uai");
-            portinha.condicao = true;
-            GameController.instance.addScore(10);
-            //Destroy(other.gameObject);
-            Destroy(excluir);
-
-
-        }
-        if (other.CompareTag("ItemErrado"))
-        {
-
-            portinha.condicao = true;
-            GameController.instance.addScore(-10);
-            //Destroy(other.gameObject);
-            Destroy(excluir);
-        }
-
-
+        portinha.condicao = true;
+        GameController.instance.addScore(10);
+        Destroy(excluir);
     }
+
 }
