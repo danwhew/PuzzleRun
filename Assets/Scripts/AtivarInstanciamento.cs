@@ -40,7 +40,7 @@ public class AtivarInstanciamento : MonoBehaviour
                         GameController.instance.fase = 2;
                         GameController.instance.contador = 1;
 
-                        
+                        //pegar o totem
                         instanciarAlteradorDeFases(2,1);
 
                     }

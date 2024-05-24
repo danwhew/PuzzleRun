@@ -75,10 +75,9 @@ GameObject:
   - component: {fileID: 6287212957481626881}
   - component: {fileID: 2284987391553428859}
   - component: {fileID: 1700017709954712867}
-  - component: {fileID: -5846258176541882168}
   m_Layer: 0
   m_Name: pQuejoGen
-  m_TagString: Untagged
+  m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,19 +138,8 @@ MonoBehaviour:
   animatorTotem: {fileID: 1166420968764206292}
   cesta: {fileID: 0}
   posCesta: {fileID: 871861221177941731}
+  playerTerminou: 0
   puzzlesIdentity: 0
---- !u!114 &-5846258176541882168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4984621460166118945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ace6b7d8e16ff6448ee8e130bb28590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9137296970734193880
 GameObject:
   m_ObjectHideFlags: 0

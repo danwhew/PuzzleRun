@@ -18,6 +18,7 @@ TagManager:
   - Cesta
   - TileBase
   - MesaCorte
+  - Puzzle
   layers:
   - Default
   - TransparentFX

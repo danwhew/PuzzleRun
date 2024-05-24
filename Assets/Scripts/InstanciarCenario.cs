@@ -19,11 +19,13 @@ public class InstanciarCenario : MonoBehaviour
 
         if (GameController.instance.fase == 1)
         {
+            GameController.instance.indexPuzzlesMontagem = 0;
             instanciarPuzzlesFaseColeta();
 
         }
         else if (GameController.instance.fase == 2)
         {
+            GameController.instance.indexPuzzlesColeta = 0;
             instanciarPuzzlesFaseMontagem();
 
         }
@@ -51,6 +53,7 @@ public class InstanciarCenario : MonoBehaviour
     public void instanciarPuzzlesFaseColeta()
     {
         
+
         //GameObject cloneTile = Instantiate(puzzlesColeta[0], posPuzzle.position, Quaternion.identity, transform.parent);
 
         GameObject clone = Pool.poolerInstance.puzzlesColeta[GameController.instance.indexPuzzlesColeta];
@@ -62,6 +65,8 @@ public class InstanciarCenario : MonoBehaviour
 
     public void instanciarPuzzlesFaseMontagem()
     {
+        
+
         //GameObject cloneTile = Instantiate(puzzlesMontagem[0], posPuzzle.position, Quaternion.identity, transform.parent);
 
         GameObject clone = Pool.poolerInstance.puzzlesMontagem[GameController.instance.indexPuzzlesMontagem];

@@ -84,11 +84,10 @@ public class Pool : MonoBehaviour
     public void loadPuzzlesRound()
     {
 
-        if (GameController.instance.round == 1)
-        {
+      
             puzzlesColeta[0] = puzzlesQueijo[Random.Range(0, puzzlesQueijo.Length)];
             puzzlesColeta[1] = puzzlesTomate[Random.Range(0, puzzlesTomate.Length)];
-            puzzlesColeta[2] = puzzlesFarinha[Random.Range(0, puzzlesTomate.Length)];
+            puzzlesColeta[2] = puzzlesFarinha[Random.Range(0, puzzlesFarinha.Length)];
 
             if (ehPeperoni)
             {
@@ -105,7 +104,7 @@ public class Pool : MonoBehaviour
             puzzlesMontagem[1] = puzzlesAssarPizza[Random.Range(0, puzzlesAssarPizza.Length)];
             puzzlesMontagem[2] = puzzlesCortarTomate[Random.Range(0, puzzlesCortarTomate.Length)];
             puzzlesMontagem[3] = puzzlesCortarQueijo[Random.Range(0, puzzlesCortarQueijo.Length)];
-        }
+      
 
     }
 

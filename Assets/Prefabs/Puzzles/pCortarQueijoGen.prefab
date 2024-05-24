@@ -73,10 +73,9 @@ GameObject:
   - component: {fileID: 6287212957481626881}
   - component: {fileID: 2284987391553428859}
   - component: {fileID: 7078909696661019909}
-  - component: {fileID: 5799239286780456122}
   m_Layer: 0
   m_Name: pCortarQueijoGen
-  m_TagString: Untagged
+  m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,18 +141,6 @@ MonoBehaviour:
   posCesta: {fileID: 0}
   playerTerminou: 0
   puzzlesIdentity: 0
---- !u!114 &5799239286780456122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4984621460166118945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ace6b7d8e16ff6448ee8e130bb28590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7686011041667667293
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +432,14 @@ PrefabInstance:
     - target: {fileID: 462528577959176326, guid: 619f429a17764b24ea6317f3d9f13587, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921698675324410743, guid: 619f429a17764b24ea6317f3d9f13587, type: 3}
+      propertyPath: m_Value
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2252809521455540114, guid: 619f429a17764b24ea6317f3d9f13587, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5848249044572491513, guid: 619f429a17764b24ea6317f3d9f13587, type: 3}
       propertyPath: m_Name
