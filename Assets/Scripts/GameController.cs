@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour
     public int indexPuzzlesColeta;
     public int indexPuzzlesMontagem;
 
-    public int extras;
+    public bool passou = false;
 
 
     void Awake()
@@ -122,18 +122,9 @@ public class GameController : MonoBehaviour
 
     public void atualizarRound()
     {
-        if (player.roundEuTo <= 2)
-        {
-            roundText.text = "Round " + player.roundEuTo.ToString();
-            
+        roundText.text = "Round " + player.roundEuTo.ToString();
 
-        }
-        else
-        {
-            roundText.text = "Round Bonus " + (player.roundEuTo + extras/2).ToString();
-            extras++;
-            
-        }
+       
     }
 
     public static void resetar()

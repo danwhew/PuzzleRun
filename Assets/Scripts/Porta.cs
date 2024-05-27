@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Porta : MonoBehaviour
 {
-    //posicao onde a porta vai parar
-    public Transform empty;
     //condicao se a porta pode levantar
     public bool condicao;
+    public Animator animPorta;
 
     //acho que pode apagar isso
     private void OnEnable()
@@ -24,7 +23,7 @@ public class Porta : MonoBehaviour
         if (condicao == true)
         {
             //substituir por animacao
-            transform.position = Vector3.Lerp(transform.position, empty.position,4f * Time.deltaTime);
+            animPorta.SetTrigger("tPlay");
 
         }
 

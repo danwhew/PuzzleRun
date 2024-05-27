@@ -24,8 +24,7 @@ public class LimparCenario : MonoBehaviour
 
         if (other.CompareTag("Puzzle"))
         {
-            Destroy(other.gameObject);
-
+            other.gameObject.SetActive(false);
 
         }
 

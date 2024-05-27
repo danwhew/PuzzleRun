@@ -12,6 +12,7 @@ public class Pool : MonoBehaviour
     public GameObject trocadorFases;
     GameObject tmp;
     public int maxTilesBase = 6;
+    public bool ehPeperoni;
 
 
     [Header("Possiveis Puzzles")]
@@ -37,16 +38,15 @@ public class Pool : MonoBehaviour
 
     [Header("Puzzles Definitivos")]
     [Header("Fase 1")]
-    public GameObject[] puzzlesColeta = new GameObject[5];
+    public GameObject[] puzzlesColeta;
     [Header("Fase 2")]
-    public GameObject[] puzzlesMontagem = new GameObject[6];
+    public GameObject[] puzzlesMontagem;
     [Header("Fase 3")]
 
 
-    public bool ehPeperoni;
 
     public List<GameObject> listaTilesBases = new List<GameObject>();
-    public GameObject[] trocadoresFases = new GameObject[6];
+    public GameObject[] trocadoresFases;
 
     void Awake()
     {
@@ -72,39 +72,203 @@ public class Pool : MonoBehaviour
 
         }
 
+        preInstanciar(puzzlesQueijo);
+        preInstanciar(puzzlesTomate);
+        preInstanciar(puzzlesFarinha);
+        preInstanciar(puzzlesPeperoni);
+        preInstanciar(puzzlesCogumelo);
+
+        preInstanciar(puzzlesAbrirMassa);
+        preInstanciar(puzzlesAssarPizza);
+        preInstanciar(puzzlesCortarTomate);
+        preInstanciar(puzzlesCortarQueijo);
+        preInstanciar(puzzlesCortarPeperoni);
+        preInstanciar(puzzlesCortarCogumelo);
+
     }
+
 
 
     private void Start()
     {
-
-        loadPuzzlesRound();
+        loadPuzzlesRound1();
     }
 
     public void loadPuzzlesRound()
     {
 
-      
-            puzzlesColeta[0] = puzzlesQueijo[Random.Range(0, puzzlesQueijo.Length)];
-            puzzlesColeta[1] = puzzlesTomate[Random.Range(0, puzzlesTomate.Length)];
-            puzzlesColeta[2] = puzzlesFarinha[Random.Range(0, puzzlesFarinha.Length)];
+        int temp = Random.Range(0, 2);
 
-            if (ehPeperoni)
+        if (temp == 0)
+        {
+            ehPeperoni = false;
+        }
+        else
+        {
+            ehPeperoni = true;
+        }
+
+        int[] jaGerados = new int[4] { -1, -1, -1, -1 };
+        bool ehIgual = false;
+
+        int[] jaGerados2 = new int[3] { -1, -1,-1 };
+        bool ehIgual2 = false;
+
+
+        for (int i = 0; i < jaGerados.Length; i++)
+        {
+            ehIgual = false;
+            int rand;
+            rand = Random.Range(0, 4);
+
+            for (int j = 0; j < jaGerados.Length; j++)
             {
-                puzzlesColeta[3] = puzzlesPeperoni[Random.Range(0, puzzlesPeperoni.Length)];
-                puzzlesMontagem[4] = puzzlesCortarPeperoni[Random.Range(0, puzzlesCortarPeperoni.Length)];
+
+                if (rand == jaGerados[j])
+                {
+                    ehIgual = true;
+                }
+
+
+
+            }
+            if (ehIgual == true)
+            {
+                i--;
+
             }
             else
             {
-                puzzlesColeta[3] = puzzlesCogumelo[Random.Range(0, puzzlesCogumelo.Length)];
-                puzzlesMontagem[4] = puzzlesCortarCogumelo[Random.Range(0, puzzlesCortarCogumelo.Length)];
+                jaGerados[i] = rand;
             }
+        }
 
-            puzzlesMontagem[0] = puzzlesAbrirMassa[Random.Range(0, puzzlesAbrirMassa.Length)];
-            puzzlesMontagem[1] = puzzlesAssarPizza[Random.Range(0, puzzlesAssarPizza.Length)];
-            puzzlesMontagem[2] = puzzlesCortarTomate[Random.Range(0, puzzlesCortarTomate.Length)];
-            puzzlesMontagem[3] = puzzlesCortarQueijo[Random.Range(0, puzzlesCortarQueijo.Length)];
-      
+        for (int i = 0; i < jaGerados2.Length; i++)
+        {
+            ehIgual2 = false;
+            int rand;
+            rand = Random.Range(1, 4);
+
+            for (int j = 0; j < jaGerados2.Length; j++)
+            {
+
+                if (rand == jaGerados2[j])
+                {
+                    ehIgual2 = true;
+                }
+
+
+
+            }
+            if (ehIgual2 == true)
+            {
+                i--;
+
+            }
+            else
+            {
+                jaGerados2[i] = rand;
+            }
+        }
+
+        puzzlesColeta[jaGerados[0]] = puzzlesQueijo[Random.Range(0, puzzlesQueijo.Length)];
+        puzzlesColeta[jaGerados[1]] = puzzlesTomate[Random.Range(0, puzzlesTomate.Length)];
+        puzzlesColeta[jaGerados[2]] = puzzlesFarinha[Random.Range(0, puzzlesFarinha.Length)];
+
+        if (ehPeperoni)
+        {
+            puzzlesColeta[jaGerados[3]] = puzzlesPeperoni[Random.Range(0, puzzlesPeperoni.Length)];
+            puzzlesMontagem[jaGerados2[2]] = puzzlesCortarPeperoni[Random.Range(0, puzzlesCortarPeperoni.Length)];
+        }
+        else
+        {
+            puzzlesColeta[jaGerados[3]] = puzzlesCogumelo[Random.Range(0, puzzlesCogumelo.Length)];
+            puzzlesMontagem[jaGerados2[2]] = puzzlesCortarCogumelo[Random.Range(0, puzzlesCortarCogumelo.Length)];
+        }
+
+        puzzlesMontagem[0] = puzzlesAbrirMassa[Random.Range(0, puzzlesAbrirMassa.Length)];
+        puzzlesMontagem[jaGerados2[0]] = puzzlesCortarTomate[Random.Range(0, puzzlesCortarTomate.Length)];
+        puzzlesMontagem[jaGerados2[1]] = puzzlesCortarQueijo[Random.Range(0, puzzlesCortarQueijo.Length)];
+        puzzlesMontagem[4] = puzzlesAssarPizza[Random.Range(0, puzzlesAssarPizza.Length)];
+
+
+    }
+
+    public void loadPuzzlesRound1()
+    {
+
+        int[] jaGerados = new int[3] { -1, -1, -1};
+        bool ehIgual = false;
+
+        int[] jaGerados2 = new int[2] { -1, -1 };
+        bool ehIgual2 = false;
+
+
+        for (int i = 0; i < jaGerados.Length; i++)
+        {
+            ehIgual = false;
+            int rand;
+            rand = Random.Range(0, 3);
+
+            for (int j = 0; j < jaGerados.Length; j++)
+            {
+
+                if (rand == jaGerados[j])
+                {
+                    ehIgual = true;
+                }
+
+
+
+            }
+            if (ehIgual == true)
+            {
+                i--;
+
+            }
+            else
+            {
+                jaGerados[i] = rand;
+            }
+        }
+
+        for (int i = 0; i < jaGerados2.Length; i++)
+        {
+            ehIgual2 = false;
+            int rand;
+            rand = Random.Range(1, 3);
+
+            for (int j = 0; j < jaGerados2.Length; j++)
+            {
+
+                if (rand == jaGerados2[j])
+                {
+                    ehIgual2 = true;
+                }
+
+
+
+            }
+            if (ehIgual2 == true)
+            {
+                i--;
+
+            }
+            else
+            {
+                jaGerados2[i] = rand;
+            }
+        }
+
+        puzzlesColeta[jaGerados[0]] = puzzlesQueijo[Random.Range(0, puzzlesQueijo.Length)];
+        puzzlesColeta[jaGerados[1]] = puzzlesTomate[Random.Range(0, puzzlesTomate.Length)];
+        puzzlesColeta[jaGerados[2]] = puzzlesFarinha[Random.Range(0, puzzlesFarinha.Length)];
+
+        puzzlesMontagem[0] = puzzlesAbrirMassa[Random.Range(0, puzzlesAbrirMassa.Length)];
+        puzzlesMontagem[jaGerados2[0]] = puzzlesCortarTomate[Random.Range(0, puzzlesCortarTomate.Length)];
+        puzzlesMontagem[jaGerados2[1]] = puzzlesCortarQueijo[Random.Range(0, puzzlesCortarQueijo.Length)];
+        puzzlesMontagem[3] = puzzlesAssarPizza[Random.Range(0, puzzlesAssarPizza.Length)];
+
 
     }
 
@@ -147,10 +311,11 @@ public class Pool : MonoBehaviour
 
         for (int i = 0; i < objects.Length; i++)
         {
-            GameObject tmpTeste;
 
-            tmpTeste = Instantiate(objects[i]);
-            tmpTeste.SetActive(false);
+            tmp = Instantiate(objects[i]);
+            tmp.SetActive(false);
+            objects[i] = tmp;
+
         }
 
     }

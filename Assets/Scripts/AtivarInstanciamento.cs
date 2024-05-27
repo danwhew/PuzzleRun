@@ -24,24 +24,29 @@ public class AtivarInstanciamento : MonoBehaviour
 
 
            
-            GameController.instance.contador++;
+           GameController.instance.contador++;
 
 
 
-            if (GameController.instance.round == 1)
+           if (GameController.instance.round == 1)
             {
                
                 if (GameController.instance.fase == 1)
                 {
-                    
+                    if (GameController.instance.contador  == GameController.instance.quantidadePuzzlesF1R1)
+                    {
+                        GameController.instance.passou = true;
+                        
+
+                    }
+
                     if (GameController.instance.contador > GameController.instance.quantidadePuzzlesF1R1)
                     {
                         
                         GameController.instance.fase = 2;
                         GameController.instance.contador = 1;
 
-                        //pegar o totem
-                        instanciarAlteradorDeFases(2,1);
+                       // instanciarAlteradorDeFases(2,1);
 
                     }
 
@@ -49,6 +54,12 @@ public class AtivarInstanciamento : MonoBehaviour
 
                 if (GameController.instance.fase == 2)
                 {
+                    if (GameController.instance.contador == GameController.instance.quantidadePuzzlesF2R1)
+                    {
+                        GameController.instance.passou = true;
+
+
+                    }
 
 
                     if (GameController.instance.contador > GameController.instance.quantidadePuzzlesF2R1)
@@ -62,7 +73,7 @@ public class AtivarInstanciamento : MonoBehaviour
                         GameController.instance.round = 2;
                         GameController.instance.contador = 1;
 
-                        instanciarAlteradorDeFases(1,2);
+                       // instanciarAlteradorDeFases(1,2);
 
                     }
 
@@ -73,17 +84,33 @@ public class AtivarInstanciamento : MonoBehaviour
             {
                 if (GameController.instance.fase == 1)
                 {
+                    if (GameController.instance.contador == GameController.instance.quantidadePuzzlesF1R2)
+                    {
+                        GameController.instance.passou = true;
+
+
+                    }
+
+
                     if (GameController.instance.contador > GameController.instance.quantidadePuzzlesF1R2)
                     {
                         GameController.instance.fase = 2;
                         GameController.instance.contador = 1;
-                        instanciarAlteradorDeFases(2,2);
+                      //  instanciarAlteradorDeFases(2,2);
                     }
 
                 }
 
                 if (GameController.instance.fase == 2)
                 {
+                    if (GameController.instance.contador == GameController.instance.quantidadePuzzlesF2R2)
+                    {
+                        GameController.instance.passou = true;
+
+
+                    }
+
+
                     if (GameController.instance.contador > GameController.instance.quantidadePuzzlesF2R2)
                     {
                         Pool.poolerInstance.loadPuzzlesRound();
@@ -95,7 +122,7 @@ public class AtivarInstanciamento : MonoBehaviour
 
                         GameController.instance.contador = 1;
 
-                        instanciarAlteradorDeFases(1, 3);
+                      //  instanciarAlteradorDeFases(1, 3);
                     }
 
                 }
@@ -105,9 +132,17 @@ public class AtivarInstanciamento : MonoBehaviour
             {
                 if (GameController.instance.fase == 1)
                 {
+                    if (GameController.instance.contador == GameController.instance.quantidadePuzzlesF1R3)
+                    {
+                        GameController.instance.passou = true;
+
+
+                    }
+
+
                     if (GameController.instance.contador > GameController.instance.quantidadePuzzlesF1R3)
                     {
-                        instanciarAlteradorDeFases(2, 3);
+                       // instanciarAlteradorDeFases(2, 3);
                         GameController.instance.fase = 2;
 
                         GameController.instance.contador = 1;
@@ -117,10 +152,17 @@ public class AtivarInstanciamento : MonoBehaviour
 
                 if (GameController.instance.fase == 2)
                 {
+                    if (GameController.instance.contador == GameController.instance.quantidadePuzzlesF2R3)
+                    {
+                        GameController.instance.passou = true;
+
+
+                    }
+
                     if (GameController.instance.contador > GameController.instance.quantidadePuzzlesF2R3)
                     {
                         
-                        instanciarAlteradorDeFases(1,3);
+                      //  instanciarAlteradorDeFases(1,3);
                         Pool.poolerInstance.loadPuzzlesRound();
                         GameController.instance.fase = 1;
                         GameController.instance.indexPuzzlesColeta = 0;
@@ -139,8 +181,6 @@ public class AtivarInstanciamento : MonoBehaviour
     public void instanciarAlteradorDeFases(int fase, int round)
     {
 
-
-        
 
         GameObject altTemp;
         altTemp = Pool.poolerInstance.getAlteradorDeFases();

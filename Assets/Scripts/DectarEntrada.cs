@@ -1,24 +1,84 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class DectarEntrada : MonoBehaviour
 {
 
+
+    public GameObject item;
+
+    public Totem totem;
+
     public Animator animatorEstante;
     public Animator animatorTotem;
+    public Animator animatorGiraGira;
     public GameObject cesta;
     public Transform posCesta;
 
-    public bool playerTerminou = false;
-
     public int puzzlesIdentity;
 
-   
+    public Vector3 posItemInicial;
+
+    public int fase;
+    public int round;
+
+    public Totem tot;
+
 
     //1 - da queda
+    //2 - da plataforma giratoria
+
+    private void OnEnable()
+    {
+        posItemInicial = item.transform.position;
+
+        item.SetActive(true);
+
+        if (GameController.instance != null)
+        {
+            if (GameController.instance.passou == true)
+            {
+                fase = GameController.instance.fase;
+                round = GameController.instance.round;
+
+                if (fase == 1)
+                {
+                    fase = 2;
+                }
+                else
+                {
+                    fase = 1;
+                    round++;
+                }
+
+                totem.fase = fase;
+                totem.round = round;
+                GameController.instance.passou = false;
+            }
+            else
+            {
+                fase = GameController.instance.fase;
+                round = GameController.instance.round;
+                totem.fase = fase;
+                totem.round = round;
+            }
 
 
+
+
+        }
+
+    }
+
+
+    private void OnDisable()
+    {
+        item.transform.position = posItemInicial;
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,7 +86,7 @@ public class DectarEntrada : MonoBehaviour
         if (other.CompareTag("Player"))
         {
 
-            Debug.Log("Player entrou neste puzzle");
+            // Debug.Log("Player entrou neste puzzle");
 
             if (posCesta != null)
             {
@@ -41,9 +101,18 @@ public class DectarEntrada : MonoBehaviour
                 case 1:
                     if (animatorEstante != null && animatorTotem != null)
                     {
+                        animatorEstante.SetTrigger("tPlay");
+                        animatorTotem.SetTrigger("tPlay");
 
-                        animatorEstante.Play("EstanteCair");
-                        animatorTotem.Play("TotemEntrance");
+
+                    }
+                    break;
+                case 2:
+                    if (animatorGiraGira != null && animatorTotem != null)
+                    {
+                        animatorGiraGira.SetTrigger("tPlay");
+                        animatorTotem.SetTrigger("tPlay");
+
 
                     }
                     break;
@@ -51,7 +120,7 @@ public class DectarEntrada : MonoBehaviour
                     {
                         if (animatorTotem != null)
                         {
-                            animatorTotem.Play("TotemEntrance");
+                            animatorTotem.SetTrigger("tPlay");
                         }
                     }
                     break;
@@ -61,4 +130,6 @@ public class DectarEntrada : MonoBehaviour
 
         }
     }
+
+
 }

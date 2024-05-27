@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portinha: {fileID: 0}
-  excluir: {fileID: 0}
+  puzzle: {fileID: 0}
+  fase: 0
+  round: 0
 --- !u!54 &1022273978945485585
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -10,16 +10,28 @@ public class Totem : MonoBehaviour
 
     //porta do puzzle atual
     public Porta portinha;
-    public GameObject excluir;
+    public DectarEntrada puzzle;
+    Animator anim;
 
+    public int fase;
+    public int round;
     //pegar animacao da porta aqui, excluir o script da porta
 
+    private void OnEnable()
+    {
+        anim = GetComponentInChildren<Animator>();
+
+       
+    }
 
     public void fazerOsTrem()
     {
+        anim.SetTrigger("tBack");
         portinha.condicao = true;
         GameController.instance.addScore(10);
-        Destroy(excluir);
-    }
+        puzzle.item.SetActive(false);
+       
+        
 
+    }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class MesaCorte : MonoBehaviour
 {
     public float contador;
     public bool podeContar;
+    public bool temItemPraCortar;
     public GameObject itemPraCortar;
     public GameObject itemCortado;
 
@@ -19,6 +21,16 @@ public class MesaCorte : MonoBehaviour
 
     public Slider slider;
 
+
+    private void OnEnable()
+    {
+        podeContar = false;
+        jaCortou = false;
+        contador = 0;
+        slider.value = 0;
+        totem.SetActive(false);
+        temItemPraCortar = false;
+    }
 
     // Update is called once per frame
     void Update()
@@ -36,6 +48,7 @@ public class MesaCorte : MonoBehaviour
                 contador = 0;
                 podeContar = false;
                 jaCortou = true;
+                temItemPraCortar = false;
             }
 
         }
@@ -55,6 +68,7 @@ public class MesaCorte : MonoBehaviour
                 itemPraCortar.transform.position = posItemCortar.position;
                 itemPraCortar.transform.parent = transform;
                 itemPraCortar.SetActive(false);
+                temItemPraCortar = true;
                 podeContar = true;
             }
 
@@ -65,7 +79,11 @@ public class MesaCorte : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if (temItemPraCortar)
+            {
             contador += Time.deltaTime;
+
+            }
         }
     }
 

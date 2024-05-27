@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 3718385241967278599}
   - component: {fileID: 608554784748035832}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Cesta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

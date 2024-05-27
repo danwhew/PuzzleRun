@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 2284987391553428859}
   - component: {fileID: 1700017709954712867}
   m_Layer: 0
-  m_Name: pPeperoniX
+  m_Name: pCogumeloX
   m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -310,63 +310,63 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6287212957481626881}
     m_Modifications:
-    - target: {fileID: 7324181317082007831, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
+    - target: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.9996746
       objectReference: {fileID: 0}
-    - target: {fileID: 7324181317082007831, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
+    - target: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.36
       objectReference: {fileID: 0}
-    - target: {fileID: 7324181317082007831, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
+    - target: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
       propertyPath: m_LocalPosition.z
       value: -2.047168
       objectReference: {fileID: 0}
-    - target: {fileID: 7324181317082007831, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
+    - target: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7324181317082007831, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
+    - target: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 7324181317082007831, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
+    - target: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 7324181317082007831, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
+    - target: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 7324181317082007831, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
+    - target: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7324181317082007831, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
+    - target: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7324181317082007831, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
+    - target: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8630012477096465623, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
+    - target: {fileID: 8630012477096465623, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
       propertyPath: m_Name
-      value: Peperoni
+      value: Cogumelo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
 --- !u!1 &6928851450831636808 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8630012477096465623, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8630012477096465623, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
   m_PrefabInstance: {fileID: 1723699091168501151}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8236933268306056328 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7324181317082007831, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
   m_PrefabInstance: {fileID: 1723699091168501151}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2610342041232471733

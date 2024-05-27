@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     //interacao com itens
     public GameObject item;
     public Transform posItem;
-    public GameObject paiDoItem;
     public GameObject paiInicialDoItem;
     public Vector3 posItemInicial;
     public bool podePegar;
@@ -149,8 +148,12 @@ public class Player : MonoBehaviour
             {
                 audioSource.PlayOneShot(audios[0]);
 
+                if(other.transform.parent.parent != null)
+                {
+                paiInicialDoItem = other.transform.parent.parent.gameObject;
 
-                posItemInicial = other.transform.position;
+                }
+                //posItemInicial = other.transform.position;
                 item = other.transform.parent.gameObject;
                 item.transform.parent = this.gameObject.transform;
                 item.transform.position = posItem.position;
@@ -160,6 +163,8 @@ public class Player : MonoBehaviour
 
             }
         }
+
+
 
         if (other.CompareTag("CameraMata"))
         {
@@ -183,7 +188,7 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if (other.CompareTag("NovaFase"))
+       /* if (other.CompareTag("NovaFase"))
         {
 
             //other.gameObject.SetActive(false);
@@ -203,30 +208,9 @@ public class Player : MonoBehaviour
 
             GameController.instance.atualizarFase();
             GameController.instance.atualizarRound();
-        }
+        }*/
     }
 
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Item") || other.CompareTag("ItemErrado"))
-        {
-            if (podePegar == true)
-            {
-                audioSource.PlayOneShot(audios[0]);
-
-
-                posItemInicial = other.transform.position;
-                item = other.transform.parent.gameObject;
-                item.transform.parent = this.gameObject.transform;
-                item.transform.position = posItem.position;
-
-                peguei = true;
-                podePegar = false;
-
-            }
-        }
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -239,6 +223,11 @@ public class Player : MonoBehaviour
                 //acessa o totem e ativa as funcionalidades dele
                 Totem totemTemp;
                 totemTemp = collision.gameObject.GetComponentInParent<Totem>();
+                
+                faseEuTo = totemTemp.fase;
+                roundEuTo = totemTemp.round;
+                GameController.instance.atualizarFase();
+                GameController.instance.atualizarRound();
                 totemTemp.fazerOsTrem();
 
                 //se o player colidir com o totem e puder dropar um objeto
@@ -248,36 +237,28 @@ public class Player : MonoBehaviour
                     audioSource.PlayOneShot(audios[0]);
 
                     //colisor temporario do item 
-                    Collider coliderTemp;
 
                     //acessa a cesta
                     GameObject CestaTemp;
                     CestaTemp = GameObject.FindGameObjectWithTag("Cesta");
 
 
+                    
+
                     //se a cesta existir
-                    if (CestaTemp != null)
+                    if (CestaTemp != null && paiInicialDoItem != null)
                     {
                         //aqui o colisor do item eh desligado e ele fica parenteado na cesta
-                        coliderTemp = item.GetComponentInChildren<Collider>();
-                        coliderTemp.enabled = false;
-                        item.transform.position = CestaTemp.transform.position + new Vector3(0, 0.4f, 0);
-                        item.transform.parent = CestaTemp.transform;
+
+                        
+                        item.transform.parent = paiInicialDoItem.transform;
+                       // item.transform.position = posItemInicial;
                         item = null;
 
                     }
-                    else
-                    {
-                        Destroy(item);
-                    }
+                    
                 }
-                else
-                {
-                    Destroy(item);
-                }
-
-
-
+                
                 dropei = true;
                 podeDropar = false;
 

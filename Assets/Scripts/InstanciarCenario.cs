@@ -44,7 +44,6 @@ public class InstanciarCenario : MonoBehaviour
 
         teste.SetActive(true);
 
-        //GameObject cloneTile = Instantiate(tiles[0], anchorPosTile.position, Quaternion.identity, transform.parent);
 
     }
 
@@ -54,24 +53,28 @@ public class InstanciarCenario : MonoBehaviour
     {
         
 
-        //GameObject cloneTile = Instantiate(puzzlesColeta[0], posPuzzle.position, Quaternion.identity, transform.parent);
 
         GameObject clone = Pool.poolerInstance.puzzlesColeta[GameController.instance.indexPuzzlesColeta];
 
-        Instantiate(clone, posPuzzle.position, Quaternion.identity, transform.parent);
+        clone.transform.position = posPuzzle.transform.position;
+        clone.SetActive(true);
+
+        //Instantiate(clone, posPuzzle.position, Quaternion.identity, transform.parent);
 
         GameController.instance.indexPuzzlesColeta++;
+       
+
     }
 
     public void instanciarPuzzlesFaseMontagem()
     {
         
 
-        //GameObject cloneTile = Instantiate(puzzlesMontagem[0], posPuzzle.position, Quaternion.identity, transform.parent);
 
         GameObject clone = Pool.poolerInstance.puzzlesMontagem[GameController.instance.indexPuzzlesMontagem];
-
-        Instantiate(clone, posPuzzle.position, Quaternion.identity, transform.parent);
+        clone.transform.position = posPuzzle.transform.position;
+        clone.SetActive(true);
+        // Instantiate(clone, posPuzzle.position, Quaternion.identity, transform.parent);
 
         GameController.instance.indexPuzzlesMontagem++;
       
