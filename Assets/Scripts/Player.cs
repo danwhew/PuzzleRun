@@ -22,7 +22,6 @@ public class Player : MonoBehaviour
     public float timer;
     public float cooldownItens = 2;
 
-    public GameObject cesta;
 
     [Header("---Movimentacao---")]
     //movimentacao
@@ -54,11 +53,11 @@ public class Player : MonoBehaviour
     public bool cheat5 = false;
 
     [Header("---Temp---")]
-    GameObject CestaTemp;
-    int quantidadeChildren;
 
     public int faseEuTo = 1;
     public int roundEuTo = 1;
+
+    public bool podeGrudar;
 
 
     void Start()
@@ -70,7 +69,6 @@ public class Player : MonoBehaviour
         // Salvar a cor original do jogador
         originalColor = playerRenderer.material.color;
 
-        CestaTemp = GameObject.FindGameObjectWithTag("Cesta");
     }
 
 
@@ -148,9 +146,9 @@ public class Player : MonoBehaviour
             {
                 audioSource.PlayOneShot(audios[0]);
 
-                if(other.transform.parent.parent != null)
+                if (other.transform.parent.parent != null)
                 {
-                paiInicialDoItem = other.transform.parent.parent.gameObject;
+                    paiInicialDoItem = other.transform.parent.parent.gameObject;
 
                 }
                 //posItemInicial = other.transform.position;
@@ -187,28 +185,6 @@ public class Player : MonoBehaviour
             }
             Destroy(other.gameObject);
         }
-
-       /* if (other.CompareTag("NovaFase"))
-        {
-
-            //other.gameObject.SetActive(false);
-
-            quantidadeChildren = CestaTemp.transform.childCount;
-
-            for (int i = 1; i < quantidadeChildren; i++)
-            {
-                Destroy(CestaTemp.transform.GetChild(i).gameObject);
-            }
-
-            AlteraFase altTemp;
-            altTemp = other.GetComponentInParent<AlteraFase>();
-
-            faseEuTo = altTemp.fasePlayer;
-            roundEuTo = altTemp.roundPlayer;
-
-            GameController.instance.atualizarFase();
-            GameController.instance.atualizarRound();
-        }*/
     }
 
 
@@ -218,49 +194,72 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Drop"))
         {
             //se o player tiver segurando algum item
-            if (item != null)
+            if (item != null && podeDropar == true)
             {
+
+
+                //audio
+                audioSource.PlayOneShot(audios[0]);
+
+                //acessa a cesta
+
+
+                if (faseEuTo == 1)
+                {
+                    Cesta cestaScript = GameObject.FindGameObjectWithTag("Cesta").GetComponent<Cesta>();
+
+                    if (cestaScript != null)
+                    {
+                        string nomeItem;
+                        nomeItem = item.name;
+
+                        cestaScript.Preencher(nomeItem);
+
+                    }
+
+
+                }
+                else
+                {
+                    Pizza pizzaScript = GameObject.FindGameObjectWithTag("Pizza").GetComponent<Pizza>();
+
+                    if (pizzaScript != null)
+                    {
+                        string nomeItem;
+                        nomeItem = item.name;
+
+                        pizzaScript.Preencher(nomeItem);
+
+                    }
+                }
+
+
+
+
+                if (paiInicialDoItem != null)
+                {
+                    item.transform.parent = paiInicialDoItem.transform;
+                    item = null;
+
+                }
+
+
+
                 //acessa o totem e ativa as funcionalidades dele
                 Totem totemTemp;
                 totemTemp = collision.gameObject.GetComponentInParent<Totem>();
-                
+
                 faseEuTo = totemTemp.fase;
                 roundEuTo = totemTemp.round;
+
                 GameController.instance.atualizarFase();
                 GameController.instance.atualizarRound();
+
                 totemTemp.fazerOsTrem();
 
-                //se o player colidir com o totem e puder dropar um objeto
-                if (podeDropar == true)
-                {
-                    //audio
-                    audioSource.PlayOneShot(audios[0]);
-
-                    //colisor temporario do item 
-
-                    //acessa a cesta
-                    GameObject CestaTemp;
-                    CestaTemp = GameObject.FindGameObjectWithTag("Cesta");
-
-
-                    
-
-                    //se a cesta existir
-                    if (CestaTemp != null && paiInicialDoItem != null)
-                    {
-                        //aqui o colisor do item eh desligado e ele fica parenteado na cesta
-
-                        
-                        item.transform.parent = paiInicialDoItem.transform;
-                       // item.transform.position = posItemInicial;
-                        item = null;
-
-                    }
-                    
-                }
-                
                 dropei = true;
                 podeDropar = false;
+                podeGrudar = true;
 
             }
 
@@ -292,12 +291,13 @@ public class Player : MonoBehaviour
 
             Debug.Log("tocolidinocom forno");
 
-            if (item != null)
+            if (item != null && podeGrudar == true)
             {
                 item.transform.parent = null;
                 item = null;
                 dropei = true;
                 podeDropar = false;
+                podeGrudar = false;
 
             }
 
@@ -308,12 +308,13 @@ public class Player : MonoBehaviour
         {
             Debug.Log("tocolidinocomamesadecorte");
 
-            if (item != null)
+            if (item != null && podeGrudar == true)
             {
                 dropei = true;
                 podeDropar = false;
                 item.transform.parent = null;
                 item = null;
+                podeGrudar = false;
 
             }
 
@@ -341,7 +342,7 @@ public class Player : MonoBehaviour
                     if (item != null)
                     {
                         item.transform.position = new Vector3(item.transform.position.x, posItemInicial.y, item.transform.position.z);
-                        item.transform.parent = null;
+                        item.transform.parent = paiInicialDoItem.transform;
                         item = null;
                         dropei = true;
                         podeDropar = false;

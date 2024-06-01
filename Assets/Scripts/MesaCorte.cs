@@ -9,27 +9,31 @@ public class MesaCorte : MonoBehaviour
     public float contador;
     public bool podeContar;
     public bool temItemPraCortar;
-    public GameObject itemPraCortar;
-    public GameObject itemCortado;
+    public GameObject item;
+    
 
     public Transform posItemCortar;
     public Transform posItemCortado;
     public GameObject totem;
 
+    public Animator facaAnimator;
     public Animator totemAnimator;
+    public GameObject ps;
     public bool jaCortou = false;
 
-    public Slider slider;
+    public Slider slider;    
 
 
     private void OnEnable()
     {
+        
         podeContar = false;
         jaCortou = false;
         contador = 0;
         slider.value = 0;
-        totem.SetActive(false);
         temItemPraCortar = false;
+        item.transform.GetChild(1).gameObject.SetActive(true);
+        item.transform.GetChild(2).gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -41,14 +45,18 @@ public class MesaCorte : MonoBehaviour
 
             if (contador >= 2f)
             {
-                itemPraCortar.SetActive(true);
+                facaAnimator.SetBool("bAbrir",false);
+                item.transform.GetChild(1).gameObject.SetActive(false);
+                item.transform.GetChild(2).gameObject.SetActive(true);
+                item.SetActive(true);
                 totem.SetActive(true);
-                totemAnimator.Play("TotemEntrance");
-                itemPraCortar.transform.position = posItemCortado.position;
+                totemAnimator.SetTrigger("tPlay");
+                item.transform.position = posItemCortado.position;
                 contador = 0;
                 podeContar = false;
                 jaCortou = true;
                 temItemPraCortar = false;
+                ps.SetActive(false);
             }
 
         }
@@ -64,10 +72,10 @@ public class MesaCorte : MonoBehaviour
         {
             if (other.CompareTag("Item"))
             {
-                itemPraCortar = other.transform.parent.gameObject;
-                itemPraCortar.transform.position = posItemCortar.position;
-                itemPraCortar.transform.parent = transform;
-                itemPraCortar.SetActive(false);
+                item = other.transform.parent.gameObject;
+                item.transform.position = posItemCortar.position;
+                item.transform.parent = transform;
+                item.SetActive(false);
                 temItemPraCortar = true;
                 podeContar = true;
             }
@@ -81,9 +89,21 @@ public class MesaCorte : MonoBehaviour
         {
             if (temItemPraCortar)
             {
-            contador += Time.deltaTime;
+                facaAnimator.SetBool("bAbrir", true);
+                contador += Time.deltaTime;
+                ps.SetActive(true);
 
             }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+
+            facaAnimator.SetBool("bAbrir", false);
+            ps.SetActive(false);
         }
     }
 

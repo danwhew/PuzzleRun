@@ -1,0 +1,600 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1918872688879513471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 97799849465608560}
+  m_Layer: 0
+  m_Name: PeperoniCortado
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &97799849465608560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918872688879513471}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1664735017539229922}
+  - {fileID: 1558780487801209870}
+  - {fileID: 2654292210478058544}
+  - {fileID: 9082325687820319903}
+  - {fileID: 7210436401101487801}
+  - {fileID: 5846090974422705436}
+  - {fileID: 7624577824050746045}
+  - {fileID: 3270954540513320213}
+  - {fileID: 5299782362137652835}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1193712084004192009
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 97799849465608560}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.165
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.084
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_Name
+      value: PeperoniCortado
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+--- !u!4 &1664735017539229922 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+  m_PrefabInstance: {fileID: 1193712084004192009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1309245554715190245
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 97799849465608560}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.07800002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.058
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_Name
+      value: PeperoniCortado (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+--- !u!4 &1558780487801209870 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+  m_PrefabInstance: {fileID: 1309245554715190245}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2548837066198543323
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 97799849465608560}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.095999986
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.033
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9578664
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.019011091
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.010695348
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.28638467
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 2.438
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0.551
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -33.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_Name
+      value: PeperoniCortado (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+--- !u!4 &2654292210478058544 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+  m_PrefabInstance: {fileID: 2548837066198543323}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3093544883823196926
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 97799849465608560}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.336
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_Name
+      value: PeperoniCortado (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+--- !u!4 &3270954540513320213 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+  m_PrefabInstance: {fileID: 3093544883823196926}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5622219151870593416
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 97799849465608560}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.184
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.75219214
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.27237654
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.59676194
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.062394664
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 19.59
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 81.493
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 26.404
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_Name
+      value: PeperoniCortado (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+--- !u!4 &5299782362137652835 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+  m_PrefabInstance: {fileID: 5622219151870593416}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6245302706935186167
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 97799849465608560}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.183
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_Name
+      value: PeperoniCortado (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+--- !u!4 &5846090974422705436 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+  m_PrefabInstance: {fileID: 6245302706935186167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7177089402773854546
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 97799849465608560}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.039
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.072
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.093
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7867355
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.14501554
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.54650676
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.2476857
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 2.438
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 68.843
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -33.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_Name
+      value: PeperoniCortado (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+--- !u!4 &7210436401101487801 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+  m_PrefabInstance: {fileID: 7177089402773854546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7945836691000980822
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 97799849465608560}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.229
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.183
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_Name
+      value: PeperoniCortado (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+--- !u!4 &7624577824050746045 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+  m_PrefabInstance: {fileID: 7945836691000980822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8755101488093731700
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 97799849465608560}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.179
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.066
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98519313
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.042174432
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.09509432
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.13628227
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -6.259
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -10.191
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -15.193
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_Name
+      value: PeperoniCortado (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+--- !u!4 &9082325687820319903 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+  m_PrefabInstance: {fileID: 8755101488093731700}
+  m_PrefabAsset: {fileID: 0}

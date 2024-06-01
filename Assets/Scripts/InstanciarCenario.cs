@@ -59,8 +59,6 @@ public class InstanciarCenario : MonoBehaviour
         clone.transform.position = posPuzzle.transform.position;
         clone.SetActive(true);
 
-        //Instantiate(clone, posPuzzle.position, Quaternion.identity, transform.parent);
-
         GameController.instance.indexPuzzlesColeta++;
        
 
@@ -74,7 +72,6 @@ public class InstanciarCenario : MonoBehaviour
         GameObject clone = Pool.poolerInstance.puzzlesMontagem[GameController.instance.indexPuzzlesMontagem];
         clone.transform.position = posPuzzle.transform.position;
         clone.SetActive(true);
-        // Instantiate(clone, posPuzzle.position, Quaternion.identity, transform.parent);
 
         GameController.instance.indexPuzzlesMontagem++;
       

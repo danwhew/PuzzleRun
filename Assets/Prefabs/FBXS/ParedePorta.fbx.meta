@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: RefAtlas
+    second: {fileID: 2100000, guid: 9dccb9a72d8d14f43aea3da1d6989c6b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: TilesAtlas
     second: {fileID: 2100000, guid: 9dccb9a72d8d14f43aea3da1d6989c6b, type: 2}
   materials:

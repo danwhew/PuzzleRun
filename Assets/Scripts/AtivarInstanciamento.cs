@@ -8,7 +8,6 @@ public class AtivarInstanciamento : MonoBehaviour
 {
     public InstanciarCenario pai;
     public Transform posAlteradorDeFase;
-    public GameObject alteraFase;
 
 
     private void OnTriggerEnter(Collider other)
@@ -18,35 +17,37 @@ public class AtivarInstanciamento : MonoBehaviour
 
         if (other.CompareTag("End"))
         {
-           
+
             pai.instanciar();
             pai.initTeste();
 
+          /*  Cesta cesta;
+            Pizza pizza;
+            cesta = GameObject.FindGameObjectWithTag("Cesta").GetComponent<Cesta>();
+            pizza = GameObject.FindGameObjectWithTag("Cesta").GetComponent<Pizza>();*/
 
-           
-           GameController.instance.contador++;
+
+            GameController.instance.contador++;
 
 
 
-           if (GameController.instance.round == 1)
+            if (GameController.instance.round == 1)
             {
-               
+
                 if (GameController.instance.fase == 1)
                 {
-                    if (GameController.instance.contador  == GameController.instance.quantidadePuzzlesF1R1)
+                    if (GameController.instance.contador == GameController.instance.quantidadePuzzlesF1R1)
                     {
                         GameController.instance.passou = true;
-                        
+
 
                     }
 
                     if (GameController.instance.contador > GameController.instance.quantidadePuzzlesF1R1)
                     {
-                        
                         GameController.instance.fase = 2;
                         GameController.instance.contador = 1;
 
-                       // instanciarAlteradorDeFases(2,1);
 
                     }
 
@@ -64,17 +65,16 @@ public class AtivarInstanciamento : MonoBehaviour
 
                     if (GameController.instance.contador > GameController.instance.quantidadePuzzlesF2R1)
                     {
-                        //resetando
+                        //cesta.Esvaziar();
+                        
+
                         Pool.poolerInstance.loadPuzzlesRound();
                         GameController.instance.fase = 1;
-                        
+
                         GameController.instance.indexPuzzlesColeta = 0;
                         GameController.instance.indexPuzzlesMontagem = 0;
                         GameController.instance.round = 2;
                         GameController.instance.contador = 1;
-
-                       // instanciarAlteradorDeFases(1,2);
-
                     }
 
                 }
@@ -96,7 +96,6 @@ public class AtivarInstanciamento : MonoBehaviour
                     {
                         GameController.instance.fase = 2;
                         GameController.instance.contador = 1;
-                      //  instanciarAlteradorDeFases(2,2);
                     }
 
                 }
@@ -113,16 +112,17 @@ public class AtivarInstanciamento : MonoBehaviour
 
                     if (GameController.instance.contador > GameController.instance.quantidadePuzzlesF2R2)
                     {
+                      //  cesta.Esvaziar();
+
                         Pool.poolerInstance.loadPuzzlesRound();
                         GameController.instance.fase = 1;
                         GameController.instance.indexPuzzlesColeta = 0;
                         GameController.instance.indexPuzzlesMontagem = 0;
                         GameController.instance.round = 3;
-                        
+
 
                         GameController.instance.contador = 1;
 
-                      //  instanciarAlteradorDeFases(1, 3);
                     }
 
                 }
@@ -142,7 +142,6 @@ public class AtivarInstanciamento : MonoBehaviour
 
                     if (GameController.instance.contador > GameController.instance.quantidadePuzzlesF1R3)
                     {
-                       // instanciarAlteradorDeFases(2, 3);
                         GameController.instance.fase = 2;
 
                         GameController.instance.contador = 1;
@@ -161,14 +160,15 @@ public class AtivarInstanciamento : MonoBehaviour
 
                     if (GameController.instance.contador > GameController.instance.quantidadePuzzlesF2R3)
                     {
-                        
-                      //  instanciarAlteradorDeFases(1,3);
+                       /* cesta.Esvaziar();
+                        pizza.Esvaziar();*/
+
                         Pool.poolerInstance.loadPuzzlesRound();
                         GameController.instance.fase = 1;
                         GameController.instance.indexPuzzlesColeta = 0;
                         GameController.instance.indexPuzzlesMontagem = 0;
                         GameController.instance.round++;
-                        
+
                         GameController.instance.contador = 1;
                     }
 
@@ -178,28 +178,6 @@ public class AtivarInstanciamento : MonoBehaviour
         }
 
     }
-    public void instanciarAlteradorDeFases(int fase, int round)
-    {
 
-
-        GameObject altTemp;
-        altTemp = Pool.poolerInstance.getAlteradorDeFases();
-
-
-
-        if (altTemp != null)
-        {
-            altTemp.transform.position = posAlteradorDeFase.position;
-            AlteraFase altFaseScript = altTemp.GetComponent<AlteraFase>();
-            altFaseScript.fasePlayer = fase;
-            altFaseScript.roundPlayer = round;
-            
-            altTemp.SetActive(true);
-        }
-
-        
-
-
-    }
 
 }

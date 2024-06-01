@@ -19,6 +19,7 @@ TagManager:
   - TileBase
   - MesaCorte
   - Puzzle
+  - Pizza
   layers:
   - Default
   - TransparentFX

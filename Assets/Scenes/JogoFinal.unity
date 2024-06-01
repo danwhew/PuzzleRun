@@ -1145,71 +1145,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1661251664}
   m_SourcePrefab: {fileID: 100100000, guid: b7995cc64710572418c5c5c92a58ccdb, type: 3}
---- !u!1001 &538123899
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 393710789915510867, guid: 74f980b3dff3c0144b148498b6191398, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4984621460166118945, guid: 74f980b3dff3c0144b148498b6191398, type: 3}
-      propertyPath: m_Name
-      value: pAbrirMassaPizza
-      objectReference: {fileID: 0}
-    - target: {fileID: 4984621460166118945, guid: 74f980b3dff3c0144b148498b6191398, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287212957481626881, guid: 74f980b3dff3c0144b148498b6191398, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287212957481626881, guid: 74f980b3dff3c0144b148498b6191398, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287212957481626881, guid: 74f980b3dff3c0144b148498b6191398, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287212957481626881, guid: 74f980b3dff3c0144b148498b6191398, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287212957481626881, guid: 74f980b3dff3c0144b148498b6191398, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287212957481626881, guid: 74f980b3dff3c0144b148498b6191398, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287212957481626881, guid: 74f980b3dff3c0144b148498b6191398, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287212957481626881, guid: 74f980b3dff3c0144b148498b6191398, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287212957481626881, guid: 74f980b3dff3c0144b148498b6191398, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6287212957481626881, guid: 74f980b3dff3c0144b148498b6191398, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 74f980b3dff3c0144b148498b6191398, type: 3}
 --- !u!1001 &541810747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1615,7 +1550,6 @@ MonoBehaviour:
   dropei: 0
   timer: 0
   cooldownItens: 0.43
-  cesta: {fileID: 0}
   velocidade: 81.8
   rb: {fileID: 795007355}
   podeAndar: 1
@@ -1627,7 +1561,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9361e2b829f0ff442b26e680269a44bf, type: 3}
   cheat5: 1
   faseEuTo: 1
-  roundEuTo: 1
+  roundEuTo: 2
+  podeGrudar: 1
 --- !u!54 &795007355
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2840,6 +2775,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 795007353}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1162992634
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 171731062183224057, guid: 44697f4519b0db94f81364773ca42dc8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 171731062183224057, guid: 44697f4519b0db94f81364773ca42dc8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 171731062183224057, guid: 44697f4519b0db94f81364773ca42dc8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 171731062183224057, guid: 44697f4519b0db94f81364773ca42dc8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 171731062183224057, guid: 44697f4519b0db94f81364773ca42dc8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 171731062183224057, guid: 44697f4519b0db94f81364773ca42dc8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 171731062183224057, guid: 44697f4519b0db94f81364773ca42dc8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 171731062183224057, guid: 44697f4519b0db94f81364773ca42dc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 171731062183224057, guid: 44697f4519b0db94f81364773ca42dc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 171731062183224057, guid: 44697f4519b0db94f81364773ca42dc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 928926703579331934, guid: 44697f4519b0db94f81364773ca42dc8, type: 3}
+      propertyPath: m_Name
+      value: Tomate
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479014109239930234, guid: 44697f4519b0db94f81364773ca42dc8, type: 3}
+      propertyPath: m_Name
+      value: PizzaMonta
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724392439985062597, guid: 44697f4519b0db94f81364773ca42dc8, type: 3}
+      propertyPath: m_Name
+      value: Queijo
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 5511997573724486300, guid: 44697f4519b0db94f81364773ca42dc8, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 44697f4519b0db94f81364773ca42dc8, type: 3}
 --- !u!1 &1184827402
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,7 +4997,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileBase: {fileID: 480679759}
-  trocadorFases: {fileID: 7152160997712247419, guid: 41f614bb3b9aa6e43af3fea26324597f, type: 3}
   maxTilesBase: 6
   ehPeperoni: 0
   puzzlesQueijo:
@@ -5034,12 +5034,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   listaTilesBases: []
-  trocadoresFases:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  pizzas:
+  - {fileID: 7735543117672071191, guid: 11aefd6b5a7c48448b52a9dc3964e32b, type: 3}
+  - {fileID: 7735543117672071191, guid: 5da21983e8581a34d9b6e3134833f60c, type: 3}
+  - {fileID: 7735543117672071191, guid: 92f4f47c00c7b8c49b36d06b49dff818, type: 3}
+  - {fileID: 7735543117672071191, guid: f0fcd21da54fc9447bc6ec0543df184c, type: 3}
+  - {fileID: 7735543117672071191, guid: 5628e4961d0d55045886b49278f86bd9, type: 3}
+  - {fileID: 7735543117672071191, guid: a1b6c4dec9d145b45854bbda33600204, type: 3}
 --- !u!1 &1786612172
 GameObject:
   m_ObjectHideFlags: 0
@@ -5666,11 +5667,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4072964550224087881, guid: 1422647956471824dbbc00bfa4fbdd32, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.55
+      value: 11.74
       objectReference: {fileID: 0}
     - target: {fileID: 4072964550224087881, guid: 1422647956471824dbbc00bfa4fbdd32, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4072964550224087881, guid: 1422647956471824dbbc00bfa4fbdd32, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7392,5 +7393,5 @@ SceneRoots:
   - {fileID: 1391434633113390178}
   - {fileID: 6058799047127774802}
   - {fileID: 1986095094}
+  - {fileID: 1162992634}
   - {fileID: 1973895379}
-  - {fileID: 538123899}

@@ -15,8 +15,10 @@ public class DectarEntrada : MonoBehaviour
     public Animator animatorEstante;
     public Animator animatorTotem;
     public Animator animatorGiraGira;
-    public GameObject cesta;
+    public Animator animatorTotemFinal;
+
     public Transform posCesta;
+    public Transform posPizza;
 
     public int puzzlesIdentity;
 
@@ -25,22 +27,43 @@ public class DectarEntrada : MonoBehaviour
     public int fase;
     public int round;
 
-    public Totem tot;
+    public bool coleta;
 
+    public bool jaFezP3;
 
     //1 - da queda
     //2 - da plataforma giratoria
+    //3 - forno
 
     private void OnEnable()
     {
-        posItemInicial = item.transform.position;
+        jaFezP3 = false;
 
-        item.SetActive(true);
+        if (puzzlesIdentity != 3)
+        {
+            posItemInicial = item.transform.position;
+            item.SetActive(true);
+
+        }
+        else
+        {
+            posItemInicial = posPizza.transform.position;
+        }
+
+
+
+
+
+
+
+
 
         if (GameController.instance != null)
         {
             if (GameController.instance.passou == true)
             {
+
+
                 fase = GameController.instance.fase;
                 round = GameController.instance.round;
 
@@ -71,62 +94,262 @@ public class DectarEntrada : MonoBehaviour
 
         }
 
+
+
     }
 
 
     private void OnDisable()
     {
-        item.transform.position = posItemInicial;
+        if (puzzlesIdentity != 3)
+        {
+
+            if (posItemInicial != null)
+            {
+                item.transform.position = posItemInicial;
+                item.SetActive(false);
+
+            }
+        }
+        else
+        {
+            if (item != null)
+            {
+                item.transform.position = posItemInicial;
+
+            }
+        }
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag("Player"))
+
+        if (puzzlesIdentity != 3)
         {
-
-            // Debug.Log("Player entrou neste puzzle");
-
-            if (posCesta != null)
+            if (other.CompareTag("Player"))
             {
-                cesta = GameObject.FindGameObjectWithTag("Cesta").gameObject;
-                cesta.transform.position = posCesta.position;
+                if (coleta)
+                {
+                    casoColeta();
+                }
+                else
+                {
+                    casoMontagem();
+                }
 
             }
 
-
-            switch (puzzlesIdentity)
+        }
+        else
+        {
+            if (other.CompareTag("Player"))
             {
-                case 1:
-                    if (animatorEstante != null && animatorTotem != null)
-                    {
-                        animatorEstante.SetTrigger("tPlay");
-                        animatorTotem.SetTrigger("tPlay");
+                if (jaFezP3 == false)
+                {
+                    GameObject pizza;
+                    Player playerScript;
+                    Pizza pizzaScript;
+                    playerScript = other.GetComponentInParent<Player>();
 
+
+
+                    pizza = GameObject.FindGameObjectWithTag("Pizza").gameObject;
+                    pizzaScript = pizza.GetComponent<Pizza>();
+
+                    pizzaScript.Esvaziar();
+                    pizza.transform.parent = posPizza.transform;
+                    pizza.gameObject.transform.position = posPizza.position;
+
+
+                    if (playerScript.roundEuTo == 1)
+                    {
+                        item = Pool.poolerInstance.pizzas[0];
 
                     }
-                    break;
-                case 2:
-                    if (animatorGiraGira != null && animatorTotem != null)
+                    else
                     {
-                        animatorGiraGira.SetTrigger("tPlay");
-                        animatorTotem.SetTrigger("tPlay");
-
-
-                    }
-                    break;
-                default:
-                    {
-                        if (animatorTotem != null)
+                        if (Pool.poolerInstance.ehPeperoni == true)
                         {
-                            animatorTotem.SetTrigger("tPlay");
+                            item = Pool.poolerInstance.pizzas[1];
+                        }
+                        else
+                        {
+                            item = Pool.poolerInstance.pizzas[2];
                         }
                     }
-                    break;
+
+
+
+                    item.transform.parent = posPizza.transform;
+                    item.transform.position = posPizza.position;
+
+
+                    item.SetActive(true);
+
+                    animatorTotemFinal.SetTrigger("tPlay");
+                    jaFezP3 = true;
+                }
+
+
+            }
+        }
+
+
+    }
+
+    public void casoColeta()
+    {
+        // Debug.Log("Player entrou neste puzzle");
+
+        GameObject cesta;
+        GameObject pizza;
+
+        pizza = GameObject.FindGameObjectWithTag("Pizza").gameObject;
+        cesta = GameObject.FindGameObjectWithTag("Cesta").gameObject;
+
+        if (posCesta != null)
+        {
+            if (cesta != null)
+            {
+                cesta.transform.position = posCesta.position;
+                cesta.transform.parent = posCesta.transform;
 
             }
 
+
+
+        }
+        else
+        {
+            if (cesta != null)
+            {
+                cesta.transform.parent = null;
+            }
+
+        }
+
+        if (posPizza != null)
+        {
+            if (pizza != null)
+            {
+                pizza.transform.position = posPizza.position;
+                pizza.transform.parent = posPizza.transform;
+            }
+        }
+        else
+        {
+            if (pizza != null)
+            {
+                pizza.transform.parent = null;
+            }
+        }
+
+
+        switch (puzzlesIdentity)
+        {
+            case 1:
+                if (animatorEstante != null && animatorTotem != null)
+                {
+                    animatorEstante.SetTrigger("tPlay");
+                    animatorTotem.SetTrigger("tPlay");
+
+
+                }
+                break;
+            case 2:
+                if (animatorGiraGira != null && animatorTotem != null)
+                {
+                    animatorGiraGira.SetTrigger("tPlay");
+                    animatorTotem.SetTrigger("tPlay");
+
+
+                }
+                break;
+            default:
+                {
+                    if (animatorTotem != null)
+                    {
+                        animatorTotem.SetTrigger("tPlay");
+                    }
+                }
+                break;
+
+        }
+    }
+
+    public void casoMontagem()
+    {
+        // Debug.Log("Player entrou neste puzzle");
+
+        GameObject cesta;
+        GameObject pizza;
+
+        pizza = GameObject.FindGameObjectWithTag("Pizza").gameObject;
+        cesta = GameObject.FindGameObjectWithTag("Cesta").gameObject;
+
+        if (posCesta != null)
+        {
+            if (cesta != null)
+            {
+                cesta.transform.position = posCesta.position;
+                cesta.transform.parent = posCesta.transform;
+
+            }
+
+
+
+        }
+        else
+        {
+            if (cesta != null)
+            {
+                cesta.transform.parent = null;
+            }
+
+        }
+
+        if (posPizza != null)
+        {
+            if (pizza != null)
+            {
+                pizza.transform.position = posPizza.position;
+                pizza.transform.parent = posPizza.transform;
+            }
+        }
+        else
+        {
+            if (pizza != null)
+            {
+                pizza.transform.parent = null;
+            }
+        }
+
+
+        switch (puzzlesIdentity)
+        {
+            case 1:
+                if (animatorEstante != null && animatorTotem != null)
+                {
+                    animatorEstante.SetTrigger("tPlay");
+
+
+                }
+                break;
+            case 2:
+                if (animatorGiraGira != null && animatorTotem != null)
+                {
+                    animatorGiraGira.SetTrigger("tPlay");
+
+
+                }
+                break;
+            default:
+                {
+
+                }
+                break;
 
         }
     }

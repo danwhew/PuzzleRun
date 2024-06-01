@@ -3,7 +3,12 @@ guid: 2a44aad9c9ac4fd498a1d167e1d7f570
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AssetsExtras
+    second: {fileID: 2100000, guid: 0a2470b71ebea1f47bd9d71ea3303ac2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -23,7 +28,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 1
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5

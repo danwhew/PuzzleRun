@@ -26,12 +26,28 @@ public class Totem : MonoBehaviour
 
     public void fazerOsTrem()
     {
+
         anim.SetTrigger("tBack");
         portinha.condicao = true;
         GameController.instance.addScore(10);
+       if(puzzle.puzzlesIdentity != 3)
+        {
         puzzle.item.SetActive(false);
+
+        }
+        else
+        {
+            puzzle.item.transform.position = puzzle.posItemInicial;
+            puzzle.item.transform.parent = puzzle.posPizza;
+            puzzle.item.SetActive(false);
+        }
+        
+
+        
        
         
 
     }
+
+
 }

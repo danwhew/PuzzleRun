@@ -9,7 +9,6 @@ public class Pool : MonoBehaviour
     public static Pool poolerInstance;
 
     public GameObject tileBase;
-    public GameObject trocadorFases;
     GameObject tmp;
     public int maxTilesBase = 6;
     public bool ehPeperoni;
@@ -46,7 +45,8 @@ public class Pool : MonoBehaviour
 
 
     public List<GameObject> listaTilesBases = new List<GameObject>();
-    public GameObject[] trocadoresFases;
+
+    public GameObject[] pizzas;
 
     void Awake()
     {
@@ -63,14 +63,7 @@ public class Pool : MonoBehaviour
 
         }
 
-        for (int i = 0; i < trocadoresFases.Length; i++)
-        {
-
-            tmp = Instantiate(trocadorFases);
-            tmp.SetActive(false);
-            trocadoresFases[i] = tmp;
-
-        }
+        preInstanciar(pizzas);
 
         preInstanciar(puzzlesQueijo);
         preInstanciar(puzzlesTomate);
@@ -111,7 +104,7 @@ public class Pool : MonoBehaviour
         int[] jaGerados = new int[4] { -1, -1, -1, -1 };
         bool ehIgual = false;
 
-        int[] jaGerados2 = new int[3] { -1, -1,-1 };
+        int[] jaGerados2 = new int[3] { -1, -1, -1 };
         bool ehIgual2 = false;
 
 
@@ -197,7 +190,7 @@ public class Pool : MonoBehaviour
     public void loadPuzzlesRound1()
     {
 
-        int[] jaGerados = new int[3] { -1, -1, -1};
+        int[] jaGerados = new int[3] { -1, -1, -1 };
         bool ehIgual = false;
 
         int[] jaGerados2 = new int[2] { -1, -1 };
@@ -286,19 +279,7 @@ public class Pool : MonoBehaviour
         return null;
     }
 
-    public GameObject getAlteradorDeFases()
-    {
-        for (int i = 0; i < trocadoresFases.Length; i++)
-        {
 
-            if (!trocadoresFases[i].activeInHierarchy)
-            {
-                return trocadoresFases[i];
-            }
-
-        }
-        return null;
-    }
 
     public GameObject getPuzzleColeta(int index)
     {

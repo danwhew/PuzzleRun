@@ -183,12 +183,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4340035285579595601}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.91, y: 1.8299999, z: 3.76}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6287212957481626881}
+  m_Father: {fileID: 7344286122064440692}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4927734645750927834
 GameObject:
@@ -254,7 +254,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4700648356392901926}
-  - {fileID: 871861221177941731}
   - {fileID: 4812727648431930978}
   - {fileID: 8236933268306056328}
   - {fileID: 7073941864811616888}
@@ -298,10 +297,13 @@ MonoBehaviour:
   animatorEstante: {fileID: 0}
   animatorTotem: {fileID: 1166420968764206292}
   animatorGiraGira: {fileID: 5550130311796835566}
-  cesta: {fileID: 0}
   posCesta: {fileID: 871861221177941731}
+  posPizza: {fileID: 0}
   puzzlesIdentity: 2
   posItemInicial: {x: 0, y: 0, z: 0}
+  fase: 0
+  round: 0
+  coleta: 1
 --- !u!1001 &1723699091168501151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -399,7 +401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049235451201825997, guid: cbd0685a55bb39542ac7867bf4479c90, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.68
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5049235451201825997, guid: cbd0685a55bb39542ac7867bf4479c90, type: 3}
       propertyPath: m_LocalPosition.z
@@ -435,7 +437,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4743954043466324929, guid: cbd0685a55bb39542ac7867bf4479c90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 871861221177941731}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbd0685a55bb39542ac7867bf4479c90, type: 3}
 --- !u!114 &702435830342290807 stripped
@@ -457,6 +462,11 @@ Animator:
 --- !u!4 &7073941864811616888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5049235451201825997, guid: cbd0685a55bb39542ac7867bf4479c90, type: 3}
+  m_PrefabInstance: {fileID: 2610342041232471733}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7344286122064440692 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4743954043466324929, guid: cbd0685a55bb39542ac7867bf4479c90, type: 3}
   m_PrefabInstance: {fileID: 2610342041232471733}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9195885336749627568
