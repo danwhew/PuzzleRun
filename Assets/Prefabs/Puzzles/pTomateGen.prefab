@@ -147,7 +147,6 @@ MonoBehaviour:
   round: 0
   coleta: 1
   jaFezP3: 0
-  jaLigouTimer: 0
 --- !u!1001 &1723699091168501151
 PrefabInstance:
   m_ObjectHideFlags: 0

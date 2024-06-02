@@ -5724,23 +5724,31 @@ MonoBehaviour:
   puzzlesQueijo:
   - {fileID: 4984621460166118945, guid: 8df103acb3e3b224da49a9b59edede3d, type: 3}
   - {fileID: 4984621460166118945, guid: 04e19f6db2c833b4584b81ea96bb2b54, type: 3}
-  - {fileID: 4984621460166118945, guid: 2606232a56179624885f57eddc15a782, type: 3}
+  - {fileID: 4984621460166118945, guid: 87074aee0907ab94cb628ed29768ac77, type: 3}
   puzzlesTomate:
   - {fileID: 4984621460166118945, guid: 94e0a5b26d6f31b4c931fbc5777f8bf1, type: 3}
+  - {fileID: 4984621460166118945, guid: b26601451a67833489a2af2afccacea0, type: 3}
+  - {fileID: 4984621460166118945, guid: fc98d04138e51cc4ea86e01362c623ce, type: 3}
   puzzlesFarinha:
   - {fileID: 4984621460166118945, guid: ec438ec5a95fbec4c986dabfbe3ef30d, type: 3}
+  - {fileID: 4984621460166118945, guid: 5452f5cfc424ac04faf6d133aea8597a, type: 3}
+  - {fileID: 4984621460166118945, guid: 145999bd48d478e4eac71b42491b3077, type: 3}
   puzzlesPeperoni:
   - {fileID: 4984621460166118945, guid: 73c81469fde447e43bc781713d5131a9, type: 3}
   puzzlesCogumelo:
   - {fileID: 4984621460166118945, guid: 2281f553c25b50c4b9466ac1469708ac, type: 3}
   puzzlesAbrirMassa:
   - {fileID: 4984621460166118945, guid: 74f980b3dff3c0144b148498b6191398, type: 3}
+  - {fileID: 4984621460166118945, guid: b5b2d5253fb5c1c42bc8c97b3fbc8a11, type: 3}
   puzzlesAssarPizza:
   - {fileID: 4984621460166118945, guid: d44ea179a410a7a498b9f4f5ca0850b3, type: 3}
+  - {fileID: 4984621460166118945, guid: e64d66cff52b00542a126521d6975909, type: 3}
   puzzlesCortarTomate:
   - {fileID: 4984621460166118945, guid: c09159f6acdfaf149ba76309501973aa, type: 3}
+  - {fileID: 4984621460166118945, guid: 19d9f3c75b0db044ea3dc0273f2c238e, type: 3}
   puzzlesCortarQueijo:
   - {fileID: 4984621460166118945, guid: 9ac79c43197cafc459e8d1d70b1bba36, type: 3}
+  - {fileID: 4984621460166118945, guid: a71b66ab45cc67848a613940cec68f84, type: 3}
   puzzlesCortarPeperoni:
   - {fileID: 4984621460166118945, guid: b000854e35318654faee8dfbb96d4cc8, type: 3}
   puzzlesCortarCogumelo:

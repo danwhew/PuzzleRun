@@ -116,7 +116,6 @@ MonoBehaviour:
   round: 0
   coleta: 1
   jaFezP3: 0
-  jaLigouTimer: 0
 --- !u!1 &7623138571276218359
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049235451201825997, guid: cbd0685a55bb39542ac7867bf4479c90, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.91
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 5049235451201825997, guid: cbd0685a55bb39542ac7867bf4479c90, type: 3}
       propertyPath: m_LocalPosition.y
@@ -249,7 +248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5049235451201825997, guid: cbd0685a55bb39542ac7867bf4479c90, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.76
+      value: 4.64
       objectReference: {fileID: 0}
     - target: {fileID: 5049235451201825997, guid: cbd0685a55bb39542ac7867bf4479c90, type: 3}
       propertyPath: m_LocalRotation.w
