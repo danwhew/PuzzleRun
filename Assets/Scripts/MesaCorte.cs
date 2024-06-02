@@ -65,7 +65,15 @@ public class MesaCorte : MonoBehaviour
 
     }
 
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GameController.instance.audioSource.time = 0;
+            GameController.instance.audioSource.Play();
+            GameController.instance.audioSource.PlayOneShot(GameController.instance.audios[0]);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -103,7 +111,7 @@ public class MesaCorte : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-
+            GameController.instance.audioSource.Stop();
             facaAnimator.SetBool("bAbrir", false);
             ps.SetActive(false);
         }

@@ -52,10 +52,16 @@ public class GameController : MonoBehaviour
     public int quantidadePuzzlesF1R3 = 4;
     public int quantidadePuzzlesF2R3 = 5;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip[] audios;
 
 
 
-
+    public void audioButtons()
+    {
+        audioSource.PlayOneShot(audios[1]);
+    }
 
 
     void Awake()

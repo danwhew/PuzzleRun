@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
 
     [Header("---Movimentacao---")]
     //movimentacao
+    public Animator animator;
     public float velocidade = 10;
     public Rigidbody rb;
     public bool podeAndar = true;
@@ -63,8 +65,10 @@ public class Player : MonoBehaviour
     public bool podeAparecerBateria;
 
 
+
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         // Pegar o Rigidbody do pr�prio objeto
         rb = GetComponent<Rigidbody>();
         // Pegar o componente Renderer do pr�prio objeto
@@ -78,6 +82,17 @@ public class Player : MonoBehaviour
     void Update()
     {
 
+        if (rb.velocity.magnitude > 1f)
+        {
+
+            animator.SetBool("bParado", false);
+        }
+        else
+        {
+            animator.SetBool("bParado", true);
+        }
+
+        Debug.Log(rb.velocity.magnitude);
 
         // Ativando/desativando o cheat de bateria infinita quando cinco dedos tocarem na tela
         if (Input.touchCount >= 5)
@@ -104,7 +119,8 @@ public class Player : MonoBehaviour
                 podeAndarTimer += Time.deltaTime;
                 if (podeAndarTimer >= 1)
                 {
-                    estrelas.SetActive (false);
+                    estrelas.SetActive(false);
+                    animator.SetBool("bAtordoado", false);
                     podeAndar = true;
                     podeAndarTimer = 0;
                 }
@@ -187,7 +203,7 @@ public class Player : MonoBehaviour
             {
                 bateria = 100;
             }
-           other.transform.parent.gameObject.SetActive(false);
+            other.transform.parent.gameObject.SetActive(false);
         }
     }
 
@@ -272,10 +288,10 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("TotemFinal"))
         {
-            
+
 
             TotemFinal tmp;
-            tmp =  collision.gameObject.GetComponent<TotemFinal>();
+            tmp = collision.gameObject.GetComponent<TotemFinal>();
             tmp.fazerOsTrem();
 
         }
@@ -288,8 +304,9 @@ public class Player : MonoBehaviour
             {
                 // Faz o jogador piscar de branco
                 StartFlash();
-
+                audioSource.PlayOneShot(audios[2]);
                 estrelas.SetActive(true);
+                animator.SetBool("bAtordoado", true);
 
                 // Impede o jogador de andar temporariamente
                 podeAndar = false;
@@ -307,7 +324,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Forno"))
         {
 
-            Debug.Log("tocolidinocom forno");
+            
 
             if (item != null && podeGrudar == true)
             {
@@ -324,10 +341,10 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("MesaCorte"))
         {
-            Debug.Log("tocolidinocomamesadecorte");
-
+            
             if (item != null && podeGrudar == true)
             {
+                
                 dropei = true;
                 podeDropar = false;
                 item.transform.parent = null;

@@ -90,12 +90,24 @@ public class MesaAbrir : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GameController.instance.audioSource.time = 0;
+            GameController.instance.audioSource.Play();
+            GameController.instance.audioSource.PlayOneShot(GameController.instance.audios[0]);
+        }
+    }
+
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             if (temItemPraAbrir)
             {
+
+                
                 contador += Time.deltaTime;
                 itemAnimator.speed = 1;
                 itemAnimator.SetBool("bAbrindo",true);
@@ -112,7 +124,9 @@ public class MesaAbrir : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            itemAnimator.speed = 0;
+
+            GameController.instance.audioSource.Stop();
+           itemAnimator.speed = 0;
             roloAnimator.SetBool("bAbrindo", false);
         }
     }
