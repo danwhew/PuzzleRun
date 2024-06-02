@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
     bool isFlashing = false; // Flag para controlar o estado de piscar
     float flashDuration = 0.2f; // Dura��o do piscar
     float flashTimer = 0f; // Timer para controlar o piscar
+    public GameObject estrelas;
 
     [Header("---Atordoamento---")]
     //game Cheats
@@ -59,6 +60,8 @@ public class Player : MonoBehaviour
 
     public bool podeGrudar;
 
+    public bool podeAparecerBateria;
+
 
     void Start()
     {
@@ -68,7 +71,7 @@ public class Player : MonoBehaviour
         playerRenderer = GetComponentInChildren<Renderer>();
         // Salvar a cor original do jogador
         originalColor = playerRenderer.material.color;
-
+        estrelas.SetActive(false);
     }
 
 
@@ -101,6 +104,7 @@ public class Player : MonoBehaviour
                 podeAndarTimer += Time.deltaTime;
                 if (podeAndarTimer >= 1)
                 {
+                    estrelas.SetActive (false);
                     podeAndar = true;
                     podeAndarTimer = 0;
                 }
@@ -183,7 +187,7 @@ public class Player : MonoBehaviour
             {
                 bateria = 100;
             }
-            Destroy(other.gameObject);
+           other.transform.parent.gameObject.SetActive(false);
         }
     }
 
@@ -191,7 +195,7 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.CompareTag("Drop"))
+        if (collision.gameObject.CompareTag("Drop")) //totem
         {
             //se o player tiver segurando algum item
             if (item != null && podeDropar == true)
@@ -266,12 +270,26 @@ public class Player : MonoBehaviour
         }
 
 
+        if (collision.gameObject.CompareTag("TotemFinal"))
+        {
+            
+
+            TotemFinal tmp;
+            tmp =  collision.gameObject.GetComponent<TotemFinal>();
+            tmp.fazerOsTrem();
+
+        }
+
         if (collision.gameObject.CompareTag("Parede"))
         {
+
+            Debug.Log("parede");
             if (cheat5 == false)
             {
                 // Faz o jogador piscar de branco
                 StartFlash();
+
+                estrelas.SetActive(true);
 
                 // Impede o jogador de andar temporariamente
                 podeAndar = false;

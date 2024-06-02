@@ -20,6 +20,7 @@ TagManager:
   - MesaCorte
   - Puzzle
   - Pizza
+  - TotemFinal
   layers:
   - Default
   - TransparentFX

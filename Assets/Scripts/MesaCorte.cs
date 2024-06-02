@@ -10,8 +10,8 @@ public class MesaCorte : MonoBehaviour
     public bool podeContar;
     public bool temItemPraCortar;
     public GameObject item;
-    
 
+    public GameObject itemCortando;
     public Transform posItemCortar;
     public Transform posItemCortado;
     public GameObject totem;
@@ -26,7 +26,7 @@ public class MesaCorte : MonoBehaviour
 
     private void OnEnable()
     {
-        
+        itemCortando.SetActive(false);
         podeContar = false;
         jaCortou = false;
         contador = 0;
@@ -45,6 +45,7 @@ public class MesaCorte : MonoBehaviour
 
             if (contador >= 2f)
             {
+                itemCortando.SetActive(false);
                 facaAnimator.SetBool("bAbrir",false);
                 item.transform.GetChild(1).gameObject.SetActive(false);
                 item.transform.GetChild(2).gameObject.SetActive(true);
@@ -72,6 +73,7 @@ public class MesaCorte : MonoBehaviour
         {
             if (other.CompareTag("Item"))
             {
+                itemCortando.SetActive(true);
                 item = other.transform.parent.gameObject;
                 item.transform.position = posItemCortar.position;
                 item.transform.parent = transform;

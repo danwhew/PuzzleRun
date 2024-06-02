@@ -193,6 +193,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Estrela
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 1066
+        width: 737
+        height: 778
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf2323564a6fba6449a45887a9d0d93a
+      internalID: 857833557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -206,6 +227,7 @@ TextureImporter:
     nameFileIdTable:
       Blood: 380365668
       Cheese: 647340123
+      Estrela: 857833557
       Sprites_10: 1963429427
       Sprites_3: -478841066
       Sprites_4: -892493969

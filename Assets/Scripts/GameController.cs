@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     public TMP_Text roundText;
     public GameObject derrotaPainel;
     public GameObject menuPausa;
+    public GameObject Tasks;
 
     [Header("Player")]
     public Player player;
@@ -31,21 +32,30 @@ public class GameController : MonoBehaviour
     public int contador = 0;
     public int fase = 1;
     public int round = 1;
+    public bool passou = false; //pra atualizar a fase/round do player atraves do DectarEntrada
+    public bool passou2 = false; //serve pra mudar o tipo de tile base instanciado
+    //serve pra mudar o tipo de puzzle instanciado
+    public int indexPuzzlesColeta;
+    public int indexPuzzlesMontagem;
+
+    [Header("Bateria")]
+    public float timerBateria;
+    public bool ativarTimer;
+    public bool podeInstanciarBateria;
 
 
+    [Header("Quantidade Puzzles")]
     public int quantidadePuzzlesF1R1 = 3;
     public int quantidadePuzzlesF2R1 = 4;
     public int quantidadePuzzlesF1R2 = 4;
     public int quantidadePuzzlesF2R2 = 5;
     public int quantidadePuzzlesF1R3 = 4;
     public int quantidadePuzzlesF2R3 = 5;
-    //
-    
 
-    public int indexPuzzlesColeta;
-    public int indexPuzzlesMontagem;
 
-    public bool passou = false;
+
+
+
 
 
     void Awake()
@@ -90,7 +100,12 @@ public class GameController : MonoBehaviour
             sliderBateria.value = player.bateria;
         }
 
-       
+        
+            timerBateria += Time.deltaTime;
+
+        
+
+
 
     }
 
@@ -116,15 +131,74 @@ public class GameController : MonoBehaviour
 
     public void atualizarFase()
     {
+        if (player.roundEuTo == 1)
+        {
+            if (player.faseEuTo == 1)
+            {
+                LimparTasks();
+                Tasks.transform.GetChild(0).gameObject.SetActive(true);
 
-        faseText.text = "Fase " +  player.faseEuTo.ToString();
+            }
+            else
+            {
+                LimparTasks();
+                Tasks.transform.GetChild(3).gameObject.SetActive(true);
+            }
+
+        }
+        else
+        {
+            if (player.faseEuTo == 1)
+            {
+
+                if (Pool.poolerInstance.ehPeperoni == true)
+                {
+
+                    LimparTasks();
+                    Tasks.transform.GetChild(1).gameObject.SetActive(true);
+
+                }
+                else
+                {
+                    LimparTasks();
+                    Tasks.transform.GetChild(2).gameObject.SetActive(true);
+
+                }
+
+            }
+            else
+            {
+                if (Pool.poolerInstance.ehPeperoni == true)
+                {
+                    LimparTasks();
+                    Tasks.transform.GetChild(4).gameObject.SetActive(true);
+
+                }
+                else
+                {
+                    LimparTasks();
+                    Tasks.transform.GetChild(5).gameObject.SetActive(true);
+
+                }
+            }
+        }
+
+        faseText.text = "Fase " + player.faseEuTo.ToString();
     }
 
     public void atualizarRound()
     {
         roundText.text = "Round " + player.roundEuTo.ToString();
 
-       
+
+    }
+
+    public void LimparTasks()
+    {
+        for (int i = 0; i < Tasks.transform.childCount; i++)
+        {
+            Tasks.transform.GetChild(i).gameObject.SetActive(false);
+        }
     }
 
     public static void resetar()

@@ -8,35 +8,42 @@ public class DectarEntrada : MonoBehaviour
 {
 
 
-    public GameObject item;
+    public Transform posBateria;
+    public GameObject item; //item do puzzle
+    public Totem totem; //totem do puzzle
 
-    public Totem totem;
 
     public Animator animatorEstante;
     public Animator animatorTotem;
-    public Animator animatorGiraGira;
-    public Animator animatorTotemFinal;
+    public Animator animatorGiraGira; //animator da plataforma que gira 360 graus
+    public Animator animatorTotemFinal; //animator do totem da fase do forno
 
-    public Transform posCesta;
-    public Transform posPizza;
+    public Transform posCesta; //posicao que a cesta eh colocada
+    public Transform posPizza; //posicao que a pizza eh colocada
 
-    public int puzzlesIdentity;
-
-    public Vector3 posItemInicial;
-
-    public int fase;
-    public int round;
-
-    public bool coleta;
-
-    public bool jaFezP3;
-
+    public int puzzlesIdentity; //serve pra diferenciar o tipo dos puzzles
     //1 - da queda
     //2 - da plataforma giratoria
     //3 - forno
 
+    public Vector3 posItemInicial; //posicao do item no inicio do puzzle
+
+    public int fase; //fase que o tile foi ativado
+    public int round; // round que o tile foi ativado
+
+    public bool coleta; //pra saber se o puzzle eh de coleta/montagem
+
+    public bool jaFezP3; //pra saber se o puzzle do forno ja foi feito
+
+
+
     private void OnEnable()
     {
+
+        
+
+        
+
         jaFezP3 = false;
 
         if (puzzlesIdentity != 3)
@@ -104,7 +111,7 @@ public class DectarEntrada : MonoBehaviour
         if (puzzlesIdentity != 3)
         {
 
-            if (posItemInicial != null)
+            if (posItemInicial != null && item != null)
             {
                 item.transform.position = posItemInicial;
                 item.SetActive(false);
@@ -126,9 +133,32 @@ public class DectarEntrada : MonoBehaviour
     {
 
 
-        if (puzzlesIdentity != 3)
+        if (other.CompareTag("Player"))
         {
-            if (other.CompareTag("Player"))
+
+
+            if (GameController.instance != null)
+            {
+               
+                
+
+                Player ptempp = other.GetComponentInParent<Player>();
+
+                if (ptempp.podeAparecerBateria == true)
+                {
+                    GameObject tmp;
+                    tmp = Pool.poolerInstance.getBaterias();
+                    tmp.transform.position = posBateria.position;
+                    tmp.SetActive(true);
+
+                }
+                
+                    GameController.instance.timerBateria = 0;
+
+            }
+
+           
+            if (puzzlesIdentity != 3)
             {
                 if (coleta)
                 {
@@ -140,11 +170,7 @@ public class DectarEntrada : MonoBehaviour
                 }
 
             }
-
-        }
-        else
-        {
-            if (other.CompareTag("Player"))
+            else
             {
                 if (jaFezP3 == false)
                 {
@@ -191,10 +217,10 @@ public class DectarEntrada : MonoBehaviour
                     animatorTotemFinal.SetTrigger("tPlay");
                     jaFezP3 = true;
                 }
-
-
             }
+
         }
+
 
 
     }
@@ -353,6 +379,9 @@ public class DectarEntrada : MonoBehaviour
 
         }
     }
+
+
+
 
 
 }

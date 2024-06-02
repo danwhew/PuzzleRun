@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Totem : MonoBehaviour
 {
@@ -21,18 +22,27 @@ public class Totem : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>();
 
-       
+
     }
 
     public void fazerOsTrem()
     {
+            Player ptemp  = FindAnyObjectByType<Player>().GetComponent<Player>();
+        if (GameController.instance.timerBateria < 7)
+        {
+            ptemp.podeAparecerBateria = true;
+        }
+        else
+        {
+            ptemp.podeAparecerBateria = false;
+        }
 
         anim.SetTrigger("tBack");
         portinha.condicao = true;
         GameController.instance.addScore(10);
-       if(puzzle.puzzlesIdentity != 3)
+        if (puzzle.puzzlesIdentity != 3)
         {
-        puzzle.item.SetActive(false);
+            puzzle.item.SetActive(false);
 
         }
         else
@@ -41,11 +51,11 @@ public class Totem : MonoBehaviour
             puzzle.item.transform.parent = puzzle.posPizza;
             puzzle.item.SetActive(false);
         }
-        
 
-        
-       
-        
+
+
+
+
 
     }
 

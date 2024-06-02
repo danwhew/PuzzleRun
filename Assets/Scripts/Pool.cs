@@ -9,9 +9,13 @@ public class Pool : MonoBehaviour
     public static Pool poolerInstance;
 
     public GameObject tileBase;
+    public GameObject tileBaseF2;
     GameObject tmp;
     public int maxTilesBase = 6;
+    public int maxTilesBaseF2 = 6;
     public bool ehPeperoni;
+
+    public GameObject bateria;
 
 
     [Header("Possiveis Puzzles")]
@@ -45,8 +49,10 @@ public class Pool : MonoBehaviour
 
 
     public List<GameObject> listaTilesBases = new List<GameObject>();
+    public List<GameObject> listaTilesBasesF2 = new List<GameObject>();
 
     public GameObject[] pizzas;
+    public GameObject[] baterias;
 
     void Awake()
     {
@@ -62,6 +68,21 @@ public class Pool : MonoBehaviour
             listaTilesBases.Add(tmp);
 
         }
+        for (int i = 0; i < maxTilesBaseF2; i++)
+        {
+
+            tmp = Instantiate(tileBaseF2);
+            tmp.SetActive(false);
+            listaTilesBasesF2.Add(tmp);
+
+        }
+
+        for(int i = 0; i < baterias.Length; i++)
+        {
+            baterias[i] = bateria;
+        }
+
+        preInstanciar(baterias);
 
         preInstanciar(pizzas);
 
@@ -279,6 +300,33 @@ public class Pool : MonoBehaviour
         return null;
     }
 
+    public GameObject getTileBaseF2()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+
+            if (!listaTilesBasesF2[i].activeInHierarchy)
+            {
+                return listaTilesBasesF2[i];
+            }
+
+        }
+        return null;
+    }
+
+    public GameObject getBaterias()
+    {
+        for (int i = 0; i < baterias.Length; i++)
+        {
+
+            if (!baterias[i].activeInHierarchy)
+            {
+                return baterias[i];
+            }
+
+        }
+        return null;
+    }
 
 
     public GameObject getPuzzleColeta(int index)

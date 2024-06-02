@@ -18,13 +18,11 @@ public class AtivarInstanciamento : MonoBehaviour
         if (other.CompareTag("End"))
         {
 
+
             pai.instanciar();
             pai.initTeste();
 
-          /*  Cesta cesta;
-            Pizza pizza;
-            cesta = GameObject.FindGameObjectWithTag("Cesta").GetComponent<Cesta>();
-            pizza = GameObject.FindGameObjectWithTag("Cesta").GetComponent<Pizza>();*/
+
 
 
             GameController.instance.contador++;
@@ -36,9 +34,12 @@ public class AtivarInstanciamento : MonoBehaviour
 
                 if (GameController.instance.fase == 1)
                 {
+                    
+
                     if (GameController.instance.contador == GameController.instance.quantidadePuzzlesF1R1)
                     {
                         GameController.instance.passou = true;
+                        GameController.instance.passou2 = true;
 
 
                     }
@@ -55,9 +56,11 @@ public class AtivarInstanciamento : MonoBehaviour
 
                 if (GameController.instance.fase == 2)
                 {
+
                     if (GameController.instance.contador == GameController.instance.quantidadePuzzlesF2R1)
                     {
                         GameController.instance.passou = true;
+                        GameController.instance.passou2 = false;
 
 
                     }
@@ -66,7 +69,7 @@ public class AtivarInstanciamento : MonoBehaviour
                     if (GameController.instance.contador > GameController.instance.quantidadePuzzlesF2R1)
                     {
                         //cesta.Esvaziar();
-                        
+
 
                         Pool.poolerInstance.loadPuzzlesRound();
                         GameController.instance.fase = 1;
@@ -87,6 +90,7 @@ public class AtivarInstanciamento : MonoBehaviour
                     if (GameController.instance.contador == GameController.instance.quantidadePuzzlesF1R2)
                     {
                         GameController.instance.passou = true;
+                        GameController.instance.passou2 = true;
 
 
                     }
@@ -105,6 +109,7 @@ public class AtivarInstanciamento : MonoBehaviour
                     if (GameController.instance.contador == GameController.instance.quantidadePuzzlesF2R2)
                     {
                         GameController.instance.passou = true;
+                        GameController.instance.passou2 = false;
 
 
                     }
@@ -112,7 +117,7 @@ public class AtivarInstanciamento : MonoBehaviour
 
                     if (GameController.instance.contador > GameController.instance.quantidadePuzzlesF2R2)
                     {
-                      //  cesta.Esvaziar();
+                        //  cesta.Esvaziar();
 
                         Pool.poolerInstance.loadPuzzlesRound();
                         GameController.instance.fase = 1;
@@ -135,7 +140,7 @@ public class AtivarInstanciamento : MonoBehaviour
                     if (GameController.instance.contador == GameController.instance.quantidadePuzzlesF1R3)
                     {
                         GameController.instance.passou = true;
-
+                        GameController.instance.passou2 = true;
 
                     }
 
@@ -154,14 +159,15 @@ public class AtivarInstanciamento : MonoBehaviour
                     if (GameController.instance.contador == GameController.instance.quantidadePuzzlesF2R3)
                     {
                         GameController.instance.passou = true;
+                        GameController.instance.passou2 = false;
 
 
                     }
 
                     if (GameController.instance.contador > GameController.instance.quantidadePuzzlesF2R3)
                     {
-                       /* cesta.Esvaziar();
-                        pizza.Esvaziar();*/
+                        /* cesta.Esvaziar();
+                         pizza.Esvaziar();*/
 
                         Pool.poolerInstance.loadPuzzlesRound();
                         GameController.instance.fase = 1;
