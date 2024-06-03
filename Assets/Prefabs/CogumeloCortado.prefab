@@ -86,6 +86,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -26.876
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
       propertyPath: m_Name
       value: CogumeloCortado (6)
@@ -146,6 +150,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
@@ -210,6 +218,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 21.934
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
       propertyPath: m_Name
       value: CogumeloCortado (3)
@@ -270,6 +282,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
@@ -334,6 +350,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 2.332
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
       propertyPath: m_Name
       value: CogumeloCortado (2)
@@ -394,6 +414,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
@@ -457,6 +481,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 5.608
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e330ab79e212b0a47a017d110c323d9a, type: 3}
       propertyPath: m_Name

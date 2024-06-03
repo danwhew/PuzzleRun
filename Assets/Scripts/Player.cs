@@ -374,7 +374,7 @@ public class Player : MonoBehaviour
                 if (Mathf.Abs(endTouchPos.x - startTouchPos.x) <= 0.05f || Mathf.Abs(endTouchPos.y - startTouchPos.y) <= 0.05f)
                 {
                     //dropar o item com um toque
-                    if (item != null)
+                    /*if (item != null)
                     {
                         item.transform.position = new Vector3(item.transform.position.x, posItemInicial.y, item.transform.position.z);
                         item.transform.parent = paiInicialDoItem.transform;
@@ -382,7 +382,7 @@ public class Player : MonoBehaviour
                         dropei = true;
                         podeDropar = false;
 
-                    }
+                    }*/
 
                     Debug.Log("mto curto");
 

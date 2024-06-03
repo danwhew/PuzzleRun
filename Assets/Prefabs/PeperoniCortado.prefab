@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
       propertyPath: m_Name
       value: PeperoniCortado
@@ -148,6 +152,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
@@ -212,6 +220,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -33.28
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
       propertyPath: m_Name
       value: PeperoniCortado (2)
@@ -272,6 +284,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
@@ -336,6 +352,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 26.404
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
       propertyPath: m_Name
       value: PeperoniCortado (5)
@@ -396,6 +416,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
@@ -460,6 +484,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -33.28
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
       propertyPath: m_Name
       value: PeperoniCortado (4)
@@ -520,6 +548,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
@@ -583,6 +615,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -15.193
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 406ce78b8399e05488cc31bf534dca7f, type: 3}
       propertyPath: m_Name

@@ -106,6 +106,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_Name
       value: TomatoSupermarket (6)
@@ -183,6 +187,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_Name
@@ -262,6 +270,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_Name
       value: TomatoSupermarket
@@ -339,6 +351,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_Name
@@ -418,6 +434,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_Name
       value: TomatoSupermarket (1)
@@ -495,6 +515,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_Name
@@ -574,6 +598,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_Name
       value: TomatoSupermarket (4)
@@ -651,6 +679,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_Name
@@ -792,6 +824,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_Name
       value: TomatoSupermarket (2)
@@ -869,6 +905,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_Name

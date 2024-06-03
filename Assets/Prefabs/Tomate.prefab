@@ -108,6 +108,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_Name
       value: TomatoSupermarket
