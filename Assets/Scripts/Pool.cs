@@ -54,6 +54,8 @@ public class Pool : MonoBehaviour
     public GameObject[] pizzas;
     public GameObject[] baterias;
 
+    public Totem totemtemp;
+
     void Awake()
     {
 
@@ -77,7 +79,7 @@ public class Pool : MonoBehaviour
 
         }
 
-        for(int i = 0; i < baterias.Length; i++)
+        for (int i = 0; i < baterias.Length; i++)
         {
             baterias[i] = bateria;
         }
@@ -105,12 +107,19 @@ public class Pool : MonoBehaviour
 
     private void Start()
     {
-        loadPuzzlesRound1();
+        if (GameController.instance.round == 1)
+        {
+            loadPuzzlesRound1();
+
+        }
+        else
+        {
+            loadPuzzlesRound();
+        }
     }
 
     public void loadPuzzlesRound()
     {
-
         int temp = Random.Range(0, 2);
 
         if (temp == 0)
@@ -120,6 +129,11 @@ public class Pool : MonoBehaviour
         else
         {
             ehPeperoni = true;
+        }
+        if (totemtemp != null)
+        {
+            totemtemp.peperoni = ehPeperoni;
+
         }
 
         int[] jaGerados = new int[4] { -1, -1, -1, -1 };

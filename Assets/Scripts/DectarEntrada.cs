@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.Pool;
 using UnityEngine.Rendering;
 
 public class DectarEntrada : MonoBehaviour
@@ -30,6 +30,7 @@ public class DectarEntrada : MonoBehaviour
 
     public int fase; //fase que o tile foi ativado
     public int round; // round que o tile foi ativado
+    public bool peperoni;
 
     public bool coleta; //pra saber se o puzzle eh de coleta/montagem
 
@@ -40,9 +41,9 @@ public class DectarEntrada : MonoBehaviour
     private void OnEnable()
     {
 
-        
 
-        
+
+
 
         jaFezP3 = false;
 
@@ -57,20 +58,16 @@ public class DectarEntrada : MonoBehaviour
             posItemInicial = posPizza.transform.position;
         }
 
-
-
-
-
-
-
-
-
+        
         if (GameController.instance != null)
         {
+
+
+
             if (GameController.instance.passou == true)
             {
-
-
+                Pool.poolerInstance.totemtemp = totem;
+                
                 fase = GameController.instance.fase;
                 round = GameController.instance.round;
 
@@ -90,8 +87,11 @@ public class DectarEntrada : MonoBehaviour
             }
             else
             {
+                peperoni = Pool.poolerInstance.ehPeperoni;
                 fase = GameController.instance.fase;
                 round = GameController.instance.round;
+                
+                totem.peperoni = peperoni;
                 totem.fase = fase;
                 totem.round = round;
             }
@@ -139,25 +139,23 @@ public class DectarEntrada : MonoBehaviour
 
             if (GameController.instance != null)
             {
-               
-                
 
-                Player ptempp = other.GetComponentInParent<Player>();
+                GameController.instance.podeAtivarTimerBateria = true;
 
-                if (ptempp.podeAparecerBateria == true)
+                if (GameController.instance.podeInstanciarBateria == true)
                 {
                     GameObject tmp;
                     tmp = Pool.poolerInstance.getBaterias();
                     tmp.transform.position = posBateria.position;
                     tmp.SetActive(true);
+                    GameController.instance.podeInstanciarBateria = false;
 
                 }
-                
-                    GameController.instance.timerBateria = 0;
+
 
             }
 
-           
+
             if (puzzlesIdentity != 3)
             {
                 if (coleta)
@@ -210,9 +208,9 @@ public class DectarEntrada : MonoBehaviour
 
                     item.transform.parent = posPizza.transform;
                     item.transform.position = posPizza.position;
-
-
                     item.SetActive(true);
+
+
 
                     animatorTotemFinal.SetTrigger("tPlay");
                     jaFezP3 = true;

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class Totem : MonoBehaviour
 {
@@ -16,6 +15,7 @@ public class Totem : MonoBehaviour
 
     public int fase;
     public int round;
+    public bool peperoni;
     //pegar animacao da porta aqui, excluir o script da porta
 
     private void OnEnable()
@@ -27,16 +27,17 @@ public class Totem : MonoBehaviour
 
     public void fazerOsTrem()
     {
-            Player ptemp  = FindAnyObjectByType<Player>().GetComponent<Player>();
-        if (GameController.instance.timerBateria < 7)
+
+        if(GameController.instance.timerBateria < GameController.instance.tempoLimiteBateria)
         {
-            ptemp.podeAparecerBateria = true;
+            GameController.instance.podeInstanciarBateria = true;
         }
         else
         {
-            ptemp.podeAparecerBateria = false;
+            GameController.instance.podeInstanciarBateria = false;
         }
 
+        GameController.instance.podeAtivarTimerBateria = false;
         anim.SetTrigger("tBack");
         portinha.condicao = true;
         GameController.instance.addScore(10);
@@ -48,7 +49,7 @@ public class Totem : MonoBehaviour
         else
         {
             puzzle.item.transform.position = puzzle.posItemInicial;
-            puzzle.item.transform.parent = puzzle.posPizza;
+            puzzle.item.transform.parent = null;
             puzzle.item.SetActive(false);
         }
 

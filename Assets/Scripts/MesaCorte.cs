@@ -67,8 +67,9 @@ public class MesaCorte : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && temItemPraCortar)
         {
+
             GameController.instance.audioSource.time = 0;
             GameController.instance.audioSource.Play();
             GameController.instance.audioSource.PlayOneShot(GameController.instance.audios[0]);

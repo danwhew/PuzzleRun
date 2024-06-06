@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class Forno : MonoBehaviour
 {
@@ -87,7 +86,7 @@ public class Forno : MonoBehaviour
             {
                 massa = other.transform.parent.gameObject;
                 massa.transform.position = massaPos.position;
-                massa.transform.parent = transform;
+                //massa.transform.parent = transform;
                 massa.SetActive(false);
                 podeContar = true;
             }

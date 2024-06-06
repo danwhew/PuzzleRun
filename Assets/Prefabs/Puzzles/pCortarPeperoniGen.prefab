@@ -503,18 +503,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6977667261187764565}
     m_Modifications:
-    - target: {fileID: -3211634893592576836, guid: 2a44aad9c9ac4fd498a1d167e1d7f570, type: 3}
-      propertyPath: m_TagString
-      value: Item
-      objectReference: {fileID: 0}
-    - target: {fileID: 8518669377125124648, guid: 2a44aad9c9ac4fd498a1d167e1d7f570, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 89.98021
-      objectReference: {fileID: 0}
-    - target: {fileID: 8879528566716807029, guid: 2a44aad9c9ac4fd498a1d167e1d7f570, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.98021
-      objectReference: {fileID: 0}
     - target: {fileID: 7324181317082007831, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -558,6 +546,18 @@ PrefabInstance:
     - target: {fileID: 8630012477096465623, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
       propertyPath: m_Name
       value: Peperoni
+      objectReference: {fileID: 0}
+    - target: {fileID: -3211634893592576836, guid: 2a44aad9c9ac4fd498a1d167e1d7f570, type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 8518669377125124648, guid: 2a44aad9c9ac4fd498a1d167e1d7f570, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 89.98021
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: 2a44aad9c9ac4fd498a1d167e1d7f570, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98021
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -1822420924674689247, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
@@ -758,6 +758,14 @@ PrefabInstance:
       propertyPath: totemAnimator
       value: 
       objectReference: {fileID: 6321758086313020241}
+    - target: {fileID: 7803685352492619264, guid: 619f429a17764b24ea6317f3d9f13587, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 7803685352492619264, guid: 619f429a17764b24ea6317f3d9f13587, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 8411780571868324645, guid: 619f429a17764b24ea6317f3d9f13587, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

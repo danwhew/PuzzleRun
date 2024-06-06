@@ -92,7 +92,7 @@ public class MesaAbrir : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && temItemPraAbrir)
         {
             GameController.instance.audioSource.time = 0;
             GameController.instance.audioSource.Play();

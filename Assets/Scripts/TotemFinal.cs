@@ -9,8 +9,6 @@ public class TotemFinal : MonoBehaviour
     private void OnEnable()
     {
         anim = GetComponentInChildren<Animator>();
-
-
     }
 
     public void fazerOsTrem()

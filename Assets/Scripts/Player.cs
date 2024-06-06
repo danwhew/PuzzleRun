@@ -59,11 +59,9 @@ public class Player : MonoBehaviour
 
     public int faseEuTo = 1;
     public int roundEuTo = 1;
+    public bool toPeperoni;
 
     public bool podeGrudar;
-
-    public bool podeAparecerBateria;
-
 
 
     void Start()
@@ -92,7 +90,6 @@ public class Player : MonoBehaviour
             animator.SetBool("bParado", true);
         }
 
-        Debug.Log(rb.velocity.magnitude);
 
         // Ativando/desativando o cheat de bateria infinita quando cinco dedos tocarem na tela
         if (Input.touchCount >= 5)
@@ -120,9 +117,9 @@ public class Player : MonoBehaviour
                 if (podeAndarTimer >= 1)
                 {
                     estrelas.SetActive(false);
-                    animator.SetBool("bAtordoado", false);
                     podeAndar = true;
                     podeAndarTimer = 0;
+                    animator.SetBool("bAtordoado", false);
                 }
             }
             if (podeAndar == true)
@@ -147,7 +144,7 @@ public class Player : MonoBehaviour
 
         FimDaBateria();
 
-        // Atualizar o efeito de piscar, se necess�rio
+        // Atualizar o efeito de piscar, se necessario
         UpdateFlash();
 
     }
@@ -271,9 +268,11 @@ public class Player : MonoBehaviour
 
                 faseEuTo = totemTemp.fase;
                 roundEuTo = totemTemp.round;
-
-                GameController.instance.atualizarFase();
-                GameController.instance.atualizarRound();
+                toPeperoni = totemTemp.peperoni;
+                
+                    GameController.instance.atualizarFase();
+                    GameController.instance.atualizarRound();
+                    
 
                 totemTemp.fazerOsTrem();
 
@@ -312,7 +311,7 @@ public class Player : MonoBehaviour
                 podeAndar = false;
 
                 // Diminui a bateria ao colidir com a parede
-                bateria -= 20;
+                bateria -= 15;
 
             }
             else
@@ -324,7 +323,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Forno"))
         {
 
-            
+
 
             if (item != null && podeGrudar == true)
             {
@@ -341,10 +340,10 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("MesaCorte"))
         {
-            
+
             if (item != null && podeGrudar == true)
             {
-                
+
                 dropei = true;
                 podeDropar = false;
                 item.transform.parent = null;

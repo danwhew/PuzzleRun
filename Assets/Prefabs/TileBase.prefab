@@ -193,8 +193,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pai: {fileID: 6934282509658788564}
   posAlteradorDeFase: {fileID: 3096976239971186256}
-  alteraFase: {fileID: 7152160997712247419, guid: 41f614bb3b9aa6e43af3fea26324597f, type: 3}
-  id: 0
 --- !u!65 &174597295576859405
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -383,6 +381,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5557813449767550924, guid: c4ad5159af2800e4d8b3d4ae846775ef, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6026920074556738460, guid: c4ad5159af2800e4d8b3d4ae846775ef, type: 3}
       propertyPath: m_Name
       value: ParedePorta
@@ -461,6 +463,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5557813449767550924, guid: c4ad5159af2800e4d8b3d4ae846775ef, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6026920074556738460, guid: c4ad5159af2800e4d8b3d4ae846775ef, type: 3}
       propertyPath: m_Name
       value: ParedePorta (1)
@@ -527,6 +533,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5077091724747267353, guid: 347755079db7d1e4fa3229ead010b305, type: 3}
+      propertyPath: animPorta
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5635091894627504072, guid: 347755079db7d1e4fa3229ead010b305, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -568,6 +578,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2317959015211813608}
     m_Modifications:
+    - target: {fileID: 77727516403104856, guid: cf9b1458ea8c1a94b80882159ec5751f, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1879365210428759437, guid: cf9b1458ea8c1a94b80882159ec5751f, type: 3}
       propertyPath: m_TagString
       value: Parede
@@ -696,6 +710,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2317959015211813608}
     m_Modifications:
+    - target: {fileID: 77727516403104856, guid: cf9b1458ea8c1a94b80882159ec5751f, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1879365210428759437, guid: cf9b1458ea8c1a94b80882159ec5751f, type: 3}
       propertyPath: m_TagString
       value: Parede

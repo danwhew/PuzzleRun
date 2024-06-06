@@ -34,14 +34,17 @@ public class GameController : MonoBehaviour
     public int round = 1;
     public bool passou = false; //pra atualizar a fase/round do player atraves do DectarEntrada
     public bool passou2 = false; //serve pra mudar o tipo de tile base instanciado
+
     //serve pra mudar o tipo de puzzle instanciado
     public int indexPuzzlesColeta;
     public int indexPuzzlesMontagem;
 
     [Header("Bateria")]
     public float timerBateria;
-    public bool ativarTimer;
+    public bool podeAtivarTimerBateria;
+    public float tempoLimiteBateria = 8f;
     public bool podeInstanciarBateria;
+
 
 
     [Header("Quantidade Puzzles")]
@@ -58,10 +61,6 @@ public class GameController : MonoBehaviour
 
 
 
-    public void audioButtons()
-    {
-        audioSource.PlayOneShot(audios[1]);
-    }
 
 
     void Awake()
@@ -106,16 +105,25 @@ public class GameController : MonoBehaviour
             sliderBateria.value = player.bateria;
         }
 
-        
+
+        if (podeAtivarTimerBateria == true)
+        {
             timerBateria += Time.deltaTime;
 
+        }
+        else
+        {
+            timerBateria = 0;  
+        }
         
-
-
 
     }
 
 
+    public void audioButtons()
+    {
+        audioSource.PlayOneShot(audios[1]);
+    }
 
     public void addScore(int quantidade)
     {
@@ -154,10 +162,11 @@ public class GameController : MonoBehaviour
         }
         else
         {
+
             if (player.faseEuTo == 1)
             {
 
-                if (Pool.poolerInstance.ehPeperoni == true)
+                if (player.toPeperoni == true)
                 {
 
                     LimparTasks();
@@ -174,7 +183,7 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                if (Pool.poolerInstance.ehPeperoni == true)
+                if (player.toPeperoni == true)
                 {
                     LimparTasks();
                     Tasks.transform.GetChild(4).gameObject.SetActive(true);
