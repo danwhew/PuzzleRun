@@ -35,17 +35,13 @@ public class DectarEntrada : MonoBehaviour
     public bool coleta; //pra saber se o puzzle eh de coleta/montagem
 
     public bool jaFezP3; //pra saber se o puzzle do forno ja foi feito
-
+    public bool jaEncostei;
 
 
     private void OnEnable()
     {
-
-
-
-
-
         jaFezP3 = false;
+        jaEncostei = false;
 
         if (puzzlesIdentity != 3)
         {
@@ -58,16 +54,18 @@ public class DectarEntrada : MonoBehaviour
             posItemInicial = posPizza.transform.position;
         }
 
-        
+
         if (GameController.instance != null)
         {
 
 
+            peperoni = Pool.poolerInstance.ehPeperoni;
+            totem.peperoni = peperoni;
 
             if (GameController.instance.passou == true)
             {
                 Pool.poolerInstance.totemtemp = totem;
-                
+
                 fase = GameController.instance.fase;
                 round = GameController.instance.round;
 
@@ -87,22 +85,13 @@ public class DectarEntrada : MonoBehaviour
             }
             else
             {
-                peperoni = Pool.poolerInstance.ehPeperoni;
                 fase = GameController.instance.fase;
                 round = GameController.instance.round;
-                
-                totem.peperoni = peperoni;
+
                 totem.fase = fase;
                 totem.round = round;
             }
-
-
-
-
         }
-
-
-
     }
 
 
@@ -135,87 +124,92 @@ public class DectarEntrada : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-
-
-            if (GameController.instance != null)
+            if (jaEncostei == false)
             {
 
-                GameController.instance.podeAtivarTimerBateria = true;
 
-                if (GameController.instance.podeInstanciarBateria == true)
+                if (GameController.instance != null)
                 {
-                    GameObject tmp;
-                    tmp = Pool.poolerInstance.getBaterias();
-                    tmp.transform.position = posBateria.position;
-                    tmp.SetActive(true);
-                    GameController.instance.podeInstanciarBateria = false;
 
-                }
+                    GameController.instance.podeAtivarTimerBateria = true;
 
-
-            }
-
-
-            if (puzzlesIdentity != 3)
-            {
-                if (coleta)
-                {
-                    casoColeta();
-                }
-                else
-                {
-                    casoMontagem();
-                }
-
-            }
-            else
-            {
-                if (jaFezP3 == false)
-                {
-                    GameObject pizza;
-                    Player playerScript;
-                    Pizza pizzaScript;
-                    playerScript = other.GetComponentInParent<Player>();
-
-
-
-                    pizza = GameObject.FindGameObjectWithTag("Pizza").gameObject;
-                    pizzaScript = pizza.GetComponent<Pizza>();
-
-                    pizzaScript.Esvaziar();
-                    pizza.transform.parent = posPizza.transform;
-                    pizza.gameObject.transform.position = posPizza.position;
-
-
-                    if (playerScript.roundEuTo == 1)
+                    if (GameController.instance.podeInstanciarBateria == true)
                     {
-                        item = Pool.poolerInstance.pizzas[0];
+                        GameObject tmp;
+                        tmp = Pool.poolerInstance.getBaterias();
+                        tmp.transform.position = posBateria.position;
+                        tmp.SetActive(true);
+                        GameController.instance.podeInstanciarBateria = false;
 
+                    }
+
+
+                }
+
+
+                if (puzzlesIdentity != 3)
+                {
+                    if (coleta)
+                    {
+                        casoColeta();
                     }
                     else
                     {
-                        if (Pool.poolerInstance.ehPeperoni == true)
+                        casoMontagem();
+                    }
+
+                }
+                else
+                {
+                    if (jaFezP3 == false)
+                    {
+                        GameObject pizza;
+                        Player playerScript;
+                        Pizza pizzaScript;
+                        playerScript = other.GetComponentInParent<Player>();
+
+
+
+                        pizza = GameObject.FindGameObjectWithTag("Pizza").gameObject;
+                        pizzaScript = pizza.GetComponent<Pizza>();
+
+                        pizzaScript.Esvaziar();
+                        pizza.transform.parent = posPizza.transform;
+                        pizza.gameObject.transform.position = posPizza.position;
+
+
+                        if (playerScript.roundEuTo == 1)
                         {
-                            item = Pool.poolerInstance.pizzas[1];
+                            item = Pool.poolerInstance.pizzas[0];
+
                         }
                         else
                         {
-                            item = Pool.poolerInstance.pizzas[2];
+                            if (playerScript.toPeperoni == true)
+                            {
+                                item = Pool.poolerInstance.pizzas[1];
+                            }
+                            else
+                            {
+                                item = Pool.poolerInstance.pizzas[2];
+                            }
                         }
+
+
+
+                        item.transform.parent = posPizza.transform;
+                        item.transform.position = posPizza.position;
+                        item.SetActive(true);
+
+
+
+                        animatorTotemFinal.SetTrigger("tPlay");
+                        jaFezP3 = true;
                     }
-
-
-
-                    item.transform.parent = posPizza.transform;
-                    item.transform.position = posPizza.position;
-                    item.SetActive(true);
-
-
-
-                    animatorTotemFinal.SetTrigger("tPlay");
-                    jaFezP3 = true;
                 }
+                jaEncostei = true;
             }
+
 
         }
 

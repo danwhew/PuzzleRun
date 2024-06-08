@@ -130,9 +130,11 @@ public class Pool : MonoBehaviour
         {
             ehPeperoni = true;
         }
+
         if (totemtemp != null)
         {
             totemtemp.peperoni = ehPeperoni;
+            totemtemp = null;
 
         }
 

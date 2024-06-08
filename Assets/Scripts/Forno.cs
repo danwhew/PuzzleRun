@@ -53,7 +53,7 @@ public class Forno : MonoBehaviour
                 }
                 else
                 {
-                    if (Pool.poolerInstance.ehPeperoni == true)
+                    if (playerScript.toPeperoni == true)
                     {
                         massa = Pool.poolerInstance.pizzas[4];
                     }

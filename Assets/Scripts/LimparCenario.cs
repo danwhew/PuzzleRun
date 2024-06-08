@@ -28,6 +28,11 @@ public class LimparCenario : MonoBehaviour
 
         }
 
+        if (other.CompareTag("Bateria"))
+        {
+            other.transform.parent.gameObject.SetActive(false);
+        }
+
 
 
 
