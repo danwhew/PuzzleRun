@@ -63,6 +63,8 @@ public class Player : MonoBehaviour
 
     public bool podeGrudar;
 
+    public int contadorBateriasConquista;
+
 
     void Start()
     {
@@ -193,6 +195,7 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("Bateria"))
         {
+            
             audioSource.PlayOneShot(audios[0]);
             StartFlash();
             bateria += 60;
@@ -429,6 +432,7 @@ public class Player : MonoBehaviour
     {
         if (bateria <= 0 && bateria > -100)
         {
+           
             audioSource.PlayOneShot(audios[1]);
             bateria = -100;
             GameController.instance.derrota();

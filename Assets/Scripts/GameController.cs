@@ -127,6 +127,7 @@ public class GameController : MonoBehaviour
 
     public void addScore(int quantidade)
     {
+        ScoreManager.instance.conquista[0] = true;
 
         score += quantidade;
 

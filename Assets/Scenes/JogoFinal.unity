@@ -2451,16 +2451,16 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.89
+  m_Intensity: 0.9
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.666
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -2642,7 +2642,7 @@ Transform:
   m_GameObject: {fileID: 795007349}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.43, y: 0.92, z: -7.31}
+  m_LocalPosition: {x: 0.43, y: 0.92, z: -7.825}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -9486,6 +9486,7 @@ GameObject:
   - component: {fileID: 1854576508}
   - component: {fileID: 1854576507}
   - component: {fileID: 1854576509}
+  - component: {fileID: 1854576510}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -9649,6 +9650,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1854576510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854576506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8fb12a344732147bf34949f0b10536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1877048155
 GameObject:
   m_ObjectHideFlags: 0
@@ -10582,7 +10595,7 @@ Transform:
   m_GameObject: {fileID: 2002182366}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.0000000018626451, w: 1}
-  m_LocalPosition: {x: -0.96474624, y: -13.093414, z: -10.778771}
+  m_LocalPosition: {x: -0.96474624, y: -13.093414, z: -13.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
