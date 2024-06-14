@@ -148,8 +148,10 @@ MonoBehaviour:
   posItemInicial: {x: 0, y: 0, z: 0}
   fase: 0
   round: 0
+  peperoni: 0
   coleta: 0
   jaFezP3: 0
+  jaEncostei: 0
 --- !u!1 &5415566069398423086
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +303,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8af725dfa4eff1d43aa0ede90a60fced, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3b31e3f018637143b3da7202108acb1, type: 2}
     - target: {fileID: 919132149155446097, guid: 8af725dfa4eff1d43aa0ede90a60fced, type: 3}
       propertyPath: m_Name
       value: HoleyCheese
@@ -457,6 +463,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Queijo
       objectReference: {fileID: 0}
+    - target: {fileID: 5382794084952759453, guid: 1a9a9b04506c53e4690f1e29e73093b6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3b31e3f018637143b3da7202108acb1, type: 2}
     - target: {fileID: 6773571580472499321, guid: 1a9a9b04506c53e4690f1e29e73093b6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

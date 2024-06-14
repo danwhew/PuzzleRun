@@ -348,8 +348,10 @@ MonoBehaviour:
   posItemInicial: {x: 0, y: 0, z: 0}
   fase: 0
   round: 0
+  peperoni: 0
   coleta: 0
   jaFezP3: 0
+  jaEncostei: 0
 --- !u!1 &8495464035636991630
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,6 +637,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3b31e3f018637143b3da7202108acb1, type: 2}
     - target: {fileID: 919132149155446097, guid: 05c750c23f74fe840b7e4869f5d18bd9, type: 3}
       propertyPath: m_Name
       value: TomatoSupermarket (1)
@@ -737,6 +743,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5492456797648689361}
     m_Modifications:
+    - target: {fileID: 110165327848322729, guid: f39b96e9e9a96da4681124fe7922d5b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3b31e3f018637143b3da7202108acb1, type: 2}
     - target: {fileID: 1844154981697217547, guid: f39b96e9e9a96da4681124fe7922d5b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

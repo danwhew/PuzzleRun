@@ -201,8 +201,10 @@ MonoBehaviour:
   posItemInicial: {x: 0, y: 0, z: 0}
   fase: 0
   round: 0
+  peperoni: 0
   coleta: 0
   jaFezP3: 0
+  jaEncostei: 0
 --- !u!1 &9167144795859342297
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +505,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6977667261187764565}
     m_Modifications:
+    - target: {fileID: 7285864063862733089, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a2470b71ebea1f47bd9d71ea3303ac2, type: 2}
     - target: {fileID: 7324181317082007831, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -907,7 +913,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: c2a948c3c27886544af19b334be72eff, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6b70cddeaf0435442b8db1324050e24d, type: 2}
+      objectReference: {fileID: 2100000, guid: 0a2470b71ebea1f47bd9d71ea3303ac2, type: 2}
     - target: {fileID: 919132149155446097, guid: c2a948c3c27886544af19b334be72eff, type: 3}
       propertyPath: m_Name
       value: Peperoni (1)

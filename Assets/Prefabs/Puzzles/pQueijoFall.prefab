@@ -117,8 +117,10 @@ MonoBehaviour:
   posItemInicial: {x: 0, y: 0, z: 0}
   fase: 0
   round: 0
+  peperoni: 0
   coleta: 1
   jaFezP3: 0
+  jaEncostei: 0
 --- !u!1 &5554850750883758470
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +195,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Queijo
       objectReference: {fileID: 0}
+    - target: {fileID: 5382794084952759453, guid: 1a9a9b04506c53e4690f1e29e73093b6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c92d6e96da7a864b85fb3da4bbc2e9a, type: 2}
     - target: {fileID: 6773571580472499321, guid: 1a9a9b04506c53e4690f1e29e73093b6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.2600002

@@ -63,7 +63,6 @@ public class Player : MonoBehaviour
 
     public bool podeGrudar;
 
-    public int contadorBateriasConquista;
 
 
     void Start()
@@ -273,6 +272,13 @@ public class Player : MonoBehaviour
                 roundEuTo = totemTemp.round;
                 toPeperoni = totemTemp.peperoni;
                 
+
+                if(roundEuTo == 2)
+                {
+                    ScoreManager.instance.conquista[2] = true;
+                    Debug.Log("Conquista2 obtida");
+                    ScoreManager.instance.atualizarConquistas();
+                }
                     GameController.instance.atualizarFase();
                     GameController.instance.atualizarRound();
                     
@@ -465,7 +471,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Fun��o para comecar o efeito de piscar
+    // Funcao para comecar o efeito de piscar
     void StartFlash()
     {
         // Ativa o estado de piscar
@@ -476,7 +482,7 @@ public class Player : MonoBehaviour
         playerRenderer.material.color = Color.white;
     }
 
-    // Fun��o para atualizar o efeito de piscar
+    // Funcao para atualizar o efeito de piscar
     void UpdateFlash()
     {
         if (isFlashing)
@@ -496,7 +502,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Fun��o para parar o efeito de piscar
+    // Funcao para parar o efeito de piscar
     void StopFlash()
     {
         // Desativa o estado de piscar

@@ -148,8 +148,10 @@ MonoBehaviour:
   posItemInicial: {x: 0, y: 0, z: 0}
   fase: 0
   round: 0
+  peperoni: 0
   coleta: 0
   jaFezP3: 0
+  jaEncostei: 0
 --- !u!1 &6519404007321147554
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +349,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e268497b15775a14d9fa6c8340369c06, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a2470b71ebea1f47bd9d71ea3303ac2, type: 2}
     - target: {fileID: 919132149155446097, guid: e268497b15775a14d9fa6c8340369c06, type: 3}
       propertyPath: m_Name
       value: Mushroom
@@ -489,6 +495,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8002022836028163679, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a2470b71ebea1f47bd9d71ea3303ac2, type: 2}
     - target: {fileID: 8630012477096465623, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
       propertyPath: m_Name
       value: Cogumelo

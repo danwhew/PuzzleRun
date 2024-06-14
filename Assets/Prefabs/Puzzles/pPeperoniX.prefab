@@ -306,8 +306,10 @@ MonoBehaviour:
   posItemInicial: {x: 0, y: 0, z: 0}
   fase: 0
   round: 0
+  peperoni: 0
   coleta: 1
   jaFezP3: 0
+  jaEncostei: 0
 --- !u!1 &8165035415971935960
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +349,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6287212957481626881}
     m_Modifications:
+    - target: {fileID: 7285864063862733089, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a2470b71ebea1f47bd9d71ea3303ac2, type: 2}
     - target: {fileID: 7324181317082007831, guid: c0dbed9f866a2904f91664bc05e80731, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.6
