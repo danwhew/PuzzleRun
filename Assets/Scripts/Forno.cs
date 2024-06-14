@@ -15,7 +15,6 @@ public class Forno : MonoBehaviour
     public  Player playerScript;
     public Animator totemAnimator;
     public DectarEntrada puzzle;
-    public int pizzaFeitas; //contar as pizzas feitas
 
     public bool jaFritou = false;
 
@@ -72,14 +71,6 @@ public class Forno : MonoBehaviour
                 
                 podeContar = false;
                 jaFritou = true;
-
-                pizzaFeitas++ //contando as pizzas
-
-                if(pizzaFeitas == 5) //se for igual a 5, conquista realizada
-                {
-                    ScoreManager.instance.conquista[4] = true
-                }   
-
 
             }
         }
