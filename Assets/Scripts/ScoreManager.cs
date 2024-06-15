@@ -167,6 +167,6 @@ public class ScoreManager : MonoBehaviour
 
         string json = JsonUtility.ToJson(j, true);
         Debug.Log(json);
-        File.WriteAllText(Application.persistentDataPath + "/save.txt", json);
+        File.WriteAllText(Application.persistentDataPath + "/save.json", json);
     }
 }
