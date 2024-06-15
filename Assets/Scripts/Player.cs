@@ -63,6 +63,9 @@ public class Player : MonoBehaviour
 
     public bool podeGrudar;
 
+    public int contadorBaterParede;
+    
+
 
 
     void Start()
@@ -308,6 +311,14 @@ public class Player : MonoBehaviour
         {
 
             Debug.Log("parede");
+            contadorBaterParede++;
+
+            if(contadorBaterParede == 5)
+            {
+                Debug.Log("vc fez a conquista 1 aojekdo");
+                ScoreManager.instance.conquista[1] = true;
+                ScoreManager.instance.atualizarConquistas();
+            }
             if (cheat5 == false)
             {
                 // Faz o jogador piscar de branco

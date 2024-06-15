@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -14,6 +17,10 @@ public class ScoreManager : MonoBehaviour
     // 2 - leo
     // 3 - fellipe
     // 4 - yanka
+
+    public GameObject[] verificadores;
+    public TMP_Text[] scoreText;
+
 
     public static ScoreManager instance;
 
@@ -30,7 +37,41 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
+
         load();
+
+        Scene teste = SceneManager.GetActiveScene();
+        if (teste.buildIndex == 0)
+        {
+        for(int i = 0; i < 3; i++)
+        {
+            scoreText[i].text = j.score[i].ToString();
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            conquista[i] = j.conquista[i];
+        }
+
+
+            Image imgtemp;
+            for (int i = 0; i < 5; i++)
+            {
+                imgtemp = verificadores[i].GetComponent<Image>();
+
+                if (conquista[i] == true)
+                {
+                    imgtemp.color = Color.green;
+
+
+                }
+                else
+                {
+                    imgtemp.color = Color.red;
+                }
+
+            }
+        }
     }
 
     public void load()
@@ -54,7 +95,7 @@ public class ScoreManager : MonoBehaviour
             if (conquista[i] == true)
             {
                 j.conquista[i] = true;
-                break;
+                
             }
         }
 
@@ -65,9 +106,6 @@ public class ScoreManager : MonoBehaviour
 
     public void atualizarScore()
     {
-
-        bool aindaTemZerado = true;
-
 
 
         if (j.score[2] == 0)

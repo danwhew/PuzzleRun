@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 using UnityEngine.UI;
 
 public class Forno : MonoBehaviour
@@ -44,6 +45,13 @@ public class Forno : MonoBehaviour
 
             if (contador >= 2f)
             {
+                GameController.instance.contadorPizzasFeitas++;
+                if(GameController.instance.contadorPizzasFeitas == 2)
+                {
+                    ScoreManager.instance.conquista[4] = true;
+                    Debug.Log("vc fez a conquista 4");
+                    ScoreManager.instance.atualizarConquistas();
+                }
                 totemAnimator.SetTrigger("tPlay");
 
                 if (playerScript.roundEuTo == 1)

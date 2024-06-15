@@ -59,7 +59,7 @@ public class GameController : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip[] audios;
 
-
+    public int contadorPizzasFeitas;
 
 
 
@@ -231,6 +231,10 @@ public class GameController : MonoBehaviour
 
     public void pausar()
     {
+        ScoreManager.instance.conquista[0] = true;
+        Debug.Log("vc fez a conquista 0");
+        ScoreManager.instance.atualizarConquistas();
+
         if (pausado == false)
         {
             menuPausa.SetActive(true);

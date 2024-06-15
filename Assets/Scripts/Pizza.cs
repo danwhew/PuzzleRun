@@ -26,6 +26,12 @@ public class Pizza : MonoBehaviour
 
             if (transform.GetChild(i).gameObject.name == nomeObj)
             {
+                if(nomeObj == "Queijo")
+                {
+                    ScoreManager.instance.conquista[3] = true;
+                    Debug.Log("vc fez a conquista 3");
+                    ScoreManager.instance.atualizarConquistas();
+                }
                 transform.GetChild(i).gameObject.SetActive(true);
                 transform.GetChild(i).SetSiblingIndex(1);
             }
