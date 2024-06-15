@@ -37,21 +37,27 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
+        if (File.Exists(Application.persistentDataPath + "/save.json") == false)
+        {
+            File.WriteAllText(Application.persistentDataPath + "/save.json", JsonUtility.ToJson(j));
+
+        }
+
 
         load();
 
         Scene teste = SceneManager.GetActiveScene();
         if (teste.buildIndex == 0)
         {
-        for(int i = 0; i < 3; i++)
-        {
-            scoreText[i].text = j.score[i].ToString();
-        }
+            for (int i = 0; i < 3; i++)
+            {
+                scoreText[i].text = j.score[i].ToString();
+            }
 
-        for (int i = 0; i < 5; i++)
-        {
-            conquista[i] = j.conquista[i];
-        }
+            for (int i = 0; i < 5; i++)
+            {
+                conquista[i] = j.conquista[i];
+            }
 
 
             Image imgtemp;
@@ -76,7 +82,7 @@ public class ScoreManager : MonoBehaviour
 
     public void load()
     {
-        string json = File.ReadAllText(Application.persistentDataPath + "/save.txt");
+        string json = File.ReadAllText(Application.persistentDataPath + "/save.json");
 
         j = JsonUtility.FromJson<JsonRank>(json);
 
@@ -95,13 +101,13 @@ public class ScoreManager : MonoBehaviour
             if (conquista[i] == true)
             {
                 j.conquista[i] = true;
-                
+
             }
         }
 
         string json = JsonUtility.ToJson(j, true);
         Debug.Log(json);
-        File.WriteAllText(Application.persistentDataPath + "/save.txt", json);
+        File.WriteAllText(Application.persistentDataPath + "/save.json", json);
     }
 
     public void atualizarScore()
