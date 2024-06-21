@@ -33,11 +33,12 @@ public class GameController : MonoBehaviour
     public int fase = 1;
     public int round = 1;
     public bool passou = false; //pra atualizar a fase/round do player atraves do DectarEntrada
-    public bool passou2 = false; //serve pra mudar o tipo de tile base instanciado
+    public int passou2 = 1; //serve pra mudar o tipo de tile base instanciado
 
     //serve pra mudar o tipo de puzzle instanciado
     public int indexPuzzlesColeta;
     public int indexPuzzlesMontagem;
+    public int indexPuzzlesEntrega;
 
     [Header("Bateria")]
     public float timerBateria;
@@ -50,10 +51,13 @@ public class GameController : MonoBehaviour
     [Header("Quantidade Puzzles")]
     public int quantidadePuzzlesF1R1 = 3;
     public int quantidadePuzzlesF2R1 = 4;
+    public int quantidadePuzzlesF3R1 = 3;
     public int quantidadePuzzlesF1R2 = 4;
     public int quantidadePuzzlesF2R2 = 5;
+    public int quantidadePuzzlesF3R2 = 3;
     public int quantidadePuzzlesF1R3 = 4;
     public int quantidadePuzzlesF2R3 = 5;
+    public int quantidadePuzzlesF3R3 = 3;
 
     [Header("Audio")]
     public AudioSource audioSource;
@@ -113,12 +117,210 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            timerBateria = 0;  
+            timerBateria = 0;
         }
-        
+
 
     }
 
+    public void configFases()
+    {
+        if (round == 1)
+        {
+
+            if (fase == 1)
+            {
+
+
+                if (contador == quantidadePuzzlesF1R1)
+                {
+                    passou = true;
+                    passou2 = 2;
+
+
+                }
+
+                if (contador > quantidadePuzzlesF1R1)
+                {
+                    fase = 2;
+                    contador = 1;
+
+
+                }
+
+            }
+
+            if (fase == 2)
+            {
+
+                if (contador == quantidadePuzzlesF2R1)
+                {
+                    passou = true;
+                    passou2 = 3;
+
+
+                }
+
+
+                if (contador > quantidadePuzzlesF2R1)
+                {
+
+                    fase = 3;
+                    contador = 1;
+                }
+
+            }
+            if (fase == 3)
+            {
+                if (contador == quantidadePuzzlesF3R1)
+                {
+                    passou = true;
+                    passou2 = 1;
+
+
+                }
+                if (contador > quantidadePuzzlesF3R1)
+                {
+
+                    Pool.poolerInstance.loadPuzzlesRound();
+                    fase = 1;
+
+                    indexPuzzlesColeta = 0;
+                    indexPuzzlesMontagem = 0;
+                    indexPuzzlesEntrega = 0;
+                    round = 2;
+                    contador = 1;
+                }
+
+            }
+        }
+        else if (round == 2)
+        {
+            if (fase == 1)
+            {
+                if (contador == quantidadePuzzlesF1R2)
+                {
+                    passou = true;
+                    passou2 = 2;
+
+
+                }
+
+
+                if (contador > quantidadePuzzlesF1R2)
+                {
+                    fase = 2;
+                    contador = 1;
+                }
+
+            }
+
+            if (fase == 2)
+            {
+                if (contador == quantidadePuzzlesF2R2)
+                {
+                    passou = true;
+                    passou2 = 3;
+
+
+                }
+
+
+                if (contador > quantidadePuzzlesF2R2)
+                {
+                    fase = 3;
+                    contador = 1;
+
+                }
+
+            }
+            if (fase == 3)
+            {
+                if (contador == quantidadePuzzlesF3R2)
+                {
+                    passou = true;
+                    passou2 = 1;
+
+
+                }
+
+                if (contador > quantidadePuzzlesF3R2)
+                {
+                    Pool.poolerInstance.loadPuzzlesRound();
+                    fase = 1;
+                    indexPuzzlesColeta = 0;
+                    indexPuzzlesMontagem = 0;
+                    indexPuzzlesEntrega = 0;
+                    round = 3;
+
+
+                    contador = 1;
+                }
+
+
+            }
+        }
+        else if (round >= 3)
+        {
+            if (fase == 1)
+            {
+                if (contador == quantidadePuzzlesF1R3)
+                {
+                    passou = true;
+                    passou2 = 2;
+
+                }
+
+
+                if (contador > quantidadePuzzlesF1R3)
+                {
+                    fase = 2;
+                    contador = 1;
+                }
+
+            }
+
+            if (fase == 2)
+            {
+                if (contador == quantidadePuzzlesF2R3)
+                {
+                    passou = true;
+                    passou2 = 3;
+
+
+                }
+
+                if (contador > quantidadePuzzlesF2R3)
+                {
+                    fase = 3;
+                    contador = 1;
+
+                }
+
+
+            }
+            if (fase == 3)
+            {
+                if (contador == quantidadePuzzlesF3R3)
+                {
+                    passou = true;
+                    passou2 = 1;
+                }
+
+                if(contador > quantidadePuzzlesF3R3)
+                {
+                    Pool.poolerInstance.loadPuzzlesRound();
+                    fase = 1;
+                    indexPuzzlesColeta = 0;
+                    indexPuzzlesMontagem = 0;
+                    indexPuzzlesEntrega = 0;
+                    round++;
+
+                    contador = 1;
+                }
+            }
+        }
+    }
 
     public void audioButtons()
     {

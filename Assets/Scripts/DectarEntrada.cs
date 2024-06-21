@@ -17,6 +17,7 @@ public class DectarEntrada : MonoBehaviour
     public Animator animatorTotem;
     public Animator animatorGiraGira; //animator da plataforma que gira 360 graus
     public Animator animatorTotemFinal; //animator do totem da fase do forno
+    public Animator animatorTotemInicial;
 
     public Transform posCesta; //posicao que a cesta eh colocada
     public Transform posPizza; //posicao que a pizza eh colocada
@@ -25,6 +26,7 @@ public class DectarEntrada : MonoBehaviour
     //1 - da queda
     //2 - da plataforma giratoria
     //3 - forno
+    //4 - primeiro puzzle da fase de entrega
 
     public Vector3 posItemInicial; //posicao do item no inicio do puzzle
 
@@ -32,25 +34,28 @@ public class DectarEntrada : MonoBehaviour
     public int round; // round que o tile foi ativado
     public bool peperoni;
 
-    public bool coleta; //pra saber se o puzzle eh de coleta/montagem
+    public int caso; //pra saber se o puzzle eh de coleta/montagem
+    // 1 coleta
+    // 2 montagem
+    // 3 entrega
 
     public bool jaFezP3; //pra saber se o puzzle do forno ja foi feito
-    public bool jaEncostei;
+    public bool jaEncostei; // pra saber se ja detectou a entrada do player
 
 
     private void OnEnable()
     {
-        jaFezP3 = false;
         jaEncostei = false;
 
-        if (puzzlesIdentity != 3)
+        if (puzzlesIdentity != 3 && caso != 3)
         {
             posItemInicial = item.transform.position;
             item.SetActive(true);
 
         }
-        else
+        else if(caso != 3)
         {
+            jaFezP3 = false; //voltar isso pro inicio do onenable se der algum erro
             posItemInicial = posPizza.transform.position;
         }
 
@@ -73,8 +78,13 @@ public class DectarEntrada : MonoBehaviour
                 {
                     fase = 2;
                 }
+                else if (fase == 2)
+                {
+                    fase = 3;
+                }
                 else
                 {
+
                     fase = 1;
                     round++;
                 }
@@ -99,8 +109,12 @@ public class DectarEntrada : MonoBehaviour
     {
         if (puzzlesIdentity != 3)
         {
+            if (puzzlesIdentity == 4)
+            {
 
-            if (posItemInicial != null && item != null)
+            }
+
+            else if (posItemInicial != null && item != null)
             {
                 item.transform.position = posItemInicial;
                 item.SetActive(false);
@@ -112,7 +126,6 @@ public class DectarEntrada : MonoBehaviour
             if (item != null)
             {
                 item.transform.position = posItemInicial;
-
             }
         }
 
@@ -126,7 +139,6 @@ public class DectarEntrada : MonoBehaviour
         {
             if (jaEncostei == false)
             {
-
 
                 if (GameController.instance != null)
                 {
@@ -143,71 +155,34 @@ public class DectarEntrada : MonoBehaviour
 
                     }
 
-
                 }
 
-
+                //se esse puzzle nao eh o puzzle do forno
                 if (puzzlesIdentity != 3)
                 {
-                    if (coleta)
+                    if (caso == 1)
                     {
                         casoColeta();
                     }
-                    else
+                    else if (caso == 2)
                     {
                         casoMontagem();
+
+                    }
+                    else
+                    {
+                        casoEntrega();
                     }
 
                 }
                 else
                 {
-                    if (jaFezP3 == false)
-                    {
-                        GameObject pizza;
-                        Player playerScript;
-                        Pizza pizzaScript;
-                        playerScript = other.GetComponentInParent<Player>();
-
-
-
-                        pizza = GameObject.FindGameObjectWithTag("Pizza").gameObject;
-                        pizzaScript = pizza.GetComponent<Pizza>();
-
-                        pizzaScript.Esvaziar();
-                        pizza.transform.parent = posPizza.transform;
-                        pizza.gameObject.transform.position = posPizza.position;
-
-
-                        if (playerScript.roundEuTo == 1)
-                        {
-                            item = Pool.poolerInstance.pizzas[0];
-
-                        }
-                        else
-                        {
-                            if (playerScript.toPeperoni == true)
-                            {
-                                item = Pool.poolerInstance.pizzas[1];
-                            }
-                            else
-                            {
-                                item = Pool.poolerInstance.pizzas[2];
-                            }
-                        }
-
-
-
-                        item.transform.parent = posPizza.transform;
-                        item.transform.position = posPizza.position;
-                        item.SetActive(true);
-
-
-
-                        animatorTotemFinal.SetTrigger("tPlay");
-                        jaFezP3 = true;
-                    }
+                    Player playerScript = other.GetComponentInParent<Player>();
+                    casoPuzzleForno(playerScript);
                 }
+
                 jaEncostei = true;
+
             }
 
 
@@ -222,9 +197,7 @@ public class DectarEntrada : MonoBehaviour
         // Debug.Log("Player entrou neste puzzle");
 
         GameObject cesta;
-        GameObject pizza;
 
-        pizza = GameObject.FindGameObjectWithTag("Pizza").gameObject;
         cesta = GameObject.FindGameObjectWithTag("Cesta").gameObject;
 
         if (posCesta != null)
@@ -247,23 +220,6 @@ public class DectarEntrada : MonoBehaviour
             }
 
         }
-
-        if (posPizza != null)
-        {
-            if (pizza != null)
-            {
-                pizza.transform.position = posPizza.position;
-                pizza.transform.parent = posPizza.transform;
-            }
-        }
-        else
-        {
-            if (pizza != null)
-            {
-                pizza.transform.parent = null;
-            }
-        }
-
 
         switch (puzzlesIdentity)
         {
@@ -301,32 +257,13 @@ public class DectarEntrada : MonoBehaviour
     {
         // Debug.Log("Player entrou neste puzzle");
 
-        GameObject cesta;
+
         GameObject pizza;
 
         pizza = GameObject.FindGameObjectWithTag("Pizza").gameObject;
-        cesta = GameObject.FindGameObjectWithTag("Cesta").gameObject;
-
-        if (posCesta != null)
-        {
-            if (cesta != null)
-            {
-                cesta.transform.position = posCesta.position;
-                cesta.transform.parent = posCesta.transform;
-
-            }
 
 
 
-        }
-        else
-        {
-            if (cesta != null)
-            {
-                cesta.transform.parent = null;
-            }
-
-        }
 
         if (posPizza != null)
         {
@@ -372,8 +309,92 @@ public class DectarEntrada : MonoBehaviour
         }
     }
 
+    public void casoPuzzleForno(Player playerScript)
+    {
+
+
+        if (jaFezP3 == false)
+        {
+            GameObject pizza;
+
+            Pizza pizzaScript;
 
 
 
+
+            pizza = GameObject.FindGameObjectWithTag("Pizza").gameObject;
+            pizzaScript = pizza.GetComponent<Pizza>();
+
+            pizzaScript.Esvaziar();
+            pizza.transform.parent = posPizza.transform;
+            pizza.gameObject.transform.position = posPizza.position;
+
+
+            if (playerScript.roundEuTo == 1)
+            {
+                item = Pool.poolerInstance.pizzas[0];
+
+            }
+            else
+            {
+                if (playerScript.toPeperoni == true)
+                {
+                    item = Pool.poolerInstance.pizzas[1];
+                }
+                else
+                {
+                    item = Pool.poolerInstance.pizzas[2];
+                }
+            }
+
+
+
+            item.transform.parent = posPizza.transform;
+            item.transform.position = posPizza.position;
+            item.SetActive(true);
+
+
+
+            animatorTotemFinal.SetTrigger("tPlay");
+            jaFezP3 = true;
+        }
+
+    }
+
+    public void casoEntrega()
+    {
+
+        if (puzzlesIdentity == 4)
+        {
+            GameObject caixaPizza;
+
+            caixaPizza = GameObject.FindGameObjectWithTag("CaixaPizza").gameObject;
+
+            if (posPizza != null)
+            {
+                if (caixaPizza != null)
+                {
+                    caixaPizza.SetActive(true);
+                    caixaPizza.transform.position = posPizza.position;
+                    caixaPizza.transform.parent = posPizza.transform;
+                }
+            }
+            else
+            {
+                if (caixaPizza != null)
+                {
+                    caixaPizza.transform.parent = null;
+                }
+            }
+
+            animatorTotemInicial.SetTrigger("tPlay");
+
+        }
+
+        else if (puzzlesIdentity == 5)
+        {
+            animatorTotemFinal.SetTrigger("tPlay");
+        }
+    }
 
 }

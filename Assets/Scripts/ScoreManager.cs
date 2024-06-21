@@ -87,7 +87,7 @@ public class ScoreManager : MonoBehaviour
         j = JsonUtility.FromJson<JsonRank>(json);
 
         string teste = JsonUtility.ToJson(j, true);
-        Debug.Log(teste);
+        //Debug.Log(teste);
 
 
     }
@@ -106,7 +106,7 @@ public class ScoreManager : MonoBehaviour
         }
 
         string json = JsonUtility.ToJson(j, true);
-        Debug.Log(json);
+       // Debug.Log(json);
         File.WriteAllText(Application.persistentDataPath + "/save.json", json);
     }
 

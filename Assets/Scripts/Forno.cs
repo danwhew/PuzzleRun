@@ -29,7 +29,10 @@ public class Forno : MonoBehaviour
         contador = 0;
         slider.value = 0;
 
+        
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        
 
         
     }

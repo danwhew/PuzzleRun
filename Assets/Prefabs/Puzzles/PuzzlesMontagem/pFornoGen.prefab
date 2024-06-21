@@ -116,8 +116,10 @@ MonoBehaviour:
   posItemInicial: {x: 0, y: 0, z: 0}
   fase: 0
   round: 0
-  coleta: 0
+  peperoni: 0
+  caso: 2
   jaFezP3: 0
+  jaEncostei: 0
 --- !u!1001 &791764470272481032
 PrefabInstance:
   m_ObjectHideFlags: 0

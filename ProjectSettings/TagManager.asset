@@ -21,6 +21,7 @@ TagManager:
   - Puzzle
   - Pizza
   - TotemFinal
+  - CaixaPizza
   layers:
   - Default
   - TransparentFX

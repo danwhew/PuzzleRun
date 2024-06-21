@@ -10,8 +10,11 @@ public class Cesta : MonoBehaviour
 
     private void Start()
     {
-        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        
+            playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         Esvaziar();
+        
+       
     }
 
     public void Esvaziar()
@@ -19,8 +22,11 @@ public class Cesta : MonoBehaviour
         for (int i = 1; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(false);
+            
         }
     }
+
+  
 
     public void Preencher(string nomeObj)
     {
@@ -57,13 +63,6 @@ public class Cesta : MonoBehaviour
                 Esvaziar();
             }
         }
-        
-            
-               
-         
-
-        
-
     }
 
 }

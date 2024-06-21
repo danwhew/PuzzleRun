@@ -122,7 +122,7 @@ MonoBehaviour:
   fase: 0
   round: 0
   peperoni: 0
-  coleta: 0
+  caso: 2
   jaFezP3: 0
   jaEncostei: 0
 --- !u!1001 &238412627506680809

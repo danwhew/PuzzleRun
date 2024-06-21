@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TotemFinal : MonoBehaviour
 {
+
+    
     Animator anim;
 
     private void OnEnable()
@@ -13,7 +15,7 @@ public class TotemFinal : MonoBehaviour
 
     public void fazerOsTrem()
     {
-
+        
         anim.SetTrigger("tBack");
 
     }

@@ -10,9 +10,11 @@ public class Pool : MonoBehaviour
 
     public GameObject tileBase;
     public GameObject tileBaseF2;
+    public GameObject tileBaseF3;
     GameObject tmp;
     public int maxTilesBase = 6;
     public int maxTilesBaseF2 = 6;
+    public int maxTilesBaseF3 = 6;
     public bool ehPeperoni;
 
     public GameObject bateria;
@@ -39,17 +41,23 @@ public class Pool : MonoBehaviour
     public GameObject[] puzzlesCortarPeperoni;
     public GameObject[] puzzlesCortarCogumelo;
 
+    [Header("Fase 3")]
+    public GameObject[] puzzlesPegarPizza;
+    public GameObject[] puzzlesCaminhoEntrega;
+    public GameObject[] puzzlesEntregasFinais;
+
     [Header("Puzzles Definitivos")]
     [Header("Fase 1")]
     public GameObject[] puzzlesColeta;
     [Header("Fase 2")]
     public GameObject[] puzzlesMontagem;
     [Header("Fase 3")]
-
+    public GameObject[] puzzlesEntrega;
 
 
     public List<GameObject> listaTilesBases = new List<GameObject>();
     public List<GameObject> listaTilesBasesF2 = new List<GameObject>();
+    public List<GameObject> listaTilesBasesF3 = new List<GameObject>();
 
     public GameObject[] pizzas;
     public GameObject[] baterias;
@@ -76,6 +84,14 @@ public class Pool : MonoBehaviour
             tmp = Instantiate(tileBaseF2);
             tmp.SetActive(false);
             listaTilesBasesF2.Add(tmp);
+
+        }
+        for (int i = 0; i < maxTilesBaseF3; i++)
+        {
+
+            tmp = Instantiate(tileBaseF3);
+            tmp.SetActive(false);
+            listaTilesBasesF3.Add(tmp);
 
         }
 
@@ -330,6 +346,20 @@ public class Pool : MonoBehaviour
         return null;
     }
 
+    public GameObject getTileBaseF3()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+
+            if (!listaTilesBasesF3[i].activeInHierarchy)
+            {
+                return listaTilesBasesF3[i];
+            }
+
+        }
+        return null;
+    }
+
     public GameObject getBaterias()
     {
         for (int i = 0; i < baterias.Length; i++)
@@ -343,13 +373,6 @@ public class Pool : MonoBehaviour
         }
         return null;
     }
-
-
-    public GameObject getPuzzleColeta(int index)
-    {
-        return puzzlesColeta[index];
-    }
-
 
     public void preInstanciar(GameObject[] objects)
     {

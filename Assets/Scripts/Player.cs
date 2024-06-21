@@ -71,9 +71,9 @@ public class Player : MonoBehaviour
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        // Pegar o Rigidbody do pr�prio objeto
+        // Pegar o Rigidbody do proprio objeto
         rb = GetComponent<Rigidbody>();
-        // Pegar o componente Renderer do pr�prio objeto
+        // Pegar o componente Renderer do proprio objeto
         playerRenderer = GetComponentInChildren<Renderer>();
         // Salvar a cor original do jogador
         originalColor = playerRenderer.material.color;
@@ -84,31 +84,10 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        if (rb.velocity.magnitude > 1f)
-        {
-
-            animator.SetBool("bParado", false);
-        }
-        else
-        {
-            animator.SetBool("bParado", true);
-        }
+        animacaoIdle();
 
 
-        // Ativando/desativando o cheat de bateria infinita quando cinco dedos tocarem na tela
-        if (Input.touchCount >= 5)
-        {
-            if (cheat5 == false)
-            {
-                cheat5 = true;
-                bateria = 100;
-            }
-            else
-            {
-                cheat5 = false;
-            }
-
-        }
+        cheats();
 
         //verificar a todo momento se ele pode coletar ou nao algum item
         ColetaDrop();
@@ -191,10 +170,6 @@ public class Player : MonoBehaviour
             GameController.instance.derrota();
         }
 
-
-
-
-
         if (other.CompareTag("Bateria"))
         {
             
@@ -241,7 +216,7 @@ public class Player : MonoBehaviour
 
 
                 }
-                else
+                else if (faseEuTo == 2)
                 {
                     Pizza pizzaScript = GameObject.FindGameObjectWithTag("Pizza").GetComponent<Pizza>();
 
@@ -254,11 +229,17 @@ public class Player : MonoBehaviour
 
                     }
                 }
+                else
+                {
+                    item.transform.parent = null;
+                    item.SetActive(false);
+                    item = null;
+                }
 
 
 
 
-                if (paiInicialDoItem != null)
+                if (paiInicialDoItem != null && faseEuTo != 3)
                 {
                     item.transform.parent = paiInicialDoItem.transform;
                     item = null;
@@ -375,6 +356,19 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void animacaoIdle()
+    {
+        if (rb.velocity.magnitude > 1f)
+        {
+
+            animator.SetBool("bParado", false);
+        }
+        else
+        {
+            animator.SetBool("bParado", true);
+        }
+    }
+
     public void movimentacao()
     {
         if (Input.touchCount > 0)
@@ -442,6 +436,24 @@ public class Player : MonoBehaviour
                     transform.rotation = olhandoPara;
                 }
             }
+        }
+    }
+
+    public void cheats()
+    {
+        // Ativando/desativando o cheat de bateria infinita quando cinco dedos tocarem na tela
+        if (Input.touchCount >= 5)
+        {
+            if (cheat5 == false)
+            {
+                cheat5 = true;
+                bateria = 100;
+            }
+            else
+            {
+                cheat5 = false;
+            }
+
         }
     }
 
