@@ -7,10 +7,10 @@ public class Pizza : MonoBehaviour
 
     private void Start()
     {
-        Esvaziar();
+        EsvaziarInicio();
     }
 
-    public void Esvaziar()
+    public void EsvaziarInicio()
     {
         for (int i = 1; i < transform.childCount; i++)
         {
@@ -18,6 +18,20 @@ public class Pizza : MonoBehaviour
         }
     }
 
+    public void esvaziar()
+    {
+        StartCoroutine(esvaziarCoroutine());
+    }
+
+    public IEnumerator esvaziarCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        for (int i = 1; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+            transform.parent = null;
+        }
+    }
     public void Preencher(string nomeObj)
     {
         for (int i = 0; i < transform.childCount; i++)

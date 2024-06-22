@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posBateria: {fileID: 1251429943654178357}
   item: {fileID: 0}
-  totem: {fileID: 0}
+  totem: {fileID: 3286729344907885121}
   animatorEstante: {fileID: 0}
   animatorTotem: {fileID: 0}
   animatorGiraGira: {fileID: 0}
@@ -221,6 +221,17 @@ PrefabInstance:
       addedObject: {fileID: 3625482178390178831}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbd0685a55bb39542ac7867bf4479c90, type: 3}
+--- !u!114 &3286729344907885121 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3280381856643742658, guid: cbd0685a55bb39542ac7867bf4479c90, type: 3}
+  m_PrefabInstance: {fileID: 7475613798809987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cc6bd2f366e7f4b800668ce5a29987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &3750573759666904034 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3753251048591727201, guid: cbd0685a55bb39542ac7867bf4479c90, type: 3}

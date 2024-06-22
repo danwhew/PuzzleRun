@@ -117,6 +117,10 @@ public class Pool : MonoBehaviour
         preInstanciar(puzzlesCortarPeperoni);
         preInstanciar(puzzlesCortarCogumelo);
 
+        preInstanciar(puzzlesPegarPizza);
+        preInstanciar(puzzlesCaminhoEntrega);
+        preInstanciar(puzzlesEntregasFinais);
+
     }
 
 
@@ -159,7 +163,6 @@ public class Pool : MonoBehaviour
 
         int[] jaGerados2 = new int[3] { -1, -1, -1 };
         bool ehIgual2 = false;
-
 
         for (int i = 0; i < jaGerados.Length; i++)
         {
@@ -237,7 +240,10 @@ public class Pool : MonoBehaviour
         puzzlesMontagem[jaGerados2[1]] = puzzlesCortarQueijo[Random.Range(0, puzzlesCortarQueijo.Length)];
         puzzlesMontagem[4] = puzzlesAssarPizza[Random.Range(0, puzzlesAssarPizza.Length)];
 
-
+        puzzlesEntrega[0] = puzzlesPegarPizza[Random.Range(0, puzzlesPegarPizza.Length)];
+        puzzlesEntrega[1] = puzzlesCaminhoEntrega[Random.Range(0, puzzlesCaminhoEntrega.Length)];
+        puzzlesEntrega[2] = puzzlesCaminhoEntrega[Random.Range(0, puzzlesCaminhoEntrega.Length)];
+        puzzlesEntrega[3] = puzzlesEntregasFinais[Random.Range(0, puzzlesEntregasFinais.Length)];
     }
 
     public void loadPuzzlesRound1()
@@ -315,6 +321,9 @@ public class Pool : MonoBehaviour
         puzzlesMontagem[jaGerados2[1]] = puzzlesCortarQueijo[Random.Range(0, puzzlesCortarQueijo.Length)];
         puzzlesMontagem[3] = puzzlesAssarPizza[Random.Range(0, puzzlesAssarPizza.Length)];
 
+        puzzlesEntrega[0] = puzzlesPegarPizza[Random.Range(0, puzzlesPegarPizza.Length)];
+        puzzlesEntrega[1] = puzzlesCaminhoEntrega[Random.Range(0, puzzlesCaminhoEntrega.Length)];
+        puzzlesEntrega[2] = puzzlesEntregasFinais[Random.Range(0, puzzlesEntregasFinais.Length)];
 
     }
 

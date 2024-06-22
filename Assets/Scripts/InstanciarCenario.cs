@@ -112,7 +112,9 @@ public class InstanciarCenario : MonoBehaviour
     }
     public void instanciarPuzzlesFaseEntrega()
     {
-
+        GameObject clone = Pool.poolerInstance.puzzlesEntrega[GameController.instance.indexPuzzlesEntrega];
+        clone.transform.position = posPuzzle.transform.position;
+        clone.SetActive(true);
         GameController.instance.indexPuzzlesEntrega++;
 
     }

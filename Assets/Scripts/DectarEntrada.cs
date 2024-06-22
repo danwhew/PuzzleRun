@@ -53,7 +53,7 @@ public class DectarEntrada : MonoBehaviour
             item.SetActive(true);
 
         }
-        else if(caso != 3)
+        else if (caso != 3)
         {
             jaFezP3 = false; //voltar isso pro inicio do onenable se der algum erro
             posItemInicial = posPizza.transform.position;
@@ -65,7 +65,11 @@ public class DectarEntrada : MonoBehaviour
 
 
             peperoni = Pool.poolerInstance.ehPeperoni;
-            totem.peperoni = peperoni;
+            if (totem != null)
+            {
+                totem.peperoni = peperoni;
+
+            }
 
             if (GameController.instance.passou == true)
             {
@@ -89,17 +93,24 @@ public class DectarEntrada : MonoBehaviour
                     round++;
                 }
 
-                totem.fase = fase;
-                totem.round = round;
-                GameController.instance.passou = false;
+                if (totem != null)
+                {
+                    totem.fase = fase;
+                    totem.round = round;
+                    GameController.instance.passou = false;
+                }
             }
             else
             {
                 fase = GameController.instance.fase;
                 round = GameController.instance.round;
 
-                totem.fase = fase;
-                totem.round = round;
+                if (totem != null)
+                {
+
+                    totem.fase = fase;
+                    totem.round = round;
+                }
             }
         }
     }
@@ -107,6 +118,8 @@ public class DectarEntrada : MonoBehaviour
 
     private void OnDisable()
     {
+
+
         if (puzzlesIdentity != 3)
         {
             if (puzzlesIdentity == 4)
@@ -204,6 +217,7 @@ public class DectarEntrada : MonoBehaviour
         {
             if (cesta != null)
             {
+                
                 cesta.transform.position = posCesta.position;
                 cesta.transform.parent = posCesta.transform;
 
@@ -325,7 +339,7 @@ public class DectarEntrada : MonoBehaviour
             pizza = GameObject.FindGameObjectWithTag("Pizza").gameObject;
             pizzaScript = pizza.GetComponent<Pizza>();
 
-            pizzaScript.Esvaziar();
+            pizzaScript.EsvaziarInicio();
             pizza.transform.parent = posPizza.transform;
             pizza.gameObject.transform.position = posPizza.position;
 
@@ -369,6 +383,8 @@ public class DectarEntrada : MonoBehaviour
             GameObject caixaPizza;
 
             caixaPizza = GameObject.FindGameObjectWithTag("CaixaPizza").gameObject;
+            
+
 
             if (posPizza != null)
             {
@@ -388,6 +404,8 @@ public class DectarEntrada : MonoBehaviour
             }
 
             animatorTotemInicial.SetTrigger("tPlay");
+           
+            
 
         }
 

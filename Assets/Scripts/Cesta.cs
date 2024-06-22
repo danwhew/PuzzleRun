@@ -12,21 +12,29 @@ public class Cesta : MonoBehaviour
     {
         
             playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        Esvaziar();
+        esvaziarInicio();
         
        
     }
-
-    public void Esvaziar()
+    public void esvaziarInicio()
     {
         for (int i = 1; i < transform.childCount; i++)
         {
             transform.GetChild(i).gameObject.SetActive(false);
-            
+            transform.parent = null;
         }
     }
 
-  
+    public IEnumerator Esvaziar()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+
+        for (int i = 1; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+            transform.parent = null;
+        }
+    }
 
     public void Preencher(string nomeObj)
     {
@@ -53,14 +61,14 @@ public class Cesta : MonoBehaviour
 
             if (transform.GetChild(transform.childCount - 3).gameObject.activeInHierarchy == true)
             {
-                Esvaziar();
+               StartCoroutine(Esvaziar()) ;
             }
         }
         else
         {
             if (transform.GetChild(transform.childCount - 2).gameObject.activeInHierarchy == true)
             {
-                Esvaziar();
+                StartCoroutine(Esvaziar());
             }
         }
     }

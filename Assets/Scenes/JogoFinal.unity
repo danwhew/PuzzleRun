@@ -2612,7 +2612,7 @@ Transform:
   m_GameObject: {fileID: 795007349}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.43, y: 0.92, z: -4.61}
+  m_LocalPosition: {x: 0.36, y: 0.92, z: -4.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -8268,6 +8268,12 @@ MonoBehaviour:
   - {fileID: 4984621460166118945, guid: b000854e35318654faee8dfbb96d4cc8, type: 3}
   puzzlesCortarCogumelo:
   - {fileID: 4984621460166118945, guid: 67f2048d455fcc944852a3c31151331b, type: 3}
+  puzzlesPegarPizza:
+  - {fileID: 4984621460166118945, guid: 3932e35ad85820648b8c397fbaed6910, type: 3}
+  puzzlesCaminhoEntrega:
+  - {fileID: 4984621460166118945, guid: 7b25c47669902434cbd25e150c6a0c98, type: 3}
+  puzzlesEntregasFinais:
+  - {fileID: 4984621460166118945, guid: 36d0ff748f4cf0845b2823111a5f4170, type: 3}
   puzzlesColeta:
   - {fileID: 0}
   - {fileID: 0}
@@ -8279,7 +8285,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  puzzlesEntrega: []
+  puzzlesEntrega:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   listaTilesBases: []
   listaTilesBasesF2: []
   listaTilesBasesF3: []

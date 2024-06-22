@@ -218,6 +218,7 @@ public class Player : MonoBehaviour
                 }
                 else if (faseEuTo == 2)
                 {
+                    
                     Pizza pizzaScript = GameObject.FindGameObjectWithTag("Pizza").GetComponent<Pizza>();
 
                     if (pizzaScript != null)
@@ -231,8 +232,14 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    item.transform.parent = null;
-                    item.SetActive(false);
+                    CaixaPizza caixa = GameObject.FindGameObjectWithTag("CaixaPizza").GetComponent<CaixaPizza>();
+                    GameObject teste;
+                    teste = collision.gameObject.transform.GetChild(0).GetChild(0).gameObject;
+                    
+
+                    //item.SetActive(false);
+                    item.gameObject.transform.parent = teste.transform;
+                    caixa.desparentear();
                     item = null;
                 }
 
@@ -251,6 +258,17 @@ public class Player : MonoBehaviour
                 //acessa o totem e ativa as funcionalidades dele
                 Totem totemTemp;
                 totemTemp = collision.gameObject.GetComponentInParent<Totem>();
+               /* if(totemTemp.fase == 1)
+                {
+                    CaixaPizza caixa = GameObject.FindGameObjectWithTag("CaixaPizza").GetComponent<CaixaPizza>();
+
+                }*/
+
+                 if (totemTemp.fase == 3)
+                {
+                    Pizza pizzaScript = GameObject.FindGameObjectWithTag("Pizza").GetComponent<Pizza>();
+                    pizzaScript.esvaziar();
+                }
 
                 faseEuTo = totemTemp.fase;
                 roundEuTo = totemTemp.round;
