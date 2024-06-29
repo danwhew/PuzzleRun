@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 public class Player : MonoBehaviour
 {
@@ -10,23 +11,29 @@ public class Player : MonoBehaviour
     public float timerBateria;
     public float bateria = 100;
 
+
+    [Header("---SkinsAnims---")]
+    public GameObject[] skins = new GameObject[3];
+    public Animator animator;
+    
+
     [Header("---Itens---")]
     //interacao com itens
-    public GameObject item;
-    public Transform posItem;
+    public GameObject item; //item que o player ta carregando
+    public Transform posItem; //posicao que o item fica no player
     public GameObject paiInicialDoItem;
     public Vector3 posItemInicial;
-    public bool podePegar;
-    public bool podeDropar;
-    public bool peguei;
-    public bool dropei;
-    public float timer;
-    public float cooldownItens = 2;
+    public bool podePegar; //verificar se pode pegar item
+    public bool podeDropar; //verificar se pode dropar item
+    public bool peguei; //verificar se estou com algum item
+    public bool dropei; //verificar se estou
+    public bool podeGrudar; //alguma coisa pra evitar problema
+    public float timer; //timer pra liberar pegar ou dropar item
+    public float cooldownItens = 2; //cooldown pro timer acima
 
 
     [Header("---Movimentacao---")]
     //movimentacao
-    public Animator animator;
     public float velocidade = 10;
     public Rigidbody rb;
     public bool podeAndar = true;
@@ -44,14 +51,13 @@ public class Player : MonoBehaviour
     [Header("---Atordoamento---")]
     //flash feedback
     Renderer playerRenderer;
-    Color yellow;
     Color originalColor; // Cor original do jogador
     bool isFlashing = false; // Flag para controlar o estado de piscar
-    float flashDuration = 0.2f; // Dura��o do piscar
+    float flashDuration = 0.2f; // Duracao do piscar
     float flashTimer = 0f; // Timer para controlar o piscar
     public GameObject estrelas;
 
-    [Header("---Atordoamento---")]
+    [Header("---Cheats---")]
     //game Cheats
     public bool cheat5 = false;
 
@@ -61,81 +67,80 @@ public class Player : MonoBehaviour
     public int roundEuTo = 1;
     public bool toPeperoni;
 
-    public bool podeGrudar;
 
+    [Header("---Conquistas---")]
     public int contadorBaterParede;
-    
 
 
+    private void Awake()
+    {
+        
+    }
 
     void Start()
     {
-        animator = GetComponentInChildren<Animator>();
-        // Pegar o Rigidbody do proprio objeto
-        rb = GetComponent<Rigidbody>();
-        // Pegar o componente Renderer do proprio objeto
-        playerRenderer = GetComponentInChildren<Renderer>();
-        // Salvar a cor original do jogador
-        originalColor = playerRenderer.material.color;
-        estrelas.SetActive(false);
+
+        atualizarSkin(GameController.instance.skinTemp);
+        init();
+
     }
 
 
     void Update()
     {
-
-        animacaoIdle();
-
-
-        cheats();
-
-        //verificar a todo momento se ele pode coletar ou nao algum item
-        ColetaDrop();
-
-        if (cheat5 == false)
+        if (GameController.instance.pausaInicial == false)
         {
-            if (podeAndar == false)
+
+            animacaoIdle();
+            cheats();
+
+            //verificar a todo momento se ele pode coletar ou nao algum item
+            ColetaDrop();
+
+
+            if (podeAndar == true)
+            {
+                movimentacao();
+            }
+            else
             {
                 podeAndarTimer += Time.deltaTime;
+
                 if (podeAndarTimer >= 1)
                 {
                     estrelas.SetActive(false);
                     podeAndar = true;
                     podeAndarTimer = 0;
-                    animator.SetBool("bAtordoado", false);
+
+                    //desliga animacao de atordoamento
+                    if (animator != null)
+                    {
+                        animator.SetBool("bAtordoado", false);
+
+                    }
                 }
+
             }
-            if (podeAndar == true)
-            {
-                movimentacao();
-            }
+
+
+
 
             //logica bateria
-            timerBateria += Time.deltaTime;
-            if (timerBateria > 0.4f)
-            {
-                bateria--;
-                timerBateria = 0;
-            }
+            diminuirBateria();
 
+            // Atualizar o efeito de piscar ao atordoar
+            UpdateFlash();
         }
-        else
-        {
-            bateria = 100;
-            movimentacao();
-        }
-
-        FimDaBateria();
-
-        // Atualizar o efeito de piscar, se necessario
-        UpdateFlash();
 
     }
 
     private void FixedUpdate()
     {
-        //movimentacao constante pra frente
-        rb.AddForce(transform.forward * velocidade * 10f * Time.deltaTime, ForceMode.VelocityChange);
+        if (GameController.instance.pausaInicial == false)
+        {
+            //movimentacao constante pra frente local
+            rb.AddForce(transform.forward * velocidade * 10f * Time.deltaTime, ForceMode.VelocityChange);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -172,7 +177,7 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("Bateria"))
         {
-            
+
             audioSource.PlayOneShot(audios[0]);
             StartFlash();
             bateria += 60;
@@ -190,60 +195,30 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Drop")) //totem
         {
-            //se o player tiver segurando algum item
+            //se o player tiver segurando algum item e puder dropar
             if (item != null && podeDropar == true)
             {
-
-
                 //audio
                 audioSource.PlayOneShot(audios[0]);
 
-                //acessa a cesta
-
-
                 if (faseEuTo == 1)
                 {
-                    Cesta cestaScript = GameObject.FindGameObjectWithTag("Cesta").GetComponent<Cesta>();
-
-                    if (cestaScript != null)
-                    {
-                        string nomeItem;
-                        nomeItem = item.name;
-
-                        cestaScript.Preencher(nomeItem);
-
-                    }
+                    atualizarCesta();
 
 
                 }
                 else if (faseEuTo == 2)
                 {
-                    
-                    Pizza pizzaScript = GameObject.FindGameObjectWithTag("Pizza").GetComponent<Pizza>();
 
-                    if (pizzaScript != null)
-                    {
-                        string nomeItem;
-                        nomeItem = item.name;
+                    atualizarPizza();
 
-                        pizzaScript.Preencher(nomeItem);
-
-                    }
                 }
-                else
+                else //faseEuTo == 3
                 {
-                    CaixaPizza caixa = GameObject.FindGameObjectWithTag("CaixaPizza").GetComponent<CaixaPizza>();
-                    GameObject teste;
-                    teste = collision.gameObject.transform.GetChild(0).GetChild(0).gameObject;
-                    
 
-                    //item.SetActive(false);
-                    item.gameObject.transform.parent = teste.transform;
-                    caixa.desparentear();
-                    item = null;
+                    atualizarCaixa(collision.gameObject);
+
                 }
-
-
 
 
                 if (paiInicialDoItem != null && faseEuTo != 3)
@@ -253,39 +228,43 @@ public class Player : MonoBehaviour
 
                 }
 
-
-
                 //acessa o totem e ativa as funcionalidades dele
                 Totem totemTemp;
                 totemTemp = collision.gameObject.GetComponentInParent<Totem>();
-               /* if(totemTemp.fase == 1)
-                {
-                    CaixaPizza caixa = GameObject.FindGameObjectWithTag("CaixaPizza").GetComponent<CaixaPizza>();
 
-                }*/
 
-                 if (totemTemp.fase == 3)
+                if (totemTemp.fase == 3)
                 {
                     Pizza pizzaScript = GameObject.FindGameObjectWithTag("Pizza").GetComponent<Pizza>();
                     pizzaScript.esvaziar();
                 }
 
+                int fasetmp = faseEuTo;
+
                 faseEuTo = totemTemp.fase;
                 roundEuTo = totemTemp.round;
                 toPeperoni = totemTemp.peperoni;
-                
 
-                if(roundEuTo == 2)
+
+                if (faseEuTo != fasetmp)
+                {
+                    Debug.Log("TroqueiDeFase");
+                    
+
+                    
+                }
+
+                totemTemp.fazerOsTrem(); //ativar as funcionalidades do totem
+
+                if (roundEuTo == 2)
                 {
                     ScoreManager.instance.conquista[2] = true;
                     Debug.Log("Conquista2 obtida");
                     ScoreManager.instance.atualizarConquistas();
                 }
-                    GameController.instance.atualizarFase();
-                    GameController.instance.atualizarRound();
-                    
+                GameController.instance.atualizarFase();
+                GameController.instance.atualizarRound();
 
-                totemTemp.fazerOsTrem();
 
                 dropei = true;
                 podeDropar = false;
@@ -309,28 +288,19 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Parede"))
         {
 
-            Debug.Log("parede");
             contadorBaterParede++;
 
-            if(contadorBaterParede == 5)
+            if (contadorBaterParede == 5)
             {
                 Debug.Log("vc fez a conquista 1 aojekdo");
                 ScoreManager.instance.conquista[1] = true;
                 ScoreManager.instance.atualizarConquistas();
             }
+
+
             if (cheat5 == false)
             {
-                // Faz o jogador piscar de branco
-                StartFlash();
-                audioSource.PlayOneShot(audios[2]);
-                estrelas.SetActive(true);
-                animator.SetBool("bAtordoado", true);
-
-                // Impede o jogador de andar temporariamente
-                podeAndar = false;
-
-                // Diminui a bateria ao colidir com a parede
-                bateria -= 15;
+                baterParede();
 
             }
             else
@@ -339,7 +309,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("Forno"))
+        if (collision.gameObject.CompareTag("Forno") || collision.gameObject.CompareTag("MesaCorte"))
         {
 
 
@@ -357,33 +327,115 @@ public class Player : MonoBehaviour
 
         }
 
-        if (collision.gameObject.CompareTag("MesaCorte"))
-        {
 
-            if (item != null && podeGrudar == true)
-            {
-
-                dropei = true;
-                podeDropar = false;
-                item.transform.parent = null;
-                item = null;
-                podeGrudar = false;
-
-            }
-
-        }
     }
 
-    public void animacaoIdle()
+    public void init()
     {
-        if (rb.velocity.magnitude > 1f)
-        {
+        // Pegar o Rigidbody do proprio objeto
+        rb = GetComponent<Rigidbody>();
+        // Pegar o componente Renderer do proprio objeto
+        playerRenderer = GetComponentInChildren<Renderer>();
+        // Salvar a cor original do jogador
+        originalColor = playerRenderer.material.color;
+        estrelas.SetActive(false);
+    }
 
-            animator.SetBool("bParado", false);
+    public void atualizarSkin(int qual)
+    {
+        if (qual == 0)
+        {
+            skins[0].gameObject.SetActive(false);
+            skins[1].gameObject.SetActive(true);
+            skins[2].gameObject.SetActive(false);
+            animator = skins[1].GetComponent<Animator>();
+        }
+        else if (qual == 1)
+        {
+            skins[0].gameObject.SetActive(true);
+            skins[1].gameObject.SetActive(false);
+            skins[2].gameObject.SetActive(false);
+            animator = skins[0].GetComponent<Animator>();
         }
         else
         {
-            animator.SetBool("bParado", true);
+            skins[0].gameObject.SetActive(false);
+            skins[1].gameObject.SetActive(false);
+            skins[2].gameObject.SetActive(true);
+            animator = skins[2].GetComponent<Animator>();
+        }
+    }
+
+    public void baterParede()
+    {
+        // Faz o jogador piscar de branco
+        StartFlash();
+        //audio atordoamento
+        audioSource.PlayOneShot(audios[2]);
+        //ligar estrelas de atordoamento
+        estrelas.SetActive(true);
+
+        //ativa animacao de atordoamento
+        if (animator != null)
+        {
+            animator.SetBool("bAtordoado", true);
+        }
+        // Impede o jogador de andar temporariamente
+        podeAndar = false;
+
+        // Diminui a bateria ao colidir com a parede
+        bateria -= 15;
+    }
+
+    public void atualizarCesta()
+    {
+        Cesta cestaScript = GameObject.FindGameObjectWithTag("Cesta").GetComponent<Cesta>();
+
+        if (cestaScript != null)
+        {
+            string nomeItem = item.name;
+            cestaScript.Preencher(nomeItem);
+
+        }
+    }
+    public void atualizarPizza()
+    {
+        Pizza pizzaScript = GameObject.FindGameObjectWithTag("Pizza").GetComponent<Pizza>();
+
+        if (pizzaScript != null)
+        {
+            string nomeItem = item.name;
+            pizzaScript.Preencher(nomeItem);
+
+        }
+    }
+    public void atualizarCaixa(GameObject collision)
+    {
+        CaixaPizza caixa = GameObject.FindGameObjectWithTag("CaixaPizza").GetComponent<CaixaPizza>();
+        GameObject teste;
+        teste = collision.gameObject.transform.GetChild(0).GetChild(0).gameObject;
+
+
+        //item.SetActive(false);
+        item.gameObject.transform.parent = teste.transform;
+        caixa.desparentear();
+        item = null;
+    }
+
+   
+    public void animacaoIdle()
+    {
+        if (animator != null)
+        {
+            if (rb.velocity.magnitude > 1f)
+            {
+
+                animator.SetBool("bParado", false);
+            }
+            else
+            {
+                animator.SetBool("bParado", true);
+            }
         }
     }
 
@@ -402,19 +454,11 @@ public class Player : MonoBehaviour
             {
                 endTouchPos = firstTouch.position;
 
+                //se ao clicar na tela o movimento for muito curto:
                 if (Mathf.Abs(endTouchPos.x - startTouchPos.x) <= 0.05f || Mathf.Abs(endTouchPos.y - startTouchPos.y) <= 0.05f)
                 {
-                    //dropar o item com um toque
-                    /*if (item != null)
-                    {
-                        item.transform.position = new Vector3(item.transform.position.x, posItemInicial.y, item.transform.position.z);
-                        item.transform.parent = paiInicialDoItem.transform;
-                        item = null;
-                        dropei = true;
-                        podeDropar = false;
 
-                    }*/
-
+                    //droparItemNoChao();
                     Debug.Log("mto curto");
 
                 }
@@ -445,15 +489,12 @@ public class Player : MonoBehaviour
                 }
             }
 
-            // isso evita que o player se mexa com o jogo pausado
-            if (GameController.instance.pausado == false)
+            if (dir.magnitude != 0)
             {
-                if (dir.magnitude != 0)
-                {
-                    Quaternion olhandoPara = Quaternion.LookRotation(dir);
-                    transform.rotation = olhandoPara;
-                }
+                Quaternion olhandoPara = Quaternion.LookRotation(dir);
+                transform.rotation = olhandoPara;
             }
+
         }
     }
 
@@ -475,15 +516,26 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void FimDaBateria()
+    public void diminuirBateria()
     {
+        timerBateria += Time.deltaTime;
+        if (timerBateria > 0.4f)
+        {
+            bateria--;
+            timerBateria = 0;
+        }
+
         if (bateria <= 0 && bateria > -100)
         {
-           
-            audioSource.PlayOneShot(audios[1]);
-            bateria = -100;
-            GameController.instance.derrota();
+            FimDaBateria();
         }
+    }
+
+    public void FimDaBateria()
+    {
+        audioSource.PlayOneShot(audios[1]);
+        bateria = -100;
+        GameController.instance.derrota();
     }
 
     void ColetaDrop()
@@ -550,5 +602,34 @@ public class Player : MonoBehaviour
         isFlashing = false;
         // Restaura a cor original do jogador
         playerRenderer.material.color = originalColor;
+    }
+
+
+    public void droparItem()
+    {
+
+        if (item != null)
+        {
+
+
+        }
+
+    }
+
+
+    public void droparItemNoChao()
+    {
+        //metodo desatualizado
+        //dropar o item com um toque
+        if (item != null)
+        {
+            item.transform.position = new Vector3(item.transform.position.x, posItemInicial.y, item.transform.position.z);
+            item.transform.parent = paiInicialDoItem.transform;
+            item = null;
+            dropei = true;
+            podeDropar = false;
+
+        }
+
     }
 }

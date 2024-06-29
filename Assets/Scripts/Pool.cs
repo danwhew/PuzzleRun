@@ -21,22 +21,27 @@ public class Pool : MonoBehaviour
 
 
     [Header("Possiveis Puzzles")]
+
     [Header("Fase 1")]
+
     [Header("Round 1")]
 
     public GameObject[] puzzlesQueijo;
     public GameObject[] puzzlesTomate;
     public GameObject[] puzzlesFarinha;
+
     [Header("Round 2")]
     public GameObject[] puzzlesPeperoni;
     public GameObject[] puzzlesCogumelo;
 
     [Header("Fase 2")]
+
     [Header("Round 1")]
     public GameObject[] puzzlesAbrirMassa;
     public GameObject[] puzzlesAssarPizza;
     public GameObject[] puzzlesCortarTomate;
     public GameObject[] puzzlesCortarQueijo;
+
     [Header("Round 2")]
     public GameObject[] puzzlesCortarPeperoni;
     public GameObject[] puzzlesCortarCogumelo;
@@ -44,9 +49,11 @@ public class Pool : MonoBehaviour
     [Header("Fase 3")]
     public GameObject[] puzzlesPegarPizza;
     public GameObject[] puzzlesCaminhoEntrega;
+    public GameObject[] puzzlesCaminhoEntrega2;
     public GameObject[] puzzlesEntregasFinais;
 
     [Header("Puzzles Definitivos")]
+
     [Header("Fase 1")]
     public GameObject[] puzzlesColeta;
     [Header("Fase 2")]
@@ -119,6 +126,7 @@ public class Pool : MonoBehaviour
 
         preInstanciar(puzzlesPegarPizza);
         preInstanciar(puzzlesCaminhoEntrega);
+        preInstanciar(puzzlesCaminhoEntrega2);
         preInstanciar(puzzlesEntregasFinais);
 
     }
@@ -138,6 +146,7 @@ public class Pool : MonoBehaviour
         }
     }
 
+    //configurar os puzzles do segundo round pra cima
     public void loadPuzzlesRound()
     {
         int temp = Random.Range(0, 2);
@@ -242,10 +251,11 @@ public class Pool : MonoBehaviour
 
         puzzlesEntrega[0] = puzzlesPegarPizza[Random.Range(0, puzzlesPegarPizza.Length)];
         puzzlesEntrega[1] = puzzlesCaminhoEntrega[Random.Range(0, puzzlesCaminhoEntrega.Length)];
-        puzzlesEntrega[2] = puzzlesCaminhoEntrega[Random.Range(0, puzzlesCaminhoEntrega.Length)];
+        puzzlesEntrega[2] = puzzlesCaminhoEntrega2[Random.Range(0, puzzlesCaminhoEntrega2.Length)];
         puzzlesEntrega[3] = puzzlesEntregasFinais[Random.Range(0, puzzlesEntregasFinais.Length)];
     }
 
+    //configurar os puzzles do primeiro round, considerando que apresenta menos fases
     public void loadPuzzlesRound1()
     {
 
@@ -268,6 +278,7 @@ public class Pool : MonoBehaviour
                 if (rand == jaGerados[j])
                 {
                     ehIgual = true;
+                    //talvez botar um break aqui e nos outros for's que fazem a mesma coisa
                 }
 
 

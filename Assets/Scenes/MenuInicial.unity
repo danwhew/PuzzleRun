@@ -4087,7 +4087,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000096371, y: -572}
+  m_AnchoredPosition: {x: 0, y: -572}
   m_SizeDelta: {x: 490.1871, y: 91.9101}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &740839169
@@ -11163,8 +11163,14 @@ MonoBehaviour:
   derrotaPainel: {fileID: 0}
   menuPausa: {fileID: 0}
   Tasks: {fileID: 0}
+  countdownText: {fileID: 0}
   player: {fileID: 0}
   sliderBateria: {fileID: 0}
+  skinTemp: 0
+  escolheuPersonagem: 0
+  telaSelecaoPersonagem: {fileID: 0}
+  pausaInicial: 1
+  timerCountDown: 3
   pausado: 0
   score: 0
   contador: 0
@@ -11174,16 +11180,20 @@ MonoBehaviour:
   passou2: 0
   indexPuzzlesColeta: 0
   indexPuzzlesMontagem: 0
+  indexPuzzlesEntrega: 0
   timerBateria: 0
   podeAtivarTimerBateria: 0
   tempoLimiteBateria: 8
   podeInstanciarBateria: 0
   quantidadePuzzlesF1R1: 3
   quantidadePuzzlesF2R1: 4
+  quantidadePuzzlesF3R1: 3
   quantidadePuzzlesF1R2: 4
   quantidadePuzzlesF2R2: 5
+  quantidadePuzzlesF3R2: 3
   quantidadePuzzlesF1R3: 4
   quantidadePuzzlesF2R3: 5
+  quantidadePuzzlesF3R3: 3
   audioSource: {fileID: 1975425189}
   audios:
   - {fileID: 0}

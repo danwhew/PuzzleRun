@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Forno
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7970843158382397343
 Transform:
@@ -50,9 +50,12 @@ MonoBehaviour:
   contador: 0
   podeContar: 0
   massa: {fileID: 0}
+  massaPronta: {fileID: 0}
   massaPos: {fileID: 1950389087722843156}
   totem: {fileID: 0}
+  playerScript: {fileID: 0}
   totemAnimator: {fileID: 0}
+  puzzle: {fileID: 0}
   jaFritou: 0
   slider: {fileID: 0}
 --- !u!54 &-4513086413305961341
@@ -96,7 +99,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1950389087722843156
 Transform:
@@ -168,6 +171,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1f9ea014be64b364cb26fcfc746ae2e0, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1f9ea014be64b364cb26fcfc746ae2e0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

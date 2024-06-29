@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Totem : MonoBehaviour
 {
-    //fazer esse script ser especializado pra coleta de itens na fase de coleta
-
-    //depois criar outros scripts pras respectivas fases, montagem e entrega
-
     //porta do puzzle atual
     public Porta portinha;
     public DectarEntrada puzzle;
@@ -23,7 +19,6 @@ public class Totem : MonoBehaviour
     private void OnEnable()
     {
         anim = GetComponentInChildren<Animator>();
-
 
     }
 
@@ -44,7 +39,7 @@ public class Totem : MonoBehaviour
         portinha.condicao = true;
         GameController.instance.addScore(10);
 
-        if (controle == 0)
+        if (controle == 0) 
         {
             if (puzzle.puzzlesIdentity != 3)
             {
@@ -59,12 +54,6 @@ public class Totem : MonoBehaviour
             }
 
         }
-        
-
-
-
-
-
 
     }
 

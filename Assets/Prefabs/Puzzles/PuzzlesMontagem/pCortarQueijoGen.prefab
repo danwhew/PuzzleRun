@@ -142,6 +142,7 @@ MonoBehaviour:
   animatorTotem: {fileID: 6321758086313020241}
   animatorGiraGira: {fileID: 0}
   animatorTotemFinal: {fileID: 0}
+  animatorTotemInicial: {fileID: 0}
   posCesta: {fileID: 0}
   posPizza: {fileID: 2345536418437248827}
   puzzlesIdentity: 0
@@ -989,11 +990,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3100733248045786223, guid: debb660b0780ed6418d7224530d03081, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.712
+      value: 1.367
       objectReference: {fileID: 0}
     - target: {fileID: 3100733248045786223, guid: debb660b0780ed6418d7224530d03081, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.757
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 3100733248045786223, guid: debb660b0780ed6418d7224530d03081, type: 3}
       propertyPath: m_LocalRotation.w

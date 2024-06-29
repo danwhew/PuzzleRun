@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PizzaBasica
+      name: Pizza
       rect:
         serializedVersion: 2
         x: 18
         y: 750
-        width: 242
-        height: 246
+        width: 275
+        height: 218
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,55 +131,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PizzaPepe
-      rect:
-        serializedVersion: 2
-        x: 264
-        y: 758
-        width: 242
-        height: 244
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 854291c5060ffe040a23d36c6507756b
-      internalID: -827698450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PizzaCogu
-      rect:
-        serializedVersion: 2
-        x: 515
-        y: 753
-        width: 240
-        height: 243
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e77ed2bac30bdb44908c5feb85ba95d
-      internalID: -1817491682
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Peperoni
       rect:
         serializedVersion: 2
-        x: 752
-        y: 528
-        width: 150
-        height: 237
+        x: 823
+        y: 480
+        width: 175
+        height: 258
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +155,10 @@ TextureImporter:
       name: Queijo
       rect:
         serializedVersion: 2
-        x: 468
-        y: 535
-        width: 202
-        height: 154
+        x: 554
+        y: 548
+        width: 233
+        height: 164
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,11 +197,11 @@ TextureImporter:
       name: SacoFarinha
       rect:
         serializedVersion: 2
-        x: 468
-        y: 262
+        x: 580
+        y: 282
         width: 216
-        height: 206
-      alignment: 0
+        height: 225
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -260,10 +218,10 @@ TextureImporter:
       name: Tomate
       rect:
         serializedVersion: 2
-        x: 774
-        y: 266
+        x: 814
+        y: 258
         width: 168
-        height: 195
+        height: 206
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -362,13 +320,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cesta
+      name: BotaoPizza
       rect:
         serializedVersion: 2
-        x: 528
-        y: 27
-        width: 426
-        height: 195
+        x: 55
+        y: 510
+        width: 363
+        height: 218
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,8 +334,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2eb70f4b2602845409e3be05b4f93e18
+      spriteID: 750987f94208c924e89afdeeb2d41fcd
+      internalID: 1040700802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cesta
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 747
+        width: 320
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 428033a2b055668409fe242becd04281
       internalID: -555541565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Caixa
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 766
+        width: 330
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4fe7d356e0b00546a7b10c3856ae380
+      internalID: 1582626255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Botinha
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 19
+        width: 324
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 929cae2d7b14ce64bb9c2fd29818ddb3
+      internalID: -1637958652
       vertices: []
       indices: 
       edges: []
@@ -393,12 +414,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      BotaoPizza: 1040700802
+      Botinha: -1637958652
+      Caixa: 1582626255
       Cesta: -555541565
       CoguCortado: -1091616729
       MassaFechada: 575866917
       Peperoni: -34134844
       PeperoniCortado: -1841478896
-      PizzaBasica: -1059167562
+      Pizza: -1059167562
       PizzaCogu: -1817491682
       PizzaPepe: -827698450
       Queijo: 184684130

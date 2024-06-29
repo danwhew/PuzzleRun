@@ -17,7 +17,7 @@ public class DectarEntrada : MonoBehaviour
     public Animator animatorTotem;
     public Animator animatorGiraGira; //animator da plataforma que gira 360 graus
     public Animator animatorTotemFinal; //animator do totem da fase do forno
-    public Animator animatorTotemInicial;
+    public Animator animatorTotemInicial; //animator do primeiro totem da fase de entrega
 
     public Transform posCesta; //posicao que a cesta eh colocada
     public Transform posPizza; //posicao que a pizza eh colocada

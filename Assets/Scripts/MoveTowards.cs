@@ -18,25 +18,32 @@ public class MoveTowards : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dir = player.transform.position - transform.position;
-        
 
-        if (dir.magnitude > maxDistance)
+        if (GameController.instance.pausaInicial == false)
         {
-            speed = maxSpeed;
+
+            dir = player.transform.position - transform.position;
+
+
+            if (dir.magnitude > maxDistance)
+            {
+                speed = maxSpeed;
+            }
+            else
+            {
+                speed = minSpeed;
+            }
+
+
+            //transform.position  = new Vector3( player.position.x * offset, transform.position.y, transform.position.z);
+            transform.Translate(0, 0, speed * Time.deltaTime, Space.World);
+
+
         }
-        else
-        {
-            speed = minSpeed;
-        }
-        
-
-        //transform.position  = new Vector3( player.position.x * offset, transform.position.y, transform.position.z);
-        transform.Translate(0,0,speed * Time.deltaTime,Space.World);
 
 
-        
+
     }
 
-    
+
 }

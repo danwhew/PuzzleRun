@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System;
-using static Unity.Burst.Intrinsics.X86.Avx;
-using UnityEngine.Tilemaps;
+using System.IO;
+
 
 public class GameController : MonoBehaviour
 {
@@ -20,13 +20,22 @@ public class GameController : MonoBehaviour
     public GameObject derrotaPainel;
     public GameObject menuPausa;
     public GameObject Tasks;
+    public TMP_Text countdownText; //texto contagem regressiva
 
     [Header("Player")]
     public Player player;
     public Slider sliderBateria;
+    public int skinTemp; //armazenar a skin q foi selecionada pelo player
 
     [Header("Jogo")]
 
+
+    public bool escolheuPersonagem; //pra saber se um personagem ja foi escolhido no inicio
+    public GameObject telaSelecaoPersonagem;
+
+    public bool pausaInicial = true; //pausa da contagem regressiva/tela de selecao de personagens
+    public int timerCountDown = 3; //timer contagem regressiva
+    //
     public bool pausado = false;
     public int score;
     public int contador = 0;
@@ -69,33 +78,88 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-
         if (instance == null)
         {
             instance = this;
-            // DontDestroyOnLoad(gameObject);
+
         }
         else
         {
             Destroy(gameObject);
         }
-
-
-
     }
 
     void Start()
     {
-        Time.timeScale = 1.0f;
+        Scene cenaAtual;
+        cenaAtual = SceneManager.GetActiveScene();
 
 
 
-
-        if (faseText != null)
+        if (cenaAtual.buildIndex == 1)
         {
-            atualizarFase();
-            atualizarRound();
+
+            if (File.Exists(Application.persistentDataPath + "/dadosPersonagens.txt"))
+            {
+                DadosPersonagens dadosPersonagens = new DadosPersonagens();
+                string teste = File.ReadAllText(Application.persistentDataPath + "/dadosPersonagens.txt");
+
+                dadosPersonagens = JsonUtility.FromJson<DadosPersonagens>(teste);
+                escolheuPersonagem = dadosPersonagens.escolheuPersonagem;
+                skinTemp = dadosPersonagens.qualSkin;
+                
+            }
+            else
+            {
+
+                DadosPersonagens dadosPersonagens = new DadosPersonagens();
+                dadosPersonagens.escolheuPersonagem = false;
+                dadosPersonagens.qualSkin = 0;
+
+                string jsonTeste = JsonUtility.ToJson(dadosPersonagens, true);
+                File.WriteAllText(Application.persistentDataPath + "/dadosPersonagens.txt", jsonTeste);
+            }
+
+            if (escolheuPersonagem == false)
+            {
+
+                countdownText.gameObject.SetActive(false);
+                Time.timeScale = 0.0f;
+                telaSelecaoPersonagem.gameObject.SetActive(true);
+
+                
+
+            }
+            else
+            {
+                Time.timeScale = 1;
+                StartCoroutine(CountDownInicio());
+                if (faseText != null)
+                {
+                    atualizarFase();
+                    atualizarRound();
+                }
+            }
+
+
         }
+        else //se a cena eh 0
+        {
+            DadosPersonagens dadosPersonagens = new DadosPersonagens();
+            dadosPersonagens.escolheuPersonagem = false;
+
+            string jsonTeste = JsonUtility.ToJson(dadosPersonagens, true);
+            File.WriteAllText(Application.persistentDataPath + "/dadosPersonagens.txt", jsonTeste);
+        }
+
+
+        
+
+
+
+
+
+
 
 
 
@@ -121,6 +185,57 @@ public class GameController : MonoBehaviour
         }
 
 
+    }
+
+    public void escolherPersonagem(int qual)
+    {
+        
+        if (qual == 0)
+        {
+            player.atualizarSkin(0);
+            Debug.Log("Vc escolheu o carmy");
+        }
+        else if (qual == 1)
+        {
+            player.atualizarSkin(1);
+            Debug.Log("Vc escolheu a betina");
+        }
+        else
+        {
+            player.atualizarSkin(2);
+            Debug.Log("Vc escolheu a feira");
+        }
+
+
+        telaSelecaoPersonagem.SetActive(false);
+        escolheuPersonagem = true;
+
+        DadosPersonagens dadosPersonagens = new DadosPersonagens();
+        dadosPersonagens.escolheuPersonagem = true;
+        dadosPersonagens.qualSkin = qual;
+
+        string jsonTeste = JsonUtility.ToJson(dadosPersonagens, true);
+        File.WriteAllText(Application.persistentDataPath + "/dadosPersonagens.txt", jsonTeste);
+        Time.timeScale = 1;
+        StartCoroutine(CountDownInicio());
+        
+    }
+
+    public IEnumerator CountDownInicio()
+    {
+        countdownText.gameObject.SetActive(true);
+        while (timerCountDown != 0)
+        {
+            countdownText.text = timerCountDown.ToString();
+            yield return new WaitForSeconds(1f);
+            timerCountDown--;
+
+            if (timerCountDown == 0)
+            {
+                pausaInicial = false;
+                countdownText.gameObject.SetActive(false);
+            }
+        }
     }
 
     public void configFases()
@@ -307,7 +422,7 @@ public class GameController : MonoBehaviour
                     passou2 = 1;
                 }
 
-                if(contador > quantidadePuzzlesF3R3)
+                if (contador > quantidadePuzzlesF3R3)
                 {
                     Pool.poolerInstance.loadPuzzlesRound();
                     fase = 1;
@@ -461,5 +576,7 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+
 
 }
