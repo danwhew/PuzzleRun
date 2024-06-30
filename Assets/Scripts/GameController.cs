@@ -107,7 +107,9 @@ public class GameController : MonoBehaviour
                 dadosPersonagens = JsonUtility.FromJson<DadosPersonagens>(teste);
                 escolheuPersonagem = dadosPersonagens.escolheuPersonagem;
                 skinTemp = dadosPersonagens.qualSkin;
-                
+
+                //   player.atualizarSkin(skinTemp);
+
             }
             else
             {
@@ -127,7 +129,7 @@ public class GameController : MonoBehaviour
                 Time.timeScale = 0.0f;
                 telaSelecaoPersonagem.gameObject.SetActive(true);
 
-                
+
 
             }
             else
@@ -147,13 +149,14 @@ public class GameController : MonoBehaviour
         {
             DadosPersonagens dadosPersonagens = new DadosPersonagens();
             dadosPersonagens.escolheuPersonagem = false;
+            dadosPersonagens.qualSkin = 0;
 
             string jsonTeste = JsonUtility.ToJson(dadosPersonagens, true);
             File.WriteAllText(Application.persistentDataPath + "/dadosPersonagens.txt", jsonTeste);
         }
 
 
-        
+
 
 
 
@@ -189,7 +192,7 @@ public class GameController : MonoBehaviour
 
     public void escolherPersonagem(int qual)
     {
-        
+
         if (qual == 0)
         {
             player.atualizarSkin(0);
@@ -218,7 +221,7 @@ public class GameController : MonoBehaviour
         File.WriteAllText(Application.persistentDataPath + "/dadosPersonagens.txt", jsonTeste);
         Time.timeScale = 1;
         StartCoroutine(CountDownInicio());
-        
+
     }
 
     public IEnumerator CountDownInicio()
@@ -498,7 +501,7 @@ public class GameController : MonoBehaviour
                 }
 
             }
-            else
+            else if (player.faseEuTo == 2)
             {
                 if (player.toPeperoni == true)
                 {
@@ -512,6 +515,11 @@ public class GameController : MonoBehaviour
                     Tasks.transform.GetChild(5).gameObject.SetActive(true);
 
                 }
+            }
+            else
+            {
+                LimparTasks();
+                Tasks.transform.GetChild(6).gameObject.SetActive(true);
             }
         }
 

@@ -391,7 +391,7 @@ TextureImporter:
         width: 324
         height: 219
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -399,6 +399,27 @@ TextureImporter:
       bones: []
       spriteID: 929cae2d7b14ce64bb9c2fd29818ddb3
       internalID: -1637958652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BateriaIcon
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 197
+        width: 114
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98b5e546bcb1df64a89794f408bc4b18
+      internalID: -658398020
       vertices: []
       indices: 
       edges: []
@@ -414,6 +435,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      BateriaIcon: -658398020
       BotaoPizza: 1040700802
       Botinha: -1637958652
       Caixa: 1582626255

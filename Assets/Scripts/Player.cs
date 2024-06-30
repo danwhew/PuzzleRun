@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
+using System.IO;
+using Palmmedia.ReportGenerator.Core.Reporting.Builders;
 
 public class Player : MonoBehaviour
 {
@@ -21,6 +23,7 @@ public class Player : MonoBehaviour
     //interacao com itens
     public GameObject item; //item que o player ta carregando
     public Transform posItem; //posicao que o item fica no player
+    public Transform[] posicoesItens;
     public GameObject paiInicialDoItem;
     public Vector3 posItemInicial;
     public bool podePegar; //verificar se pode pegar item
@@ -55,7 +58,8 @@ public class Player : MonoBehaviour
     bool isFlashing = false; // Flag para controlar o estado de piscar
     float flashDuration = 0.2f; // Duracao do piscar
     float flashTimer = 0f; // Timer para controlar o piscar
-    public GameObject estrelas;
+    public GameObject estrelas; 
+    public float timerAtordoamento;
 
     [Header("---Cheats---")]
     //game Cheats
@@ -79,8 +83,17 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        if (File.Exists(Application.persistentDataPath + "/dadosPersonagens.txt"))
+        {
+            DadosPersonagens dadosPersonagens = new DadosPersonagens();
+            string teste = File.ReadAllText(Application.persistentDataPath + "/dadosPersonagens.txt");
+            dadosPersonagens = JsonUtility.FromJson<DadosPersonagens>(teste);
+            atualizarSkin(dadosPersonagens.qualSkin);
 
-        atualizarSkin(GameController.instance.skinTemp);
+        }
+        //atualizarSkin(GameController.instance.skinTemp);
+
+        
         init();
 
     }
@@ -105,6 +118,7 @@ public class Player : MonoBehaviour
             else
             {
                 podeAndarTimer += Time.deltaTime;
+                
 
                 if (podeAndarTimer >= 1)
                 {
@@ -289,6 +303,7 @@ public class Player : MonoBehaviour
         {
 
             contadorBaterParede++;
+            GameController.instance.addScore(-10);
 
             if (contadorBaterParede == 5)
             {
@@ -349,6 +364,7 @@ public class Player : MonoBehaviour
             skins[1].gameObject.SetActive(true);
             skins[2].gameObject.SetActive(false);
             animator = skins[1].GetComponent<Animator>();
+            posItem = posicoesItens[1];
         }
         else if (qual == 1)
         {
@@ -356,6 +372,7 @@ public class Player : MonoBehaviour
             skins[1].gameObject.SetActive(false);
             skins[2].gameObject.SetActive(false);
             animator = skins[0].GetComponent<Animator>();
+            posItem = posicoesItens[0];
         }
         else
         {
@@ -363,6 +380,7 @@ public class Player : MonoBehaviour
             skins[1].gameObject.SetActive(false);
             skins[2].gameObject.SetActive(true);
             animator = skins[2].GetComponent<Animator>();
+            posItem = posicoesItens[2];
         }
     }
 

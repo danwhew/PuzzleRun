@@ -169,7 +169,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CarmyRig_Atordoar
+  m_Name: Betina_Atordoar
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -183,7 +183,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 366628699a5953e478cb8f9420c03b88, type: 2}
+  m_Motion: {fileID: 7400000, guid: c42b6e67afc32534da8747238d390a6d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -196,7 +196,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CarmyRig_Idle
+  m_Name: Betina_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -224,7 +224,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CarmyRig_Run
+  m_Name: Betina_Run
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -238,7 +238,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a234ad665221a064f8b1c7ae2197639c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3c51c3797c20c2645a1ed1f66173b849, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

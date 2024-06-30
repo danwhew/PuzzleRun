@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 105bb1afee8cba142b97e48af9222eac
+guid: f923988f741150149a61b1038429b904
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Estrela
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 1066
+        width: 737
+        height: 778
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf2323564a6fba6449a45887a9d0d93a
+      internalID: 857833557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titulo
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 221
+        width: 1491
+        height: 587
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61071ecce9786fd408b0a5935a60bb18
+      internalID: 1010363045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +161,20 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Blood: 380365668
+      Cheese: 647340123
+      Estrela: 857833557
+      Sprites_10: 1963429427
+      Sprites_3: -478841066
+      Sprites_4: -892493969
+      Sprites_6: -697764118
+      Sprites_7: 303742503
+      Sprites_8: 1407578710
+      Sprites_9: 2015410231
+      Titulo: 1010363045
+      WaterSplash: 150196462
+      WaterSplash1: 208182876
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -9,10 +9,12 @@ public class MoveTowards : MonoBehaviour
     public float speed = 1f;
     public float offset;
     public Transform player;
+    public Player playerScript;
     public Vector3 dir;
     public float minSpeed;
     public float maxSpeed;
     public float maxDistance;
+    public float speedFase3 = 2.3f;
 
 
     // Update is called once per frame
@@ -24,15 +26,23 @@ public class MoveTowards : MonoBehaviour
 
             dir = player.transform.position - transform.position;
 
-
-            if (dir.magnitude > maxDistance)
+            if (playerScript.faseEuTo != 3)
             {
-                speed = maxSpeed;
+                if (dir.magnitude > maxDistance)
+                {
+                    speed = maxSpeed;
+                }
+                else
+                {
+                    speed = minSpeed;
+                }
+
             }
             else
             {
-                speed = minSpeed;
+                speed = speedFase3;
             }
+
 
 
             //transform.position  = new Vector3( player.position.x * offset, transform.position.y, transform.position.z);

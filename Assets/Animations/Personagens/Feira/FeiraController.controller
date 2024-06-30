@@ -169,7 +169,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CarmyRig_Atordoar
+  m_Name: Feira_Atordoar
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -196,7 +196,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CarmyRig_Idle
+  m_Name: Feira_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -224,7 +224,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CarmyRig_Run
+  m_Name: Feira_Run
   m_Speed: 1.2
   m_CycleOffset: 0
   m_Transitions:
