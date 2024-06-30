@@ -473,11 +473,18 @@ public class GameController : MonoBehaviour
                 Tasks.transform.GetChild(0).gameObject.SetActive(true);
 
             }
-            else
+            else if(player.faseEuTo == 2)
             {
                 LimparTasks();
                 Tasks.transform.GetChild(3).gameObject.SetActive(true);
             }
+            else
+            {
+                LimparTasks();
+                Tasks.transform.GetChild(6).gameObject.SetActive(true);
+            }
+
+
 
         }
         else
@@ -516,7 +523,7 @@ public class GameController : MonoBehaviour
 
                 }
             }
-            else
+            else if (player.faseEuTo == 3)
             {
                 LimparTasks();
                 Tasks.transform.GetChild(6).gameObject.SetActive(true);

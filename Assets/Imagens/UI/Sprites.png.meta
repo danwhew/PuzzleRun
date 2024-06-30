@@ -113,10 +113,10 @@ TextureImporter:
       name: Estrela
       rect:
         serializedVersion: 2
-        x: 1136
-        y: 1066
-        width: 737
-        height: 778
+        x: 1129
+        y: 1101
+        width: 744
+        height: 743
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,12 +134,12 @@ TextureImporter:
       name: Titulo
       rect:
         serializedVersion: 2
-        x: 105
-        y: 221
+        x: 54
+        y: 40
         width: 1491
         height: 587
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,6 +147,174 @@ TextureImporter:
       bones: []
       spriteID: 61071ecce9786fd408b0a5935a60bb18
       internalID: 1010363045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conquista1
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 1646
+        width: 277
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0898f2a29281f414681b896d4b6d6a8e
+      internalID: 910129475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conquista2
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 1644
+        width: 273
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5716dad961bdac4ca6d8fd715407a21
+      internalID: -1675701422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conquista3
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 1639
+        width: 270
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 050564138e215e14d951aa6c5a8ea142
+      internalID: -941615516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conquista4
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 1366
+        width: 267
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa14a0f2adb66534b81fd96cfc184af7
+      internalID: 469590873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Conquista5
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 1364
+        width: 271
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a5e13e7e2a125a4c9706617a94f032f
+      internalID: -603735774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconFeira
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 895
+        width: 417
+        height: 412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbe15f94120d5734a8d88e62d28f30eb
+      internalID: 1023921927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarmyIcon
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 884
+        width: 417
+        height: 419
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7683ff10204243c409e7f5463d76d5de
+      internalID: 347898786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BetinaIcon
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 674
+        width: 406
+        height: 398
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1ea0e0fe73ea2c4abd4babfd5e91b26
+      internalID: -754654829
       vertices: []
       indices: 
       edges: []
@@ -162,9 +330,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      BetinaIcon: -754654829
       Blood: 380365668
+      CarmyIcon: 347898786
       Cheese: 647340123
+      Conquista1: 910129475
+      Conquista2: -1675701422
+      Conquista3: -941615516
+      Conquista4: 469590873
+      Conquista5: -603735774
       Estrela: 857833557
+      IconFeira: 1023921927
       Sprites_10: 1963429427
       Sprites_3: -478841066
       Sprites_4: -892493969

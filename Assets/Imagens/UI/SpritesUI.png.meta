@@ -365,10 +365,10 @@ TextureImporter:
       name: Caixa
       rect:
         serializedVersion: 2
-        x: 637
-        y: 766
-        width: 330
-        height: 159
+        x: 648
+        y: 744
+        width: 349
+        height: 235
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
