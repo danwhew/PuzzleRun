@@ -4,7 +4,6 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
 using System.IO;
-using Palmmedia.ReportGenerator.Core.Reporting.Builders;
 
 public class Player : MonoBehaviour
 {
@@ -17,7 +16,7 @@ public class Player : MonoBehaviour
     [Header("---SkinsAnims---")]
     public GameObject[] skins = new GameObject[3];
     public Animator animator;
-    
+
 
     [Header("---Itens---")]
     //interacao com itens
@@ -58,7 +57,7 @@ public class Player : MonoBehaviour
     bool isFlashing = false; // Flag para controlar o estado de piscar
     float flashDuration = 0.2f; // Duracao do piscar
     float flashTimer = 0f; // Timer para controlar o piscar
-    public GameObject estrelas; 
+    public GameObject estrelas;
     public float timerAtordoamento;
 
     [Header("---Cheats---")]
@@ -78,7 +77,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        
+
     }
 
     void Start()
@@ -93,7 +92,7 @@ public class Player : MonoBehaviour
         }
         //atualizarSkin(GameController.instance.skinTemp);
 
-        
+
         init();
 
     }
@@ -118,7 +117,7 @@ public class Player : MonoBehaviour
             else
             {
                 podeAndarTimer += Time.deltaTime;
-                
+
 
                 if (podeAndarTimer >= 1)
                 {
@@ -263,9 +262,9 @@ public class Player : MonoBehaviour
                 if (faseEuTo != fasetmp)
                 {
                     Debug.Log("TroqueiDeFase");
-                    
 
-                    
+
+
                 }
 
                 totemTemp.fazerOsTrem(); //ativar as funcionalidades do totem
@@ -433,14 +432,18 @@ public class Player : MonoBehaviour
         GameObject teste;
         teste = collision.gameObject.transform.GetChild(0).GetChild(0).gameObject;
 
-
+        Collider colTemp;
+        colTemp = caixa.GetComponentInChildren<Collider>();
+        colTemp.enabled = false;
         //item.SetActive(false);
+
+        colTemp.enabled = false;
         item.gameObject.transform.parent = teste.transform;
         caixa.desparentear();
         item = null;
     }
 
-   
+
     public void animacaoIdle()
     {
         if (animator != null)
@@ -536,16 +539,20 @@ public class Player : MonoBehaviour
 
     public void diminuirBateria()
     {
-        timerBateria += Time.deltaTime;
-        if (timerBateria > 0.4f)
+        if (cheat5 == false)
         {
-            bateria--;
-            timerBateria = 0;
-        }
 
-        if (bateria <= 0 && bateria > -100)
-        {
-            FimDaBateria();
+            timerBateria += Time.deltaTime;
+            if (timerBateria > 0.4f)
+            {
+                bateria--;
+                timerBateria = 0;
+            }
+
+            if (bateria <= 0 && bateria > -100)
+            {
+                FimDaBateria();
+            }
         }
     }
 

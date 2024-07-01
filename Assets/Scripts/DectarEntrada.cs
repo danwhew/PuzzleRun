@@ -383,6 +383,11 @@ public class DectarEntrada : MonoBehaviour
             GameObject caixaPizza;
 
             caixaPizza = GameObject.FindGameObjectWithTag("CaixaPizza").gameObject;
+
+            Collider colTemp;
+
+            colTemp =  caixaPizza.GetComponentInChildren<Collider>();
+            colTemp.enabled = true;
             
 
 
@@ -395,13 +400,7 @@ public class DectarEntrada : MonoBehaviour
                     caixaPizza.transform.parent = posPizza.transform;
                 }
             }
-            else
-            {
-                if (caixaPizza != null)
-                {
-                    caixaPizza.transform.parent = null;
-                }
-            }
+            
 
             animatorTotemInicial.SetTrigger("tPlay");
            

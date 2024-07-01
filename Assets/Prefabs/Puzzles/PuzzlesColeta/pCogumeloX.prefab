@@ -332,6 +332,7 @@ MonoBehaviour:
   animatorTotem: {fileID: 1166420968764206292}
   animatorGiraGira: {fileID: 5550130311796835566}
   animatorTotemFinal: {fileID: 0}
+  animatorTotemInicial: {fileID: 0}
   posCesta: {fileID: 0}
   posPizza: {fileID: 0}
   puzzlesIdentity: 2
@@ -350,6 +351,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6287212957481626881}
     m_Modifications:
+    - target: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.18
+      objectReference: {fileID: 0}
     - target: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.67
@@ -389,6 +402,10 @@ PrefabInstance:
     - target: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324181317082007831, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8002022836028163679, guid: 194a8ee5a0a81074e94d56d348f1f953, type: 3}
       propertyPath: m_Materials.Array.data[0]

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class MoveTowards : MonoBehaviour
@@ -15,6 +14,8 @@ public class MoveTowards : MonoBehaviour
     public float maxSpeed;
     public float maxDistance;
     public float speedFase3 = 2.3f;
+    public float incrementoSpeed = 0.3f;
+    public float decrementoSpeed = 0.7f;
 
 
     // Update is called once per frame
@@ -30,11 +31,23 @@ public class MoveTowards : MonoBehaviour
             {
                 if (dir.magnitude > maxDistance)
                 {
-                    speed = maxSpeed;
+                    if (speed < maxSpeed)
+                    {
+                        speed += incrementoSpeed * Time.deltaTime;
+
+                    }
                 }
                 else
                 {
-                    speed = minSpeed;
+                    if (speed > minSpeed)
+                    {
+                    speed -=  decrementoSpeed * Time.deltaTime;
+
+                    }
+                   else
+                    {
+                        speed = minSpeed;
+                    }
                 }
 
             }
